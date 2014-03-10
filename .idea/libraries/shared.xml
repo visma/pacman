@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="shared">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/pacman/libs/gdx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

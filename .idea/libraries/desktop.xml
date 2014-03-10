@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="desktop">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/pacman-desktop/libs/gdx-backend-lwjgl-natives.jar!/" />
+      <root url="jar://$PROJECT_DIR$/pacman-desktop/libs/gdx-backend-lwjgl-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/pacman-desktop/libs/gdx-natives.jar!/" />
+      <root url="jar://$PROJECT_DIR$/pacman-desktop/libs/gdx-backend-lwjgl.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
