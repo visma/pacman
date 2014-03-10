@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="28" height="36" tilewidth="8" tileheight="8">
+ <tileset firstgid="1" name="pacman_level_tiles" tilewidth="8" tileheight="8">
+  <image source="pacman_level.png" trans="ff00ff" width="256" height="256"/>
+  <tile id="41">
+   <properties>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="pacgum" value="1"/>
+   </properties>
+  </tile>
+  <tile id="73">
+   <properties>
+    <property name="path" value="2"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="energizer" value="1"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="fruitSpawnPoint" value="1"/>
+   </properties>
+  </tile>
+  <tile id="105">
+   <properties>
+    <property name="house" value="1"/>
+    <property name="path" value="2"/>
+   </properties>
+  </tile>
+  <tile id="137">
+   <properties>
+    <property name="blinky" value="1"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="138">
+   <properties>
+    <property name="blinky" value="2"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="139">
+   <properties>
+    <property name="blinky" value="3"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="169">
+   <properties>
+    <property name="clyde" value="1"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="170">
+   <properties>
+    <property name="clyde" value="2"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="171">
+   <properties>
+    <property name="clyde" value="3"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="201">
+   <properties>
+    <property name="inky" value="1"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="202">
+   <properties>
+    <property name="inky" value="2"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="203">
+   <properties>
+    <property name="inky" value="3"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="233">
+   <properties>
+    <property name="path" value="1"/>
+    <property name="pinky" value="1"/>
+   </properties>
+  </tile>
+  <tile id="234">
+   <properties>
+    <property name="path" value="1"/>
+    <property name="pinky" value="2"/>
+   </properties>
+  </tile>
+  <tile id="235">
+   <properties>
+    <property name="path" value="1"/>
+    <property name="pinky" value="3"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Calque principal" width="28" height="36" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2WW04CMRiFW0FZhzeEF8IWRBR9MW7BK/BCXIN3t8FF4jYUE9mG0Yi78DQp4Tj8nU5RMCY+fBny87dnenrSTkYplfnnx2iCFugG0AadwDGGe/AwwTv2wNME4/rgxf5eAzlLXqhxnfVcPdJ8fVpfBWxbdoQa11nP1SPNx3pVULPUhRrXX8Gbp0eaj/VmAeu59s+1l649S7p/0vor5D3/XwSFgP6kfvJ4Zg/sBvSzn3NaqVSEtB6Nbwi+sB77dkp672AQ4cPxHiukJ/lWVXIOi7w+nTxHrBfnT6yf39TTxnuQAmnLvK0tBOh1LRt6RFmP+7YY835Zwec1zJGL0A3wyugtgWWzfrBKz2zAPM8x+TTZG2ZyHZSMD6AMNum5pcb7pXwOAvZvHxyAQ3AEjul5MoW8zDqfxivf+ZlEr6ST5dP89p2fvnzm9WT3kev89PHlfoB2zXJB+ZR8c52fId8T13r8DGQPk5yf0bupoPz3UWgm47Ia9dzonWFd5+Qh612iduXwVvKQ+1lvuFd10AQt0LZ9/C3UQe2OsurLZ7R/WDd7dQNuPfnk8Uny6eqX8in5Ze7r0Pu9Iczj+15ykSSfceN+5fsTfj+C3pQx914/4Az/q3wCMnFArcAPAAA=
+  </data>
+ </layer>
+ <layer name="Calque pacgums" width="28" height="36" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2WaU7DMBCFY1qIlFuwlopTsIYq4hCsJddg5xq0peIaUCR6DQQCbsEzmqhPrp04pQUh8eNTksnYL34e2wmDIAj/GRs3oAW6JWiDTsk2mjtwD1ZK0gOPI7Trg2e5r4FloW6JcZz1XDm2/voyvgTE4u82aMj7WJ7NOOu5csz+EtLT75vgWEgtMY6/gNeCHFt/rPcTsJ5r/lxz6Zozn/lzjT+m+eD3denPN9/XT27PNOSdbz77OaWCoGJQVYP2TcOXiPQiw7eU9N7Au8FHYN9zFkjP9C2Sb+B79jnTC5X/Hsd6Dc82oeHnd/WU9h5UQFWYlthMCb1sL11XAzbUoMZSyZvN+b4luWb5X+sBfSwbdHP6WDGetd4cmNfjB4t0XSpoyzzl1Ge2fnXeKljTPoANsEnXLcnh9W6rz/cS87cL9sA+OACHdD2aQL0wO45249Iz17Vt/4w89dZUcX3a1nUtcO8Drvqsq9HOI9f+WeY8akL7WDij+rSdO6znyqlZYqx3qYb3QPbQPLuL/gFi8tw8jxIaM8+5i0jIy4kNzxPRO8G4TslD1jtH7MLhrc1Dzme9bK5ScANaoC15/C/UQexWDfvmOt/N/Cyu5+oKXBfUJ7f3qU9Xvq0+bX6lwfD5nlefZr7v/5ILn/rMa/cr/5/w+wH0Jow+9/ol9vC/yifcx/3CwA8AAA==
+  </data>
+ </layer>
+ <layer name="Calque chemin" width="28" height="36">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2W500DQRCFd0muA0QyXQAmmC6IxpRBTlUAxiJUQZAwUAUCEYvgnbQnP9azSWAkJH58urvx7D7dm/HsFZRShX9+jANwCOoJHIFa4pqME3AB3sAI8WE921yB60COzS5ogAfzPASGDUUhxnHWk3L2Hfs1zPtl91PG32lQpti0EGc9V460H+tVwLKhKsQ4/gieAjnSfqyX855YlxB7dM96rvq5ainV1ZUv1U96/ynynn8vmv1i831+MryeKZvfYvPZzw6tVKdFl26urwi+sB77ViW9Z/Bi8arkmdNPepJvFSX3YZH0Cjp+xrGezx+fn9/V05n3oBPMGLpNrCdBL5+l47pJSbf61ktrcr38eVDweQh7DFvUE7zK9PqMzgppDpBeDDee/uT/7ygYy3wAJTBB10nVmi/150tC/WbBHJgHC2CRrktt6Jff7s+Y+RmjN6bj+jNmfob6s6j989OFa36G+HI+QHvZsK5lD0Pz0/UtIp1HW7p1BvrO7tA3AM9e33kk9eR5hFf3wj6255neKt5rjTxkvQ3ENh3eSh5yPuvltaqCA3AIjkwefwvVEDvWrb65+tPOz+NZrbbBTqA/eX1Mf7rypf6U/Kqq9PO9IuwT+l5yEdOfvnW53qnHU5szur9LWHeb68HvS3DVZrJzr5Eww/8qn6K3HmDADwAA
+  </data>
+ </layer>
+</map>
