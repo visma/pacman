@@ -31,7 +31,9 @@ public class Assets {
 
     private static final String SPRITE_SHEET_DOT = "sprites/sprite_sheet_dot.png";
     private static final String SPRITE_SHEET_ENERGIZER = "sprites/sprite_sheet_energizer.png";
+
     private static final String SPRITE_SHEET_DEBUG_PATH_TRACE = "sprites/sprite_sheet_%s_path_trace.png";
+    private static final String SPRITE_SHEET_DEBUG_GRAPH_VERTEXES = "sprites/sprite_sheet_yellow_square.png";
 
     /**
      * ***************************************************
@@ -49,15 +51,17 @@ public class Assets {
 
     public static final Texture TEXTURE_DOT;
     public static final Texture TEXTURE_ENERGIZER;
-
     public static final Texture TEXTURE_GHOST_FRIGHTENED;
     public static final Texture TEXTURE_GHOST_NAKED;
     public static final Texture TEXTURE_PACMAN_DEATH;
+    public static final Texture TEXTURE_DEBUG_GRAPH_VERTEXES;
+
     public static final Sound MUSIC_INTRO;
     public static final Sound SOUND_CHOMP_DOT;
     public static final Sound SOUND_CHOMP_ENERGIZER;
     public static final Sound SOUND_CHOMP_EATED;
     public static final Sound SOUND_DEATH;
+
 
 
     static {
@@ -66,6 +70,8 @@ public class Assets {
         TEXTURE_GHOST_FRIGHTENED = new Texture(files.internal(Assets.SPRITE_SHEET_GHOST_FRIGHTENED));
         TEXTURE_GHOST_NAKED = new Texture(files.internal(Assets.SPRITE_SHEET_GHOST_NAKED));
         TEXTURE_PACMAN_DEATH = new Texture(files.internal(Assets.SPRITE_SHEET_PACMAN_DEATH));
+        TEXTURE_DEBUG_GRAPH_VERTEXES = new Texture(files.internal(Assets.SPRITE_SHEET_DEBUG_GRAPH_VERTEXES));
+
         MUSIC_INTRO = Gdx.audio.newSound(files.internal(MUSIC_INTRO_RES));
         SOUND_CHOMP_DOT = Gdx.audio.newSound(files.internal(SOUND_CHOMP_DOT_RES));
         SOUND_CHOMP_ENERGIZER = Gdx.audio.newSound(files.internal(SOUND_CHOMP_ENERGIZER_RES));

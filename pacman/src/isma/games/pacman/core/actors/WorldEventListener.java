@@ -4,4 +4,6 @@ public interface WorldEventListener {
     public void onConsumed(Food dot);
 
     public void onConsumed(AliveActor actor);
+
+    public void onStateChanged(Ghost ghost);
 }

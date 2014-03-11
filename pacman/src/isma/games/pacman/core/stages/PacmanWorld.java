@@ -2,7 +2,9 @@ package isma.games.pacman.core.stages;
 
 import com.badlogic.gdx.Game;
 import isma.games.Point;
+import isma.games.graph.GraphBuilder;
 import isma.games.pacman.core.actors.*;
+import isma.games.pacman.core.ai.PacmanAIGraphBuilder;
 import isma.games.pacman.core.assets.SoundManager;
 import isma.games.pacman.core.manager.WorldContainer;
 import isma.games.pacman.core.tiled.Maze;
@@ -18,9 +20,9 @@ import static isma.games.pacman.core.stages.PacmanWorld.GameState.RUNNING;
 public class PacmanWorld implements WorldContainer {
     private Game game;
 
-    private static final int RESTART_DURATION = 3000;
-    private static final int GHOST_EAT_DURATION = 700;
-    private static final int DYING_DURATION = 2000;
+    private static final int RESTART_DURATION = 1;//3000;
+    private static final int GHOST_EAT_DURATION = 1;//700;
+    private static final int DYING_DURATION = 1;//2000;
 
     private final SoundManager soundManager;
 
@@ -53,12 +55,13 @@ public class PacmanWorld implements WorldContainer {
         this.maze = maze;
         foodMap = MazeBuilder.loadFood(maze);
         pacman = ActorFactory.buildPacman();
-        debugPath = new DebugPath(false);
+
+        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, false);
 
         //ghosts.addAll(ActorFactory.buildAllGhosts());
+        ghosts.add(ActorFactory.buildBlinky());
         ghosts.add(ActorFactory.buildPinky());
         ghosts.add(ActorFactory.buildClyde());
-        ghosts.add(ActorFactory.buildBlinky());
         ghosts.add(ActorFactory.buildInky());
 
         addWorldEventListeners();
@@ -168,7 +171,7 @@ public class PacmanWorld implements WorldContainer {
                 soundManager.playChompDot();
             } else {
                 soundManager.playChompEnergizer();
-                new Thread(new Runnable() {
+                /*new Thread(new Runnable() {
                     @Override
                     public void run() {
                         boolean frightenedGhost = true;
@@ -185,10 +188,27 @@ public class PacmanWorld implements WorldContainer {
                         soundManager.stopChompEnergizer();
                     }
                 }).start();
+                */
             }
         }
         if (getRemainingFood().isEmpty()) {
             nextLevel();
+        }
+    }
+
+    @Override
+    public void onStateChanged(Ghost aGhost) {
+        boolean frightenedGhost = false;
+        for (Ghost ghost : ghosts) {
+            if (ghost.getState() == FRIGTHENED) {
+                frightenedGhost = true;
+                break;
+            }
+            frightenedGhost = false;
+        }
+        if (!frightenedGhost){
+            System.out.println("stop energizer");
+            soundManager.stopChompEnergizer();
         }
     }
 

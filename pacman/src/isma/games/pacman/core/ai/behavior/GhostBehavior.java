@@ -26,7 +26,7 @@ public abstract class GhostBehavior {
 
     public abstract GhostBehavior nextBehavior(WorldContainer world);
 
-    public void update(WorldContainer stage) {
+    public void update(WorldContainer world) {
         long time = System.currentTimeMillis();
         if (lastTime == 0) {
             lastTime = time;

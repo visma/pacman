@@ -34,7 +34,7 @@ public class TileMapProperties {
                     while (keys.hasNext()) {
                         String key = keys.next();
                         String value = (String) properties.get(key);
-                        debug("layer=%s, x=%s, y=%s, key=%s, value=%s", layerIndex, i, j, key, value);
+//                        debug("layer=%s, x=%s, y=%s, key=%s, value=%s", layerIndex, i, j, key, value);
                         cache.put(layerIndex, i, j, key, value);
                     }
                 }

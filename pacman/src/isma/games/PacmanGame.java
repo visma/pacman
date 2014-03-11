@@ -14,9 +14,9 @@ public class PacmanGame extends Game {
     public void create() {
         Assets.load();
         Gdx.app.setLogLevel(Application.LOG_DEBUG);
-        setScreen(new SplashScreen(this));
+//        setScreen(new SplashScreen(this));
         setScreen(new MainMenuScreen(this));
-        setScreen(new GameScreen(this));
+//        setScreen(new GameScreen(this));
     }
 
 

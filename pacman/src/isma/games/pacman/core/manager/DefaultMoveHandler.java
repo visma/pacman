@@ -36,7 +36,7 @@ public class DefaultMoveHandler implements MoveHandler {
                 futureCenter.y = (float) ceil(futureCenter.y);
                 break;
         }
-        debug("futureCenter = {x=%s; y=%s}", futureCenter.x, futureCenter.y);
+//        debug("futureCenter = {x=%s; y=%s}", futureCenter.x, futureCenter.y);
         TiledMapHelper.handleOutOfBounds(maze, futureCenter);
         TiledMapTileLayer.Cell cell = getTilesAt(maze.getLayerPath(), maze, futureCenter, direction)
                 .iterator().next();
@@ -49,12 +49,10 @@ public class DefaultMoveHandler implements MoveHandler {
     }
 
     public void move(AliveActor actor, Maze maze, float offset) {
-        info("move(actor=%s, offset=%s, direction=%s)",
-                stringify(actor), offset, actor.getCurrentDirection());
+//        info("move(actor=%s, offset=%s, direction=%s)", stringify(actor), offset, actor.getCurrentDirection());
         actor.setStopped(offset == 0f);
         if (!canMove(actor, maze, actor.getCurrentDirection(), offset)) {
-            warn("can't move actor=%s toward %s with value : %s",
-                    stringify(actor), actor.getCurrentDirection(), offset);
+//            warn("can't move actor=%s toward %s with value : %s", stringify(actor), actor.getCurrentDirection(), offset);
             return;
         }
         switch (actor.getCurrentDirection()) {
@@ -71,9 +69,9 @@ public class DefaultMoveHandler implements MoveHandler {
                 actor.setX(actor.getX() + offset);
                 break;
         }
-        info("end (before rebound): actor=%s", stringify(actor));
+//        info("end (before rebound): actor=%s", stringify(actor));
         TiledMapHelper.handleOutOfBounds(maze, actor);
-        info("end : actor=%s", stringify(actor));
+//        info("end : actor=%s", stringify(actor));
     }
 
     @Override

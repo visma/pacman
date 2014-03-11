@@ -4,6 +4,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import isma.games.*;
+import isma.games.graph.PathMap;
 
 import java.util.Set;
 
@@ -46,9 +47,9 @@ public class MazeMoveHelper {
                 currCenter.y = (float) ceil(center.y) + 0;
                 break;
         }
-        trace("currCenter{x=%s, y=%s}", center.x, center.y);
+//        trace("currCenter{x=%s, y=%s}", center.x, center.y);
         Set<TiledMapTileLayer.Cell> cells = getTilesAt(maze.getLayerPath(), maze, currCenter, direction);
-        trace("tiles : " + cells.size());
+//        trace("tiles : " + cells.size());
         if (cells.size() > 1) {
             return 0;
         }
@@ -77,10 +78,9 @@ public class MazeMoveHelper {
                     currCenter.y++;
                     break;
             }
-            trace("bounds " + maze.getBounds());
-            trace("test next pixel : " + currCenter);
-            //TiledMapHelper.handleOutOfBounds(this, currCenter);
-            trace("test next pixel (after bounds handling) : " + currCenter);
+//            trace("bounds " + maze.getBounds());
+//            trace("test next pixel : " + currCenter);
+//            trace("test next pixel (after bounds handling) : " + currCenter);
             cells = getTilesAt(maze.getLayerPath(), maze, currCenter, direction);
             if (cells.size() > 1) {
                 return length;
@@ -88,7 +88,7 @@ public class MazeMoveHelper {
             if (maze.isPath(cells.iterator().next(), pathForce)) {
                 length++;
             } else {
-                trace("length = " + length);
+//                trace("length = " + length);
                 return length;
             }
         }
@@ -99,21 +99,20 @@ public class MazeMoveHelper {
                                                      Direction currentDirection,
                                                      Direction nextDirection, int pathForce) {
         Log.start(Log.LOG_TRACE);
-        trace("center{x=%s, y=%s}, currentDirection=%s, nextDirection=%s",
-                center.x, center.y, currentDirection, nextDirection);
+//        trace("center{x=%s, y=%s}, currentDirection=%s, nextDirection=%s", center.x, center.y, currentDirection, nextDirection);
         Point originalPosition = getGridPosition(maze, new Vector2(center.x, center.y));
         Point nextPosition = new Point(originalPosition);
-        trace("position origine : " + originalPosition);
+//        trace("position origine : " + originalPosition);
         while (true) {
             Point askedPosition = nextDirection.nextPosition(nextPosition);
             boolean askedPath = maze.isPath(askedPosition, pathForce);
-            trace("(asked) path vers %s sur %s : %s", nextDirection, askedPosition, askedPath);
+//            trace("(asked) path vers %s sur %s : %s", nextDirection, askedPosition, askedPath);
             if (askedPath) {
                 break;
             }
             nextPosition = currentDirection.nextPosition(nextPosition);
             boolean currPath = maze.isPath(nextPosition, pathForce);
-            trace("(current) path vers %s sur %s : %s", currentDirection, nextPosition, currPath);
+//            trace("(current) path vers %s sur %s : %s", currentDirection, nextPosition, currPath);
             if (!currPath) {
                 nextPosition = currentDirection.previousPosition(nextPosition);
                 break;
@@ -121,10 +120,10 @@ public class MazeMoveHelper {
         }
         Vector2 initialPosition = new Vector2(center.x, center.y);
         Vector2 destination = TiledMapHelper.getPosition(maze, nextPosition);
-        trace("--------> position origine : " + originalPosition);
-        trace("--------> future position : " + nextPosition);
+//        trace("--------> position origine : " + originalPosition);
+//        trace("--------> future position : " + nextPosition);
         Vector2 vLength = destination.sub(initialPosition);
-        trace("--------> vecteur distance : " + vLength);
+//        trace("--------> vecteur distance : " + vLength);
         float len = -1f;
         switch (currentDirection) {
             case EAST:
@@ -141,7 +140,7 @@ public class MazeMoveHelper {
                 break;
         }
         len = len > 0 ? len : 0;
-        trace("--------> distance : " + len);
+//        trace("--------> distance : " + len);
         return len;
     }
 
@@ -154,23 +153,6 @@ public class MazeMoveHelper {
         return direction.previousPosition(next);
     }
 
-    public static int countTurns(Maze maze, Point position, int pathForce) {
-        int turns = 0;
-        Point left = position.onLeft();
-        Point right = position.onRight();
-        Point bottom = position.onBottom();
-        Point top = position.onTop();
-        handleOutOfBounds(maze, left);
-        handleOutOfBounds(maze, right);
-        handleOutOfBounds(maze, bottom);
-        handleOutOfBounds(maze, top);
-
-        turns += maze.isPath(left, pathForce) ? 1 : 0;
-        turns += maze.isPath(right, pathForce) ? 1 : 0;
-        turns += maze.isPath(bottom, pathForce) ? 1 : 0;
-        turns += maze.isPath(top, pathForce) ? 1 : 0;
-        return turns;
-    }
 
     private static boolean isPath(Point position, Maze maze, boolean truncateBounds, int pathForce) {
         if (truncateBounds) {
@@ -213,4 +195,26 @@ public class MazeMoveHelper {
         }
         return null;
     }
+
+
+    public static int countTurns(Maze maze, Point position, int pathForce) {
+        int turns = 0;
+        Point left = position.onLeft();
+        Point right = position.onRight();
+        Point bottom = position.onBottom();
+        Point top = position.onTop();
+        handleOutOfBounds(maze, left);
+        handleOutOfBounds(maze, right);
+        handleOutOfBounds(maze, bottom);
+        handleOutOfBounds(maze, top);
+
+        turns += maze.isPath(left, pathForce) ? 1 : 0;
+        turns += maze.isPath(right, pathForce) ? 1 : 0;
+        turns += maze.isPath(bottom, pathForce) ? 1 : 0;
+        turns += maze.isPath(top, pathForce) ? 1 : 0;
+        return turns;
+    }
+
+
+
 }

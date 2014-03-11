@@ -3,6 +3,11 @@ package isma.games.pacman.core.assets;
 import com.badlogic.gdx.audio.Sound;
 
 public class SoundManager {
+    private boolean enabled = false;
+
+    public static final float PITCH = 1.0f;
+    public static final float PAN = 0f;
+
     private static final float VOLUME = 0.2f;
 
     private final Sound intro;
@@ -20,31 +25,39 @@ public class SoundManager {
     }
 
     public void playIntro() {
-        long id = intro.play(VOLUME, 1.0f, 0f);
-        intro.setLooping(id, false);
+        playSound(intro, false);
     }
 
     public void playChompDot() {
-        long id = chompDot.play(VOLUME, 1.0f, 0f);
-        chompDot.setLooping(id, false);
+        playSound(chompDot, false);
     }
 
     public void playChompGhost() {
-        long id = chompGhost.play(VOLUME, 1.0f, 0f);
-        chompGhost.setLooping(id, false);
+        playSound(chompGhost, false);
     }
 
     public void playChompEnergizer() {
-        long id = chompEnergizer.play(VOLUME, 1.0f, 0f);
-        chompEnergizer.setLooping(id, true);
+        playSound(chompEnergizer, true);
     }
 
     public void playDeath() {
-        long id = death.play(VOLUME, 1.0f, 0f);
-        death.setLooping(id, false);
+        playSound(death, false);
     }
 
     public void stopChompEnergizer() {
-        chompEnergizer.stop();
+        stopSound(chompEnergizer);
+    }
+
+    private void stopSound(Sound chompEnergizer1) {
+        if (enabled) {
+            chompEnergizer1.stop();
+        }
+    }
+
+    private void playSound(Sound sound, boolean loop) {
+        if (enabled) {
+            long id = sound.play(VOLUME, PITCH, PAN);
+            sound.setLooping(id, loop);
+        }
     }
 }

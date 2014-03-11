@@ -39,7 +39,7 @@ public class ActorStateManager {
         Maze maze = world.getMaze();
         Food food = getFoodToEat(world);
         if (food != null) {
-            trace("miam : " + getGridPosition(maze, food));
+//            trace("miam : " + getGridPosition(maze, food));
             if (food instanceof Dot) {
                 handleDotConsuming((Dot) food, world);
             } else if (food instanceof Fruit) {

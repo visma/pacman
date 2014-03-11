@@ -35,7 +35,7 @@ public class PacmanAIMoveHandler extends AIMoveHandler {
                 farestFoodFromGhosts = getFarestFoodFromGhosts(farestFoodFromGhosts, food);
             }
         }
-        info("farest food : " + farestFoodFromGhosts);
+//        info("farest food : " + farestFoodFromGhosts);
         return farestFoodFromGhosts;
     }
 

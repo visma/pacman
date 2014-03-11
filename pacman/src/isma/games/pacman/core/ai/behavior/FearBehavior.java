@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import static isma.games.Log.warn;
 import static isma.games.TiledMapHelper.*;
 import static isma.games.pacman.core.actors.Ghost.GhostState;
 import static isma.games.pacman.core.actors.Ghost.GhostState.*;
@@ -38,7 +39,7 @@ public class FearBehavior extends GhostBehavior {
             }
         }
         possibleRuns.remove(ghost.getCurrentDirection().opposite());
-        Log.warn("possible moves : " + possibleRuns.size());
+//        warn("possible moves : " + possibleRuns.size());
         int randIndex = new Random().nextInt(possibleRuns.size());
         int currentIndex = 0;
         Direction randomDirection = null;
@@ -63,9 +64,9 @@ public class FearBehavior extends GhostBehavior {
         return new ChaseGhostBehavior(ghost, ChaseStrategyFactory.build(ghost, world));
     }
 
-    public void update(WorldContainer stage) {
-        super.update(stage);
-        if (isOver(stage)) {
+    public void update(WorldContainer world) {
+        super.update(world);
+        if (isOver(world)) {
             if (ghost.getState() == FRIGTHENED) {
                 ghost.setFrightened(false);
             }

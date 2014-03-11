@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.TimeUtils;
+
 import isma.games.Input;
 import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
@@ -20,6 +22,7 @@ import isma.games.pacman.core.manager.MoveManager;
 import isma.games.pacman.core.screens.MainMenuScreen;
 import isma.games.pacman.core.tiled.Maze;
 
+import static com.badlogic.gdx.utils.TimeUtils.timeSinceMillis;
 import static isma.games.Direction.*;
 
 public class PacmanStage extends Stage {
@@ -96,16 +99,22 @@ public class PacmanStage extends Stage {
         }
     }
 
+    final static long startTime = TimeUtils.millis();
 
     @Override
     public void act(float delta) {
         //super.act(delta);
-//        FPS_LOGGER.log();
+        //FPS_LOGGER.log();
         if (!world.ready) {
             return;
         }
         moveManager.moveAll(delta, world.maze);
         actorStateManager.handleState(world);
+
+        /*if (timeSinceMillis(startTime) > 120 * 1000) {
+            System.out.println("minute finie : " + timeSinceMillis(startTime) / 1000);
+            System.exit(0);
+        }*/
     }
 
 

@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

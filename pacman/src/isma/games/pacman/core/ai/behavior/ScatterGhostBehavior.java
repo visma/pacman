@@ -36,9 +36,9 @@ public class ScatterGhostBehavior extends GhostBehavior {
             }
             cornerPosition = maze.getGhostCorner(ghost.getId(), currentCorner);
         }
-        trace("ghost=%s", ghost.getId());
-        trace("cornerPosition=%s", cornerPosition);
-        trace("ghostPosition=%s", ghostPosition);
+//        trace("ghost=%s", ghost.getId());
+//        trace("cornerPosition=%s", cornerPosition);
+//        trace("ghostPosition=%s", ghostPosition);
         return TiledMapHelper.getTarget(maze, cornerPosition);
     }
 

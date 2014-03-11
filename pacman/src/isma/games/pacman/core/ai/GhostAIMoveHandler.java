@@ -20,16 +20,12 @@ public class GhostAIMoveHandler extends AIMoveHandler {
         //behavior = new FearBehavior(actor);
     }
 
+    //TODO OPTIMISER ICI
     @Override
     protected boolean nextMoveChangeTurnTile(float remainingLen) {
         behavior.update(world);
         if (behavior.isOver(world)){
             behavior = behavior.nextBehavior(world);
-            //trace("%s : next behavior %s", aiActor.getId(), behavior.getClass());
-        }
-        if (behavior instanceof ScatterGhostBehavior){
-            //IA must be used even if not on a turn tile for this behavior
-            return true;
         }
         return super.nextMoveChangeTurnTile(remainingLen);
     }

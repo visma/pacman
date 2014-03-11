@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class AliveActor extends Actor implements Target, GameObject {
-    private List<WorldEventListener> eventListeners = new ArrayList<WorldEventListener>();
+    protected List<WorldEventListener> eventListeners = new ArrayList<WorldEventListener>();
 
     protected final TextureFactory textureFactory;
 

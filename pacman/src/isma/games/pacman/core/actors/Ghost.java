@@ -64,7 +64,13 @@ public class Ghost extends AliveActor {
     }
 
     private void setState(GhostState state) {
+        GhostState old = this.state;
         this.state = state;
+        if (this.state != old){
+            for (WorldEventListener eventListener : eventListeners) {
+                eventListener.onStateChanged(this);
+            }
+        }
         if (state == FRIGTHENED) {
             sinusVariation = TrigoFunctionFactory.buildSinus(0.2f, 0.00f, false, 1);
         } else {
