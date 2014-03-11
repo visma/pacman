@@ -640,7 +640,11 @@
       <created>1394545997118</created>
       <updated>1394545997118</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="disable logs and start performances improving (cpu profiling)&#10;">
+      <created>1394546004717</created>
+      <updated>1394546004717</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -696,7 +700,8 @@
     <MESSAGE value="add core tests" />
     <MESSAGE value="add android assets" />
     <MESSAGE value="disable logs and start performances improving (cpu profiling)" />
-    <option name="LAST_COMMIT_MESSAGE" value="disable logs and start performances improving (cpu profiling)" />
+    <MESSAGE value="disable logs and start performances improving (cpu profiling)&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="disable logs and start performances improving (cpu profiling)&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
