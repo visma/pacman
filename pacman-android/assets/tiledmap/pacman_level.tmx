@@ -51,6 +51,12 @@
     <property name="path" value="1"/>
    </properties>
   </tile>
+  <tile id="140">
+   <properties>
+    <property name="blinky" value="4"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
   <tile id="169">
    <properties>
     <property name="clyde" value="1"/>
@@ -66,6 +72,12 @@
   <tile id="171">
    <properties>
     <property name="clyde" value="3"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
+  <tile id="172">
+   <properties>
+    <property name="clyde" value="4"/>
     <property name="path" value="1"/>
    </properties>
   </tile>
@@ -87,6 +99,12 @@
     <property name="path" value="1"/>
    </properties>
   </tile>
+  <tile id="204">
+   <properties>
+    <property name="inky" value="4"/>
+    <property name="path" value="1"/>
+   </properties>
+  </tile>
   <tile id="233">
    <properties>
     <property name="path" value="1"/>
@@ -105,10 +123,16 @@
     <property name="pinky" value="3"/>
    </properties>
   </tile>
+  <tile id="236">
+   <properties>
+    <property name="path" value="1"/>
+    <property name="pinky" value="4"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Calque principal" width="28" height="36" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2WW04CMRiFW0FZhzeEF8IWRBR9MW7BK/BCXIN3t8FF4jYUE9mG0Yi78DQp4Tj8nU5RMCY+fBny87dnenrSTkYplfnnx2iCFugG0AadwDGGe/AwwTv2wNME4/rgxf5eAzlLXqhxnfVcPdJ8fVpfBWxbdoQa11nP1SPNx3pVULPUhRrXX8Gbp0eaj/VmAeu59s+1l649S7p/0vor5D3/XwSFgP6kfvJ4Zg/sBvSzn3NaqVSEtB6Nbwi+sB77dkp672AQ4cPxHiukJ/lWVXIOi7w+nTxHrBfnT6yf39TTxnuQAmnLvK0tBOh1LRt6RFmP+7YY835Zwec1zJGL0A3wyugtgWWzfrBKz2zAPM8x+TTZG2ZyHZSMD6AMNum5pcb7pXwOAvZvHxyAQ3AEjul5MoW8zDqfxivf+ZlEr6ST5dP89p2fvnzm9WT3kev89PHlfoB2zXJB+ZR8c52fId8T13r8DGQPk5yf0bupoPz3UWgm47Ia9dzonWFd5+Qh612iduXwVvKQ+1lvuFd10AQt0LZ9/C3UQe2OsurLZ7R/WDd7dQNuPfnk8Uny6eqX8in5Ze7r0Pu9Iczj+15ykSSfceN+5fsTfj+C3pQx914/4Az/q3wCMnFArcAPAAA=
+   H4sIAAAAAAAAC+2WW04CMRiFW0FhG16BF8IWRBR9MW7BK/BCXIN3t8FF4ja8JLINoxF34akp4Tj8nU4VTEx8+DLk52/P9PSknYxSKvPPxGiBNugF0AHdwDGGW3AX0c8Srnd8AI/fWFsfPNvfOZC3FIQa11nP1SPN16f1VcGmZUuocZ31XD3SfKxXA3VLQ6hx/QW8enqk+VgvKzDpbLKea/9ce+nas6T7J62/St7z/yVQDOiX/JTg8cwO2A7oZz9ntFKpCGk9Gt8UfGE99u2Y9N7AIMK74z2WSE/yrabkHJZ4fTp5jlgvzp9YP3+op433IAXSlllbmwvQ61nW9IiKHvdtPub9VgSfc5gjH6EX4JXRWwCLZv1gmZ4rAfM8xeTTZG+YyVVQNj6AClin54Ya75fyOQjYv12wB/bBATik59EU8vLb+TRe+c7PJHplnSyf5rfv/PTls6Djz08XrvPTx5f7Adp1yxnlU/LNdX6GfE9c6vEzkD1Mcn5G76ai8t9HoZmMy2rUc6N3gnWdkoesd47ahcNbyUPuZ73hXjVAC7RBx/bxt1AXtRvKqi+f0f5h3ezVFbj25JPHJ8mnq1/Kp+SXua9D7/emMI/ve8lFknzGjfN9L02aTz34fQ8epoy59/oBZ/hf5QO00uFuwA8AAA==
   </data>
  </layer>
  <layer name="Calque pacgums" width="28" height="36" visible="0">
@@ -118,7 +142,7 @@
  </layer>
  <layer name="Calque chemin" width="28" height="36">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2W500DQRCFd0muA0QyXQAmmC6IxpRBTlUAxiJUQZAwUAUCEYvgnbQnP9azSWAkJH58urvx7D7dm/HsFZRShX9+jANwCOoJHIFa4pqME3AB3sAI8WE921yB60COzS5ogAfzPASGDUUhxnHWk3L2Hfs1zPtl91PG32lQpti0EGc9V460H+tVwLKhKsQ4/gieAjnSfqyX855YlxB7dM96rvq5ainV1ZUv1U96/ynynn8vmv1i831+MryeKZvfYvPZzw6tVKdFl26urwi+sB77ViW9Z/Bi8arkmdNPepJvFSX3YZH0Cjp+xrGezx+fn9/V05n3oBPMGLpNrCdBL5+l47pJSbf61ktrcr38eVDweQh7DFvUE7zK9PqMzgppDpBeDDee/uT/7ygYy3wAJTBB10nVmi/150tC/WbBHJgHC2CRrktt6Jff7s+Y+RmjN6bj+jNmfob6s6j989OFa36G+HI+QHvZsK5lD0Pz0/UtIp1HW7p1BvrO7tA3AM9e33kk9eR5hFf3wj6255neKt5rjTxkvQ3ENh3eSh5yPuvltaqCA3AIjkwefwvVEDvWrb65+tPOz+NZrbbBTqA/eX1Mf7rypf6U/Kqq9PO9IuwT+l5yEdOfvnW53qnHU5szur9LWHeb68HvS3DVZrJzr5Eww/8qn6K3HmDADwAA
+   H4sIAAAAAAAAC+2WZ04DMRCFbVrOAaKFWxBCvQU1hGPQ6yWool2CIhHKJRCIfgfeSrZ4OGOvLYqExI9P2Z0d+2nfTMZbUEoV/vk2NsEW2EtgG+wkrsnYByfgGfQ4vAkxyxk4DzzfEGKroAZuzX0X6DYUhRjHWc+XI+1XM++XXQ8af4fAMMWGhDjr+XKk/VivAqYNVSHG8Ttwn5Mj7Wf1XgS/XwP1yWNdiK057+ern6+WvprF1k96/0Hynp8XzX6x+a6fPl94PTNsnsXm95Beg1aq0aFJf6yvCL6wHvtWJb0H8OjwpOSZ0056km8VJfdhkfQKOn7GsV7In5CfX9XTmfegEYwYmk2sJUHPztI+/UFZ1/vWSmusnr3vFHzuwh7dDnsJXmV6bUZnhjQ7SC+Gi0B/8v+3F5QyH0AZ9NPvgKrPl/rzMaF+o2AMjIMJMEm/Uz/QL7/dnzHzM0avpOP6M2Z+5vVnUYfnpw/f/Mzj0/kA7WnDvJY9zJufKd8TS7p+BobO7rxvAJ69ofPI1vyYYkcRXl3T9Y3Zx/U805vFe82Rh9xjC4gteryVPOR81rO1qoJNsAW2TR5/C+0gtqvrffP1p5tv41mtlsFKTn/y+pj+9OVL/Sn5VVXp53tF2Cfve8lHTH+G1lm9g4CnLod0fZWw7tLqwe9TcPbDZOdeLWGG/1XeAUd7cuTADwAA
   </data>
  </layer>
 </map>
