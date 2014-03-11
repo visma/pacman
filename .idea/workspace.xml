@@ -7,31 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/libs_tests.xml" />
-      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-desktop\src\isma\games\Main.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/ActorStateManager.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/ActorStateManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/AliveActor.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/AliveActor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/DebugPath.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/DebugPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/FearBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/FearBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/GhostAIMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/GhostAIMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/GhostBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/GhostBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PacmanAIMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PacmanAIMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/PacmanGame.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/PacmanGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ScatterGhostBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ScatterGhostBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/SoundManager.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/SoundManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/TileMapProperties.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/TileMapProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/TiledMapHelper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/TiledMapHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/WorldEventListener.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/WorldEventListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/pacman.iml" afterPath="$PROJECT_DIR$/pacman/pacman.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/shared.xml" afterPath="$PROJECT_DIR$/.idea/libraries/shared.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pacman.iws" />
@@ -661,7 +636,11 @@
       <created>1394545752220</created>
       <updated>1394545752220</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="disable logs and start performances improving (cpu profiling)">
+      <created>1394545997118</created>
+      <updated>1394545997118</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -716,7 +695,8 @@
     <MESSAGE value="add mockito" />
     <MESSAGE value="add core tests" />
     <MESSAGE value="add android assets" />
-    <option name="LAST_COMMIT_MESSAGE" value="add android assets" />
+    <MESSAGE value="disable logs and start performances improving (cpu profiling)" />
+    <option name="LAST_COMMIT_MESSAGE" value="disable logs and start performances improving (cpu profiling)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
