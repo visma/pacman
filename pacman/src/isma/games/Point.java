@@ -2,6 +2,11 @@ package isma.games;
 
 import com.badlogic.gdx.math.Vector2;
 
+import static isma.games.Direction.EAST;
+import static isma.games.Direction.NORTH;
+import static isma.games.Direction.SOUTH;
+import static isma.games.Direction.WEST;
+
 public class Point {
     public int x;
     public int y;
@@ -16,26 +21,6 @@ public class Point {
         y = other.y;
     }
 
-    @Override
-    public String toString() {
-        return "{x=" + x + ", y=" + y + "}";
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Point)) return false;
-        Point point = (Point) o;
-        return x == point.x && y == point.y;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = x;
-        result = 31 * result + y;
-        return result;
-    }
 
     public float dst(Point other) {
         return new Vector2(this.x, this.y).dst(new Vector2(other.x, other.y));
@@ -81,4 +66,38 @@ public class Point {
         return null;
     }
 
+    public Point onPrevious(Direction direction) {
+        switch (direction) {
+            case EAST:
+                return onNext(WEST);
+            case SOUTH:
+                return onNext(NORTH);
+            case WEST:
+                return onNext(EAST);
+            case NORTH:
+                return onNext(SOUTH);
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "{x=" + x + ", y=" + y + "}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Point)) return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = x;
+        result = 31 * result + y;
+        return result;
+    }
 }

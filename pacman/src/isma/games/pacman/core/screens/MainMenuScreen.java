@@ -30,7 +30,6 @@ public class MainMenuScreen implements Screen {
 
         stage.act(delta);
         stage.draw();
-// Table.drawDebug(stage);
     }
 
     @Override

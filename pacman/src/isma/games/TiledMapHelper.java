@@ -163,7 +163,6 @@ public class TiledMapHelper {
         }
     }
 
-    //TODO l'utiliser quand des SimpleTarget sont fabriquées manuellement
     public static Target getTarget(TiledMapWrapper map, Point point) {
         Vector2 position = getPosition(map, point);
         return new SimpleTarget(position.x, position.y, map.getTileWidth(), map.getTileHeight());

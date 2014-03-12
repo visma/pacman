@@ -43,10 +43,8 @@ public class ActorStateManager {
     }
 
     private void handleFoodConsuming(WorldContainer world) {
-        Maze maze = world.getMaze();
         Food food = getFoodToEat(world);
         if (food != null) {
-//            trace("miam : " + getGridPosition(maze, food));
             if (food instanceof Dot) {
                 handleDotConsuming((Dot) food, world);
             } else if (food instanceof Fruit) {
@@ -55,7 +53,7 @@ public class ActorStateManager {
         }
     }
 
-    private void handleFruitConsuming(Fruit fruit, WorldContainer stage) {
+    private void handleFruitConsuming(Fruit fruit, WorldContainer world) {
         error("not implemented");
     }
 

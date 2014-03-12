@@ -20,14 +20,12 @@ import static isma.games.pacman.core.stages.PacmanWorld.GameState.GAME_OVER;
 import static isma.games.pacman.core.stages.PacmanWorld.GameState.RUNNING;
 
 public class PacmanWorld implements WorldContainer {
-    private Game game;
 
     private static final int RESTART_DURATION = 3000;
     private static final int GHOST_EAT_DURATION = 700;
     private static final int DYING_DURATION = 2000;
 
-    //TODO remettre en privé
-    public final SoundManager soundManager;
+    private final SoundManager soundManager;
 
     final GameBoard gameBoard;
     final Maze maze;
@@ -50,8 +48,7 @@ public class PacmanWorld implements WorldContainer {
     }
 
 
-    public PacmanWorld(Game game, Maze maze) {
-        this.game = game;
+    public PacmanWorld(Maze maze) {
         soundManager = new SoundManager();
 
         gameBoard = new GameBoard();

@@ -8,6 +8,7 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.TimeUtils;
 
 import isma.games.Direction;
 import isma.games.Input;
@@ -35,7 +36,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     public PacmanStage(Game game, Maze maze) {
         Gdx.app.setLogLevel(Application.LOG_INFO);
 
-        world = new PacmanWorld(game, maze);
+        world = new PacmanWorld(maze);
         addAllActors();
 
         switch (Gdx.app.getType()) {
@@ -57,6 +58,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     }
 
     static int act = 0;
+    static long startTime = TimeUtils.millis();
 
     @Override
     public void act(float delta) {
@@ -71,10 +73,10 @@ public class PacmanStage extends Stage implements DirectionListener {
         moveManager.moveAll(delta, world.maze);
         actorStateManager.handleState(world);
 
-//        if (timeSinceMillis(startTime) > 120 * 1000) {
-//            System.out.println("minute finie : " + timeSinceMillis(startTime) / 1000);
-//            System.exit(0);
-//        }
+        if (TimeUtils.timeSinceMillis(startTime) > 120 * 1000) {
+            System.out.println("minute finie : " + TimeUtils.timeSinceMillis(startTime) / 1000);
+            System.exit(0);
+        }
     }
 
 

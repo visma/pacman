@@ -3,14 +3,23 @@ package isma.games.pacman.core.tiled;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import isma.games.*;
 
 import java.util.Set;
 
+import isma.games.Direction;
+import isma.games.Log;
+import isma.games.NumberHelper;
+import isma.games.Point;
+import isma.games.TiledMapHelper;
+
 import static isma.games.Direction.EAST;
 import static isma.games.Direction.WEST;
-import static isma.games.TiledMapHelper.*;
-import static java.lang.Math.*;
+import static isma.games.TiledMapHelper.getGridPosition;
+import static isma.games.TiledMapHelper.getTilesAt;
+import static isma.games.TiledMapHelper.handleOutOfBounds;
+import static java.lang.Math.abs;
+import static java.lang.Math.ceil;
+import static java.lang.Math.floor;
 
 public class MazeMoveHelper {
     private MazeMoveHelper() {
@@ -20,10 +29,7 @@ public class MazeMoveHelper {
         if (direction.isHorizontal() && !NumberHelper.isInteger(center.y)) {
             return false;
         }
-        if (direction.isVertical() && !NumberHelper.isInteger(center.x)) {
-            return false;
-        }
-        return true;
+        return !(direction.isVertical() && !NumberHelper.isInteger(center.x));
     }
 
     public static float getPathLength(Maze maze, Rectangle center, Direction direction, int pathForce) {
@@ -102,17 +108,17 @@ public class MazeMoveHelper {
         Point nextPosition = new Point(originalPosition);
 //        trace("position origine : " + originalPosition);
         while (true) {
-            Point askedPosition = nextDirection.nextPosition(nextPosition);
+            Point askedPosition = nextPosition.onNext(nextDirection);
             boolean askedPath = maze.isPath(askedPosition, pathForce);
 //            trace("(asked) path vers %s sur %s : %s", nextDirection, askedPosition, askedPath);
             if (askedPath) {
                 break;
             }
-            nextPosition = currentDirection.nextPosition(nextPosition);
+            nextPosition = nextPosition.onNext(currentDirection);
             boolean currPath = maze.isPath(nextPosition, pathForce);
 //            trace("(current) path vers %s sur %s : %s", currentDirection, nextPosition, currPath);
             if (!currPath) {
-                nextPosition = currentDirection.previousPosition(nextPosition);
+                nextPosition = nextPosition.onPrevious(currentDirection);
                 break;
             }
         }
@@ -148,7 +154,7 @@ public class MazeMoveHelper {
             next = next.onNext(direction);
             handleOutOfBounds(maze, next);
         }
-        return direction.previousPosition(next);
+        return next.onPrevious(direction);
     }
 
 
@@ -212,7 +218,6 @@ public class MazeMoveHelper {
         turns += maze.isPath(top, pathForce) ? 1 : 0;
         return turns;
     }
-
 
 
 }
