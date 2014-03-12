@@ -12,7 +12,7 @@ class TiledPropertiesCache {
             valuesAt = new ArrayMap<Point, String>();
             cache.put(cacheKey, valuesAt);
         }
-        valuesAt.put(new Point(x, y), value);
+        valuesAt.put(PointCache.get(x, y), value);
     }
 
     Point getPositionOfUniqueValue(int layerIndex, String key, String uniqueValue) {

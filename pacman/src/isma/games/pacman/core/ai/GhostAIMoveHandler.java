@@ -1,7 +1,7 @@
 package isma.games.pacman.core.ai;
 
 import isma.games.Target;
-import isma.games.graph.GraphBuilder;
+import isma.games.pacman.core.GraphBuilder;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.ai.behavior.ChaseGhostBehavior;
 import isma.games.pacman.core.ai.behavior.ChaseStrategyFactory;

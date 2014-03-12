@@ -19,13 +19,13 @@ public class TiledMapHelperTest extends AbstractCoreTest {
         when(map.getTileWidth()).thenReturn(8);
         when(map.getTileHeight()).thenReturn(8);
 
-        assertEquals(new Point(0, 0), getGridPosition(map, new Vector2(0, 0)));
-        assertEquals(new Point(0, 0), getGridPosition(map, new Vector2(7, 7)));
-        assertEquals(new Point(0, 1), getGridPosition(map, new Vector2(7, 8)));
-        assertEquals(new Point(1, 1), getGridPosition(map, new Vector2(8, 8)));
+        assertEquals(PointCache.get(0, 0), getGridPosition(map, new Vector2(0, 0)));
+        assertEquals(PointCache.get(0, 0), getGridPosition(map, new Vector2(7, 7)));
+        assertEquals(PointCache.get(0, 1), getGridPosition(map, new Vector2(7, 8)));
+        assertEquals(PointCache.get(1, 1), getGridPosition(map, new Vector2(8, 8)));
 
-        assertEquals(new Point(-1, -1), getGridPosition(map, new Vector2(-1, -1)));
-        assertEquals(new Point(-2, -2), getGridPosition(map, new Vector2(-8, -8)));
+        assertEquals(PointCache.get(-1, -1), getGridPosition(map, new Vector2(-1, -1)));
+        assertEquals(PointCache.get(-2, -2), getGridPosition(map, new Vector2(-8, -8)));
     }
 
     @Test
@@ -35,13 +35,13 @@ public class TiledMapHelperTest extends AbstractCoreTest {
         when(map.getTileWidth()).thenReturn(tileSize);
         when(map.getTileHeight()).thenReturn(tileSize);
 
-        assertEquals(new Point(0, 0), getGridPosition(map, mockTarget(0, 0, tileSize)));
-        assertEquals(new Point(0, 0), getGridPosition(map, mockTarget(7, 7, tileSize)));
-        assertEquals(new Point(0, 1), getGridPosition(map, mockTarget(7, 8, tileSize)));
-        assertEquals(new Point(1, 1), getGridPosition(map, mockTarget(8, 8, tileSize)));
+        assertEquals(PointCache.get(0, 0), getGridPosition(map, mockTarget(0, 0, tileSize)));
+        assertEquals(PointCache.get(0, 0), getGridPosition(map, mockTarget(7, 7, tileSize)));
+        assertEquals(PointCache.get(0, 1), getGridPosition(map, mockTarget(7, 8, tileSize)));
+        assertEquals(PointCache.get(1, 1), getGridPosition(map, mockTarget(8, 8, tileSize)));
 
-        assertEquals(new Point(-2, -2), getGridPosition(map, mockTarget(-8, -8, tileSize)));
-        assertEquals(new Point(-1, -1), getGridPosition(map, mockTarget(-1, -1, tileSize)));
+        assertEquals(PointCache.get(-2, -2), getGridPosition(map, mockTarget(-8, -8, tileSize)));
+        assertEquals(PointCache.get(-1, -1), getGridPosition(map, mockTarget(-1, -1, tileSize)));
     }
 
     @Test
@@ -90,13 +90,13 @@ public class TiledMapHelperTest extends AbstractCoreTest {
         when(map.getTileHeight()).thenReturn(8);
         when(map.getBounds()).thenReturn(new Rectangle(0, 0, 3, 2));
 
-        Point point = new Point(3, 1);
-        TiledMapHelper.handleOutOfBounds(map, point);
-        assertEquals(new Point(0, 1), point);
+        Point point = PointCache.get(3, 1);
+        point = TiledMapHelper.handleOutOfBounds(map, point);
+        assertEquals(PointCache.get(0, 1), point);
 
-        point = new Point(2, 2);
-        TiledMapHelper.handleOutOfBounds(map, point);
-        assertEquals(new Point(2, 0), point);
+        point = PointCache.get(2, 2);
+        point = TiledMapHelper.handleOutOfBounds(map, point);
+        assertEquals(PointCache.get(2, 0), point);
     }
 
     private class InnerGameObject implements GameObject {

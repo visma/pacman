@@ -5,6 +5,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.pacman.core.actors.AliveActor;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.test.MazeMockFactory;
@@ -21,7 +22,7 @@ public class DefaultMoveHandlerTest {
     @Test
     public void canMoveOutOfBounds_path() throws Exception {
         DefaultMoveHandler moveHandler = new DefaultMoveHandler();
-        Maze maze = mockMaze(new Point(0, 0), new Point(2, 0));
+        Maze maze = mockMaze(PointCache.get(0, 0), PointCache.get(2, 0));
         AliveActor actor = mockActor(0, 0, 8);
 
         assertTrue(moveHandler.canMove(actor, maze, WEST, 2));
@@ -30,7 +31,7 @@ public class DefaultMoveHandlerTest {
     @Test
     public void cantMoveOutOfBounds_noPath() throws Exception {
         DefaultMoveHandler moveHandler = new DefaultMoveHandler();
-        Maze maze = mockMaze(new Point(0, 0));
+        Maze maze = mockMaze(PointCache.get(0, 0));
         AliveActor actor = mockActor(0, 0, 8);
 
         assertFalse(moveHandler.canMove(actor, maze, WEST, 2));
@@ -41,7 +42,7 @@ public class DefaultMoveHandlerTest {
         TiledMapTileLayer.Cell cell = mockCell(true);
         boolean path = cell.getTile().getProperties().get("path").equals("1");
 
-        Maze maze = MazeMockFactory.mock(new Point(3, 3));
+        Maze maze = MazeMockFactory.mock(PointCache.get(3, 3));
         for (Point pathPoint : pathPoints) {
             when(maze.getCell(0, pathPoint)).thenReturn(cell);
         }

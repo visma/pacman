@@ -10,6 +10,7 @@ import isma.games.Direction;
 import isma.games.Log;
 import isma.games.NumberHelper;
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.TiledMapHelper;
 
 import static isma.games.Direction.EAST;
@@ -105,7 +106,7 @@ public class MazeMoveHelper {
         Log.start(Log.LOG_TRACE);
 //        trace("center{x=%s, y=%s}, currentDirection=%s, nextDirection=%s", center.x, center.y, currentDirection, nextDirection);
         Point originalPosition = getGridPosition(maze, new Vector2(center.x, center.y));
-        Point nextPosition = new Point(originalPosition);
+        Point nextPosition = originalPosition;
 //        trace("position origine : " + originalPosition);
         while (true) {
             Point askedPosition = nextPosition.onNext(nextDirection);
@@ -152,7 +153,7 @@ public class MazeMoveHelper {
         Point next = position;
         while (maze.isPath(next, pathForce)) {
             next = next.onNext(direction);
-            handleOutOfBounds(maze, next);
+            next = handleOutOfBounds(maze, next);
         }
         return next.onPrevious(direction);
     }
@@ -160,13 +161,13 @@ public class MazeMoveHelper {
 
     private static boolean isPath(Point position, Maze maze, boolean truncateBounds, int pathForce) {
         if (truncateBounds) {
-            TiledMapHelper.handleOutOfBounds(maze, position);
+            position = TiledMapHelper.handleOutOfBounds(maze, position);
         }
         return maze.isPath(position, pathForce);
     }
 
     public static Point getClosestPathOf(Maze maze, Point point, int pathForce, int radius) {
-        TiledMapHelper.handleOutOfBounds(maze, point);
+        point = TiledMapHelper.handleOutOfBounds(maze, point);
         if (maze.isPath(point, pathForce)) {
             return point;
         }
@@ -177,21 +178,21 @@ public class MazeMoveHelper {
             int maxY = point.y + i;
 
             for (int x = minX; x <= maxX; x++) {
-                Point curr = new Point(x, minY);
+                Point curr = PointCache.get(x, minY);
                 if (isPath(curr, maze, true, pathForce)) {
                     return curr;
                 }
-                curr = new Point(x, maxY);
+                curr = PointCache.get(x, maxY);
                 if (isPath(curr, maze, true, pathForce)) {
                     return curr;
                 }
             }
             for (int y = minY; y <= maxY; y++) {
-                Point curr = new Point(minX, y);
+                Point curr = PointCache.get(minX, y);
                 if (isPath(curr, maze, true, pathForce)) {
                     return curr;
                 }
-                curr = new Point(maxX, y);
+                curr = PointCache.get(maxX, y);
                 if (isPath(curr, maze, true, pathForce)) {
                     return curr;
                 }
@@ -207,10 +208,10 @@ public class MazeMoveHelper {
         Point right = position.onRight();
         Point bottom = position.onBottom();
         Point top = position.onTop();
-        handleOutOfBounds(maze, left);
-        handleOutOfBounds(maze, right);
-        handleOutOfBounds(maze, bottom);
-        handleOutOfBounds(maze, top);
+        left = handleOutOfBounds(maze, left);
+        right = handleOutOfBounds(maze, right);
+        bottom = handleOutOfBounds(maze, bottom);
+        top = handleOutOfBounds(maze, top);
 
         turns += maze.isPath(left, pathForce) ? 1 : 0;
         turns += maze.isPath(right, pathForce) ? 1 : 0;

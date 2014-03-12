@@ -5,6 +5,7 @@ import com.badlogic.gdx.utils.Array;
 
 import isma.games.Direction;
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.TiledMapWrapper;
 import isma.games.graph.Vertex;
 import isma.games.pacman.core.actors.AliveActor;
@@ -29,9 +30,9 @@ public class PathFindingTest {
          *-------
          */
         Array<Vertex<Point>> path = new Array<Vertex<Point>>();
-        path.add(new Vertex<Point>(new Point(0, 0)));
-        path.add(new Vertex<Point>(new Point(1, 0)));
-        path.add(new Vertex<Point>(new Point(2, 2)));
+        path.add(new Vertex<Point>(PointCache.get(0, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 0)));
+        path.add(new Vertex<Point>(PointCache.get(2, 2)));
 
         AliveActor actor = mockActor(23.5f, 0, EAST);
         TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
@@ -51,9 +52,9 @@ public class PathFindingTest {
          *-------
          */
         Array<Vertex<Point>> path = new Array<Vertex<Point>>();
-        path.add(new Vertex<Point>(new Point(0, 0)));
-        path.add(new Vertex<Point>(new Point(1, 0)));
-        path.add(new Vertex<Point>(new Point(1, 1)));
+        path.add(new Vertex<Point>(PointCache.get(0, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 1)));
 
         AliveActor actor = mockActor(7.5f, 0, EAST);
         TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
@@ -74,9 +75,9 @@ public class PathFindingTest {
          */
 
         Array<Vertex<Point>> path = new Array<Vertex<Point>>();
-        path.add(new Vertex<Point>(new Point(0, 0)));
-        path.add(new Vertex<Point>(new Point(1, 0)));
-        path.add(new Vertex<Point>(new Point(1, 1)));
+        path.add(new Vertex<Point>(PointCache.get(0, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 1)));
 
         AliveActor actor = mockActor(7.5f, 0, EAST);
         TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
@@ -96,9 +97,9 @@ public class PathFindingTest {
          *-------
          */
         Array<Vertex<Point>> path = new Array<Vertex<Point>>();
-        path.add(new Vertex<Point>(new Point(0, 0)));
-        path.add(new Vertex<Point>(new Point(1, 0)));
-        path.add(new Vertex<Point>(new Point(1, 1)));
+        path.add(new Vertex<Point>(PointCache.get(0, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 0)));
+        path.add(new Vertex<Point>(PointCache.get(1, 1)));
 
         AliveActor actor = mockActor(7.5f, 0, EAST);
         TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
@@ -113,37 +114,37 @@ public class PathFindingTest {
     public void boundsChange() {
         //north bound to south bound
         assertTrue(PathFinding.hasChangeBound(
-                new Vertex<Point>(new Point(0, 3)),
-                new Vertex<Point>(new Point(0, 0)),
+                new Vertex<Point>(PointCache.get(0, 3)),
+                new Vertex<Point>(PointCache.get(0, 0)),
                 new Rectangle(0, 0, 1, 4)));
         //south bound to north bound
         assertTrue(PathFinding.hasChangeBound(
-                new Vertex<Point>(new Point(0, 0)),
-                new Vertex<Point>(new Point(0, 3)),
+                new Vertex<Point>(PointCache.get(0, 0)),
+                new Vertex<Point>(PointCache.get(0, 3)),
                 new Rectangle(0, 0, 1, 4)));
 
         //right bound to left bound
         assertTrue(PathFinding.hasChangeBound(
-                new Vertex<Point>(new Point(3, 0)),
-                new Vertex<Point>(new Point(0, 0)),
+                new Vertex<Point>(PointCache.get(3, 0)),
+                new Vertex<Point>(PointCache.get(0, 0)),
                 new Rectangle(0, 0, 4, 1)));
 
         //left bound to right bound
         assertTrue(PathFinding.hasChangeBound(
-                new Vertex<Point>(new Point(0, 0)),
-                new Vertex<Point>(new Point(3, 0)),
+                new Vertex<Point>(PointCache.get(0, 0)),
+                new Vertex<Point>(PointCache.get(3, 0)),
                 new Rectangle(0, 0, 4, 1)));
 
         //no horizontal bound passed
         assertTrue(PathFinding.hasChangeBound(
-                new Vertex<Point>(new Point(2, 0)),
-                new Vertex<Point>(new Point(3, 0)),
+                new Vertex<Point>(PointCache.get(2, 0)),
+                new Vertex<Point>(PointCache.get(3, 0)),
                 new Rectangle(0, 0, 5, 1)));
 
         //no vertical bound passed
         assertTrue(PathFinding.hasChangeBound(
-                new Vertex<Point>(new Point(0, 2)),
-                new Vertex<Point>(new Point(0, 3)),
+                new Vertex<Point>(PointCache.get(0, 2)),
+                new Vertex<Point>(PointCache.get(0, 3)),
                 new Rectangle(0, 0, 1, 5)));
 
     }

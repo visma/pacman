@@ -8,18 +8,15 @@ import static isma.games.Direction.SOUTH;
 import static isma.games.Direction.WEST;
 
 public class Point {
-    public int x;
-    public int y;
+    //Unique instance / point : finals modifiers
+    public final int x;
+    public final int y;
 
-    public Point(int x, int y) {
+    Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public Point(Point other) {
-        x = other.x;
-        y = other.y;
-    }
 
 
     public float dst(Point other) {
@@ -27,28 +24,28 @@ public class Point {
     }
 
     public Point getVector(Point other) {
-        return new Point(other.x - x, other.y - y);
+        return PointCache.get(other.x - x, other.y - y);
     }
 
     public Point add(Point other) {
-        return new Point(x + other.x, y + other.y);
+        return PointCache.get(x + other.x, y + other.y);
     }
 
 
     public Point onLeft() {
-        return new Point(x - 1, y);
+        return PointCache.get(x - 1, y);
     }
 
     public Point onRight() {
-        return new Point(x + 1, y);
+        return PointCache.get(x + 1, y);
     }
 
     public Point onTop() {
-        return new Point(x, y + 1);
+        return PointCache.get(x, y + 1);
     }
 
     public Point onBottom() {
-        return new Point(x, y - 1);
+        return PointCache.get(x, y - 1);
     }
 
 
@@ -91,7 +88,7 @@ public class Point {
         if (!(o instanceof Point)) return false;
         Point point = (Point) o;
         return x == point.x && y == point.y;
-
+//       return false;
     }
 
     @Override

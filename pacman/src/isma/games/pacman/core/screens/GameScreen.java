@@ -22,7 +22,7 @@ public class GameScreen implements Screen {
 
         camera = buildCamera();
         maze = MazeFactory.buildMaze(camera);
-        stage = new PacmanStage(game, maze);
+        stage = new PacmanStage(maze);
         stage.setCamera(camera);
     }
 

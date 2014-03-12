@@ -2,18 +2,15 @@ package isma.games.pacman.core.ai;
 
 import com.badlogic.gdx.utils.ArrayMap;
 
-import isma.games.Log;
 import isma.games.Point;
 import isma.games.TargetHelper;
 import isma.games.TiledMapHelper;
-import isma.games.graph.GraphBuilder;
+import isma.games.pacman.core.GraphBuilder;
 import isma.games.graph.Vertex;
 import isma.games.pacman.core.actors.Dot;
 import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.manager.WorldContainer;
-
-import java.util.Map;
 
 import static isma.games.pacman.core.ai.PacmanAIGraphBuilder.WEIGHT.*;
 

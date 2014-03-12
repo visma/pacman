@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ArrayMap;
 
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.Dot;
 import isma.games.pacman.core.actors.Food;
@@ -17,7 +18,7 @@ public class MazeBuilder {
         ArrayMap<Point, Food> foodMap = new ArrayMap<Point, Food>();
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
-                Point gridPosition = new Point(i, j);
+                Point gridPosition = PointCache.get(i, j);
                 boolean isEnergizer = maze.isEnergizer(gridPosition);
                 if (maze.isDot(gridPosition) || isEnergizer) {
                     putDot(foodMap, maze, gridPosition, isEnergizer);

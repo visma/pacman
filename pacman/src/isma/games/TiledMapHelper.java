@@ -49,7 +49,7 @@ public class TiledMapHelper {
 
     public static TiledMapTileLayer.Cell getCellAt(int layerIndex, TiledMapWrapper map, Vector2 vector2) {
         Point gridPosition = getGridPosition(map, vector2);
-        TiledMapHelper.handleOutOfBounds(map, gridPosition);
+        gridPosition = TiledMapHelper.handleOutOfBounds(map, gridPosition);
         return map.getCell(layerIndex, gridPosition);
     }
 
@@ -62,7 +62,7 @@ public class TiledMapHelper {
         if (position.y < 0) {
             gridY -= 1;
         }
-        return new Point(gridX, gridY);
+        return PointCache.get(gridX, gridY);
     }
 
     public static Point getGridPosition(TiledMapWrapper mapWrapper, Target target) {
@@ -74,7 +74,7 @@ public class TiledMapHelper {
         if (target.getCenter().y < 0) {
             gridY -= 1;
         }
-        return new Point(gridX, gridY);
+        return PointCache.get(gridX, gridY);
     }
 
     public static Vector2 getPosition(TiledMapWrapper map, Point gridPosition) {
@@ -139,28 +139,31 @@ public class TiledMapHelper {
         obj.setY(obj.getY() + (newCenterY - center.y));
     }
 
-    public static void handleOutOfBounds(TiledMapWrapper map, Point gridPosition) {
+    public static Point handleOutOfBounds(TiledMapWrapper map, Point gridPosition) {
         int boundX1 = (int) map.getBounds().x;
         int boundY1 = (int) map.getBounds().y;
         int boundX2 = (int) map.getBounds().width;
         int boundY2 = (int) map.getBounds().height;
 
+        int x = gridPosition.x;
+        int y = gridPosition.y;
         if (gridPosition.x < boundX1 || gridPosition.x >= boundX2) {
 //            trace("x=%s out of bounds : (bounds={%s, %s} ", gridPosition.x, boundX1, boundX2);
             if (gridPosition.x < boundX1) {
-                gridPosition.x = boundX2 + gridPosition.x;
+                x = boundX2 + gridPosition.x;
             } else {
-                gridPosition.x = gridPosition.x - boundX2;
+                x = gridPosition.x - boundX2;
             }
         }
         if (gridPosition.y < boundY1 || gridPosition.y >= boundY2) {
 //            trace("y=%s out of bounds : (bounds={%s, %s} ", gridPosition.y, boundY1, boundY2);
             if (gridPosition.y < boundY1) {
-                gridPosition.y = boundY2 + gridPosition.y;
+                y = boundY2 + gridPosition.y;
             } else {
-                gridPosition.y = gridPosition.y - boundY2;
+                y = gridPosition.y - boundY2;
             }
         }
+        return PointCache.get(x, y);
     }
 
     public static Target getTarget(TiledMapWrapper map, Point point) {

@@ -29,6 +29,7 @@ public abstract class TiledMapWrapper {
         height = prop.get("height", Integer.class);
         tileWidth = prop.get("tilewidth", Integer.class);
         tileHeight = prop.get("tileheight", Integer.class);
+        PointCache.init(width, height);
     }
 
     public String getProperty(int layerIndex, String propertyName, Point gridPosition) {

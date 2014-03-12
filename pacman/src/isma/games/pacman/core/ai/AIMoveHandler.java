@@ -2,9 +2,6 @@ package isma.games.pacman.core.ai;
 
 import com.badlogic.gdx.utils.Array;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import isma.games.Direction;
 import isma.games.Log;
 import isma.games.Point;
@@ -12,7 +9,7 @@ import isma.games.Target;
 import isma.games.TiledMapHelper;
 import isma.games.graph.Dijkstra;
 import isma.games.graph.Graph;
-import isma.games.graph.GraphBuilder;
+import isma.games.pacman.core.GraphBuilder;
 import isma.games.graph.Vertex;
 import isma.games.pacman.core.actors.AliveActor;
 import isma.games.pacman.core.manager.DefaultMoveHandler;
@@ -20,12 +17,8 @@ import isma.games.pacman.core.manager.MoveHandlerHelper;
 import isma.games.pacman.core.manager.WorldContainer;
 import isma.games.pacman.core.tiled.Maze;
 
-import static isma.games.Log.debug;
-import static isma.games.Log.info;
 import static isma.games.Log.start;
-import static isma.games.Log.warn;
 import static isma.games.TiledMapHelper.getGridPosition;
-import static isma.games.utils.TargetUtils.stringify;
 
 public abstract class AIMoveHandler extends DefaultMoveHandler {
     protected final WorldContainer world;

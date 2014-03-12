@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import isma.games.AbstractCoreTest;
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.test.MazeMockFactory;
 
 import static isma.games.Direction.EAST;
@@ -27,11 +28,11 @@ public class MazeMoveHelperTest extends AbstractCoreTest {
     public void scenario() throws Exception {
         Maze maze = mockMaze();
 
-        assertFalse(maze.isPath(new Point(0, 1), 1));
-        assertTrue(maze.isPath(new Point(1, 1), 1));
-        assertTrue(maze.isPath(new Point(2, 1), 1));
-        assertTrue(maze.isPath(new Point(3, 1), 1));
-        assertTrue(maze.isPath(new Point(4, 1), 1));
+        assertFalse(maze.isPath(PointCache.get(0, 1), 1));
+        assertTrue(maze.isPath(PointCache.get(1, 1), 1));
+        assertTrue(maze.isPath(PointCache.get(2, 1), 1));
+        assertTrue(maze.isPath(PointCache.get(3, 1), 1));
+        assertTrue(maze.isPath(PointCache.get(4, 1), 1));
         /***************************************************************
          * PATH LENGTH - X/Y INT/FLOAT
          ***************************************************************/
@@ -91,24 +92,24 @@ public class MazeMoveHelperTest extends AbstractCoreTest {
     private Maze mockMaze() {
         int layerIndex = 1;
 
-        Maze maze = MazeMockFactory.mock(new Point(6, 4));
+        Maze maze = MazeMockFactory.mock(PointCache.get(6, 4));
         when(maze.getLayerPath()).thenReturn(layerIndex);
 
-        when(maze.isPath(new Point(1, 1), 1)).thenReturn(true);
-        when(maze.isPath(new Point(2, 1), 1)).thenReturn(true);
-        when(maze.isPath(new Point(3, 1), 1)).thenReturn(true);
-        when(maze.isPath(new Point(4, 1), 1)).thenReturn(true);
-        when(maze.isPath(new Point(3, 2), 1)).thenReturn(true);
+        when(maze.isPath(PointCache.get(1, 1), 1)).thenReturn(true);
+        when(maze.isPath(PointCache.get(2, 1), 1)).thenReturn(true);
+        when(maze.isPath(PointCache.get(3, 1), 1)).thenReturn(true);
+        when(maze.isPath(PointCache.get(4, 1), 1)).thenReturn(true);
+        when(maze.isPath(PointCache.get(3, 2), 1)).thenReturn(true);
         Array<Point> paths = new Array<Point>();
 
-        paths.add(new Point(1, 1));
-        paths.add(new Point(2, 1));
-        paths.add(new Point(3, 1));
-        paths.add(new Point(4, 1));
-        paths.add(new Point(3, 2));
+        paths.add(PointCache.get(1, 1));
+        paths.add(PointCache.get(2, 1));
+        paths.add(PointCache.get(3, 1));
+        paths.add(PointCache.get(4, 1));
+        paths.add(PointCache.get(3, 2));
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
-                Point p = new Point(i, j);
+                Point p = PointCache.get(i, j);
                 TiledMapTileLayer.Cell cell = mock(TiledMapTileLayer.Cell.class);
                 when(maze.isPath(p, 1)).thenReturn(paths.contains(p, false));
                 when(maze.getCell(layerIndex, p)).thenReturn(cell);

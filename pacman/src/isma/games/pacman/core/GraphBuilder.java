@@ -1,10 +1,15 @@
-package isma.games.graph;
+package isma.games.pacman.core;
 
 
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ArrayMap;
 
 import isma.games.Point;
+import isma.games.PointCache;
+import isma.games.graph.Edge;
+import isma.games.graph.Graph;
+import isma.games.graph.PathMap;
+import isma.games.graph.Vertex;
 
 public class GraphBuilder {
     private static final int PATH_FORCE = 2;
@@ -38,8 +43,8 @@ public class GraphBuilder {
         ArrayMap<Point, Vertex<Point>> vertexes = new ArrayMap<Point, Vertex<Point>>();
         for (int i = 0; i < pathMap.getWidth(); i++) {
             for (int j = 0; j < pathMap.getHeight(); j++) {
-                if (pathMap.isPath(new Point(i, j), PATH_FORCE)) {
-                    Point point = new Point(i, j);
+                if (pathMap.isPath(PointCache.get(i, j), PATH_FORCE)) {
+                    Point point = PointCache.get(i, j);
                     vertexes.put(point, new Vertex<Point>(point));
                 }
             }
@@ -58,30 +63,30 @@ public class GraphBuilder {
         Point left, right, up, down;
 
         if (point.x > xLowerBound) {
-            left = new Point(point.x - 1, point.y);
+            left = PointCache.get(point.x - 1, point.y);
         } else if (point.x == xLowerBound) {
-            left = new Point(xUpperBound, point.y);
+            left = PointCache.get(xUpperBound, point.y);
         } else {
             throw new RuntimeException("?");
         }
         if (point.x < xUpperBound) {
-            right = new Point(point.x + 1, point.y);
+            right = PointCache.get(point.x + 1, point.y);
         } else if (point.x == xUpperBound) {
-            right = new Point(xLowerBound, point.y);
+            right = PointCache.get(xLowerBound, point.y);
         } else {
             throw new RuntimeException("?");
         }
         if (point.y > yLowerBound) {
-            up = new Point(point.x, point.y - 1);
+            up = PointCache.get(point.x, point.y - 1);
         } else if (point.x == xLowerBound) {
-            up = new Point(point.x, yUpperBound);
+            up = PointCache.get(point.x, yUpperBound);
         } else {
             throw new RuntimeException("?");
         }
         if (point.y < yUpperBound) {
-            down = new Point(point.x, point.y + 1);
+            down = PointCache.get(point.x, point.y + 1);
         } else if (point.y == yUpperBound) {
-            down = new Point(point.x, yLowerBound);
+            down = PointCache.get(point.x, yLowerBound);
         } else {
             throw new RuntimeException("?");
         }

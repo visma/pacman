@@ -1,6 +1,7 @@
 package isma.games.pacman.core.ai;
 
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.Target;
 import isma.games.TargetHelper;
 import isma.games.graph.Dijkstra;
@@ -33,7 +34,7 @@ public class PacmanAIMoveHandler extends AIMoveHandler {
         Target farestFoodFromGhosts = world.getRemainingFood().get(0);
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
-                Food food = world.getFoodAt(new Point(i, j));
+                Food food = world.getFoodAt(PointCache.get(i, j));
                 if (food == null){
                     continue;
                 }
@@ -50,7 +51,7 @@ public class PacmanAIMoveHandler extends AIMoveHandler {
         /*if (stage.getGhosts().isEmpty()) {
             for (int i = 0; i < maze.getWidth(); i++) {
                 for (int j = 0; j < maze.getHeight(); j++) {
-                    Dot dotAt = stage.getDotAt(new Point(i, j));
+                    Dot dotAt = stage.getDotAt(PointCache.get(i, j));
                     if (dotAt != null && dotAt.isAlive()) {
                         if (i == 1 && j == 3) {
                             System.out.println("la");

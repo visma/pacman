@@ -18,17 +18,17 @@ public class GraphBuilderTest {
         Graph graph = new GraphBuilder().buildGraph(map);
 
         assertEquals(3, graph.getVertexes().size());
-        assertTrue(graph.containsVertex(new Point(0, 0)));
-        assertTrue(graph.containsVertex(new Point(0, 1)));
-        assertFalse(graph.containsVertex(new Point(1, 0)));
-        assertTrue(graph.containsVertex(new Point(1, 1)));
+        assertTrue(graph.containsVertex(PointCache.get(0, 0)));
+        assertTrue(graph.containsVertex(PointCache.get(0, 1)));
+        assertFalse(graph.containsVertex(PointCache.get(1, 0)));
+        assertTrue(graph.containsVertex(PointCache.get(1, 1)));
 
         //Bidirectionnal graph
         assertEquals(2 * 2, graph.getEdges().size());
-        assertTrue(graph.containsEdge(new Point(0, 0), new Point(0, 1)));
-        assertTrue(graph.containsEdge(new Point(0, 1), new Point(0, 0)));
-        assertTrue(graph.containsEdge(new Point(0, 1), new Point(1, 1)));
-        assertTrue(graph.containsEdge(new Point(1, 1), new Point(0, 1)));
+        assertTrue(graph.containsEdge(PointCache.get(0, 0), PointCache.get(0, 1)));
+        assertTrue(graph.containsEdge(PointCache.get(0, 1), PointCache.get(0, 0)));
+        assertTrue(graph.containsEdge(PointCache.get(0, 1), PointCache.get(1, 1)));
+        assertTrue(graph.containsEdge(PointCache.get(1, 1), PointCache.get(0, 1)));
     }*/
 
     private PathMap buildPathMap() {

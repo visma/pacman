@@ -15,6 +15,7 @@ import isma.games.Input;
 import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.ai.GhostAIMoveHandler;
+import isma.games.pacman.core.ai.PacmanAIMoveHandler;
 import isma.games.pacman.core.manager.ActorStateManager;
 import isma.games.pacman.core.manager.DefaultMoveHandler;
 import isma.games.pacman.core.manager.MoveHandler;
@@ -33,7 +34,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     private MoveManager moveManager = new MoveManager();
     private ActorStateManager actorStateManager = new ActorStateManager();
 
-    public PacmanStage(Game game, Maze maze) {
+    public PacmanStage(Maze maze) {
         Gdx.app.setLogLevel(Application.LOG_INFO);
 
         world = new PacmanWorld(maze);
@@ -63,7 +64,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     @Override
     public void act(float delta) {
         //super.act(delta);
-        //FPS_LOGGER.log();
+        FPS_LOGGER.log();
         if ((act++ % 10) == 0) {
             world.gameBoard.setMessage("FPS : " + Gdx.graphics.getFramesPerSecond());
         }

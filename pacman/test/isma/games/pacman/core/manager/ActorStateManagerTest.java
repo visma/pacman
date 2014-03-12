@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
 import isma.games.Point;
+import isma.games.PointCache;
 import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.Dot;
 import isma.games.pacman.core.actors.Food;
@@ -20,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 public class ActorStateManagerTest {
-    private static final Point FOOD_GRID_POSITION = new Point(1, 1);
+    private static final Point FOOD_GRID_POSITION = PointCache.get(1, 1);
     private ActorStateManager manager;
 
     @Before
@@ -74,7 +75,7 @@ public class ActorStateManagerTest {
 
     private WorldContainer buildStage(Vector2 pacmanCenterPosition) {
         WorldContainer stage = mock(WorldContainer.class);
-        Maze maze = MazeMockFactory.mock(new Point(2, 2));
+        Maze maze = MazeMockFactory.mock(PointCache.get(2, 2));
 
         Pacman pacman = ActorMockFactory.mockPacman(pacmanCenterPosition);
         when(stage.getPacman()).thenReturn(pacman);

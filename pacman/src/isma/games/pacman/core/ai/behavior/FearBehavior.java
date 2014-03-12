@@ -37,7 +37,7 @@ public class FearBehavior extends GhostBehavior {
         ArrayMap<Direction, Point> possibleRuns = new ArrayMap<Direction, Point>();
         for (Direction direction : Direction.values()) {
             Point nextPosition = ghostPosition.onNext(direction);
-            handleOutOfBounds(maze, nextPosition);
+            nextPosition = handleOutOfBounds(maze, nextPosition);
             if (maze.isPath(nextPosition, PATH_FORCE)) {
                 possibleRuns.put(direction, nextPosition);
             }
