@@ -7,6 +7,8 @@ import isma.games.pacman.core.manager.WorldContainer;
 import static isma.games.Log.*;
 
 public abstract class GhostBehavior {
+    public static final int PATH_FORCE = 2;
+
     private final long duration;
     private long elapsed = 0;
     private long lastTime = 0;

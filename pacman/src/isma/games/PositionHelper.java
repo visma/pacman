@@ -1,10 +1,12 @@
 package isma.games;
 
 
-import java.util.ArrayList;
-import java.util.List;
+import com.badlogic.gdx.utils.Array;
 
-import static isma.games.Direction.*;
+import static isma.games.Direction.EAST;
+import static isma.games.Direction.NORTH;
+import static isma.games.Direction.SOUTH;
+import static isma.games.Direction.WEST;
 
 
 public class PositionHelper {
@@ -23,8 +25,8 @@ public class PositionHelper {
         throw new RuntimeException("not a valid direction : " + direction);
     }
 
-    public static List<Direction> getOrientation(Point origin, Point reference) {
-        List<Direction> directions = new ArrayList<Direction>();
+    public static Array<Direction> getOrientation(Point origin, Point reference) {
+        Array<Direction> directions = new Array<Direction>();
 
         if (reference.x < origin.x) {
             directions.add(WEST);

@@ -1,5 +1,7 @@
 package isma.games.pacman.core.ai;
 
+import com.badlogic.gdx.utils.ArrayMap;
+
 import isma.games.Log;
 import isma.games.Point;
 import isma.games.TargetHelper;
@@ -16,18 +18,22 @@ import java.util.Map;
 import static isma.games.pacman.core.ai.PacmanAIGraphBuilder.WEIGHT.*;
 
 public class PacmanAIGraphBuilder extends GraphBuilder {
+    public final static int ALWAYS_POSITIVE_OFFSET = 0;
+
+
     enum WEIGHT {
-        NONE(1),
-        NORMAL_DOT(-5),
-        ENERGIZER_DOT(-30),
-        FRUIT(-30),
-        GHOST(200),
-        GHOST_FRIGHTENED(-200),
-        GHOST_NAKED(10);
+        GHOST(20 * 1000),
+        GHOST_NAKED(2 * 1000),
+        NONE(100),
+        NORMAL_DOT(10),
+        ENERGIZER_DOT(0),
+        GHOST_FRIGHTENED(0),
+        FRUIT(0);
+
         int weight;
 
         WEIGHT(int weight) {
-            this.weight = weight;
+            this.weight = weight + ALWAYS_POSITIVE_OFFSET;
         }
     }
 
@@ -38,9 +44,9 @@ public class PacmanAIGraphBuilder extends GraphBuilder {
     }
 
     @Override
-    protected int getWeight(Map<Point, Vertex> vertexes, Vertex<Point> source, Vertex<Point> destination) {
+    protected int getWeight(ArrayMap<Point, Vertex<Point>> vertexes, Point destination) {
         int ghostWeight = getGhostsWeight(destination);
-        Food foodAt = stage.getFoodAt(destination.getId());
+        Food foodAt = stage.getFoodAt(destination);
         int foodWeight;
         if (foodAt == null || !foodAt.isAlive()) {
             foodWeight = NONE.weight;
@@ -55,17 +61,16 @@ public class PacmanAIGraphBuilder extends GraphBuilder {
             foodWeight = FRUIT.weight;
         }
         int weight = ghostWeight + foodWeight;
-        Log.trace("weight = " + weight);
+        //Log.warn("weight = " + weight);
 
         return weight;
     }
 
-    private int getGhostsWeight(Vertex<Point> destination) {
+    private int getGhostsWeight(Point destinationPosition) {
         int weight = 0;
         final float dangerRatio = 0.7f;
         int radius = 4;//4 ca avait l air pas mal
 
-        Point destinationPosition = destination.getId();
         for (Ghost ghost : stage.getGhosts()) {
             Point ghostPosition = TiledMapHelper.getGridPosition(stage.getMaze(), ghost);
             if (TargetHelper.hit(destinationPosition, ghostPosition)) {

@@ -2,27 +2,29 @@ package isma.games.pacman.core.actors;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ArrayMap;
+
+import java.util.Map;
+
 import isma.games.Direction;
 import isma.games.GameObject;
 import isma.games.Target;
 import isma.games.pacman.core.assets.TextureFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 public abstract class AliveActor extends Actor implements Target, GameObject {
-    protected List<WorldEventListener> eventListeners = new ArrayList<WorldEventListener>();
+    private static final int WIDTH = 8;
+    private static final int HEIGHT = 8;
+    protected Array<WorldEventListener> eventListeners = new Array<WorldEventListener>();
 
     protected final TextureFactory textureFactory;
 
     private final String id;
     protected long frame;
-    protected final Map<Direction, Animation> animations;
+    protected final ArrayMap<Direction, Animation> animations;
 
     protected Direction currentDirection;
     protected boolean stopped;
@@ -44,7 +46,7 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        if (!visible){
+        if (!visible) {
             return;
         }
         //TODO normalement on file le temps, pas la frame...
@@ -59,8 +61,8 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
 
     public Rectangle getCenter() {
         //TODO pas mettre en dur width et height
-        int width = 8;
-        int height = 8;
+        int width = WIDTH;
+        int height = HEIGHT;
         return new Rectangle(getX() + 4, getY() + 4, width, height);
     }
 
@@ -109,7 +111,7 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
     }
 
 
-    public void setVisible(boolean visible){
+    public void setVisible(boolean visible) {
         this.visible = visible;
     }
 }

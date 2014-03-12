@@ -1,43 +1,41 @@
 package isma.games.graph;
 
 
-import isma.games.Log;
-import isma.games.Point;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ArrayMap;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import isma.games.Point;
 
 public class GraphBuilder {
     private static final int PATH_FORCE = 2;
 
-    public Graph buildGraph(PathMap pathMap) {
-        Map<Point, Vertex> vertexes = buildVertexes(pathMap);
-        List<Edge> edges = buildEdges(pathMap, vertexes);
-        return new Graph(new ArrayList<Vertex>(vertexes.values()), edges);
+    public Graph<Point> buildGraph(PathMap pathMap) {
+        ArrayMap<Point, Vertex<Point>> vertexes = buildVertexes(pathMap);
+        buildEdges(pathMap, vertexes);
+        return new Graph<Point>(vertexes.values().toArray());
     }
 
-    private List<Edge> buildEdges(PathMap pathMap, Map<Point, Vertex> vertexes) {
-        List<Edge> edges = new ArrayList<Edge>();
+    private void buildEdges(PathMap pathMap, ArrayMap<Point, Vertex<Point>> vertexes) {
+        for (Point sourcePoint : vertexes.keys()) {
+            Vertex<Point> vertex = vertexes.get(sourcePoint);
+            Array<Point> adjacentPoints = getAdjacentPaths(pathMap, sourcePoint);
+            vertex.adjacencies = new Edge[adjacentPoints.size];
 
-        for (Point point : vertexes.keySet()) {
-            Vertex source = vertexes.get(point);
-            List<Point> adjacentPoints = getAdjacentPaths(pathMap, point);
-            for (Point adjacentPoint : adjacentPoints) {
-                Vertex destination = vertexes.get(adjacentPoint);
-                edges.add(new Edge(source, destination, getWeight(vertexes, source, destination)));
+            for (int i = 0; i < adjacentPoints.size; i++) {
+                Point adjacentPoint = adjacentPoints.get(i);
+                int weight = getWeight(vertexes, adjacentPoint);
+                vertex.adjacencies[i] = new Edge<Point>(vertexes.get(adjacentPoint), weight);
             }
         }
-        return edges;
     }
 
-    protected int getWeight(Map<Point, Vertex> vertexes, Vertex<Point> source, Vertex<Point> destination) {
+
+    protected int getWeight(ArrayMap<Point, Vertex<Point>> vertexes, Point destination) {
         return 1;
     }
 
-    private Map<Point, Vertex> buildVertexes(PathMap pathMap) {
-        Map<Point, Vertex> vertexes = new HashMap<Point, Vertex>();
+    private ArrayMap<Point, Vertex<Point>> buildVertexes(PathMap pathMap) {
+        ArrayMap<Point, Vertex<Point>> vertexes = new ArrayMap<Point, Vertex<Point>>();
         for (int i = 0; i < pathMap.getWidth(); i++) {
             for (int j = 0; j < pathMap.getHeight(); j++) {
                 if (pathMap.isPath(new Point(i, j), PATH_FORCE)) {
@@ -49,14 +47,14 @@ public class GraphBuilder {
         return vertexes;
     }
 
-    private List<Point> getAdjacentPaths(PathMap pathMap, Point point) {
+    private Array<Point> getAdjacentPaths(PathMap pathMap, Point point) {
         int xLowerBound = 0;
         int xUpperBound = pathMap.getWidth() - 1;
 
         int yLowerBound = 0;
         int yUpperBound = pathMap.getHeight() - 1;
 
-        List<Point> adjacents = new ArrayList<Point>();
+        Array<Point> adjacents = new Array<Point>();
         Point left, right, up, down;
 
         if (point.x > xLowerBound) {
@@ -104,14 +102,6 @@ public class GraphBuilder {
         return adjacents;
     }
 
-    public void printPathWeight(List<Vertex<Point>> path) {
-        for (int i = 0; i < path.size() - 1; i++) {
-            int weight = getWeight(null, path.get(i), path.get(i + 1));
-            if (weight > 1000){
-                Log.info(" - weight=%s, a=%s, b=%s", weight, path.get(i), path.get(i + 1));
-            }
-        }
-    }
 
 }
 

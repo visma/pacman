@@ -1,8 +1,10 @@
 package isma.games.pacman.core.stages;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ArrayMap;
+
 import isma.games.Point;
-import isma.games.graph.GraphBuilder;
 import isma.games.pacman.core.actors.*;
 import isma.games.pacman.core.ai.PacmanAIGraphBuilder;
 import isma.games.pacman.core.assets.SoundManager;
@@ -20,18 +22,19 @@ import static isma.games.pacman.core.stages.PacmanWorld.GameState.RUNNING;
 public class PacmanWorld implements WorldContainer {
     private Game game;
 
-    private static final int RESTART_DURATION = 1;//3000;
-    private static final int GHOST_EAT_DURATION = 1;//700;
-    private static final int DYING_DURATION = 1;//2000;
+    private static final int RESTART_DURATION = 3000;
+    private static final int GHOST_EAT_DURATION = 700;
+    private static final int DYING_DURATION = 2000;
 
-    private final SoundManager soundManager;
+    //TODO remettre en privé
+    public final SoundManager soundManager;
 
     final GameBoard gameBoard;
     final Maze maze;
 
-    final Map<Point, Food> foodMap;
+    final ArrayMap<Point, Food> foodMap;
     final Pacman pacman;
-    final List<Ghost> ghosts = new ArrayList<Ghost>();
+    final Array<Ghost> ghosts = new Array<Ghost>();
     final DebugPath debugPath;
 
     int level;
@@ -56,7 +59,7 @@ public class PacmanWorld implements WorldContainer {
         foodMap = MazeBuilder.loadFood(maze);
         pacman = ActorFactory.buildPacman();
 
-        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, false);
+        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, true, false);
 
         //ghosts.addAll(ActorFactory.buildAllGhosts());
         ghosts.add(ActorFactory.buildBlinky());
@@ -171,27 +174,9 @@ public class PacmanWorld implements WorldContainer {
                 soundManager.playChompDot();
             } else {
                 soundManager.playChompEnergizer();
-                /*new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        boolean frightenedGhost = true;
-                        while (frightenedGhost) {
-                            frightenedGhost = false;
-                            for (Ghost ghost : ghosts) {
-                                if (ghost.getState() == FRIGTHENED) {
-                                    frightenedGhost = true;
-                                    break;
-                                }
-                                frightenedGhost = false;
-                            }
-                        }
-                        soundManager.stopChompEnergizer();
-                    }
-                }).start();
-                */
             }
         }
-        if (getRemainingFood().isEmpty()) {
+        if (getRemainingFood().size == 0) {
             nextLevel();
         }
     }
@@ -207,7 +192,6 @@ public class PacmanWorld implements WorldContainer {
             frightenedGhost = false;
         }
         if (!frightenedGhost){
-            System.out.println("stop energizer");
             soundManager.stopChompEnergizer();
         }
     }
@@ -227,8 +211,8 @@ public class PacmanWorld implements WorldContainer {
     }
 
     @Override
-    public List<Food> getRemainingFood() {
-        List<Food> remaining = new ArrayList<Food>();
+    public Array<Food> getRemainingFood() {
+        Array<Food> remaining = new Array<Food>();
         for (Food food : foodMap.values()) {
             if (food.isAlive()) {
                 remaining.add(food);
@@ -244,7 +228,7 @@ public class PacmanWorld implements WorldContainer {
     }
 
     @Override
-    public List<Ghost> getGhosts() {
+    public Array<Ghost> getGhosts() {
         return ghosts;
     }
 

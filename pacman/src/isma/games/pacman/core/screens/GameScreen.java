@@ -24,8 +24,7 @@ public class GameScreen implements Screen {
         camera = new OrthographicCamera(Maze.WIDTH, Maze.HEIGHT);
         maze = MazeFactory.buildMaze(camera);
         stage = new PacmanStage(game, maze);
-
-
+        stage.setCamera(camera);
     }
 
 

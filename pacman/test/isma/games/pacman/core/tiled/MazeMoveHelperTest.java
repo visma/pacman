@@ -2,15 +2,18 @@ package isma.games.pacman.core.tiled;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
+
+import org.junit.Test;
+
 import isma.games.AbstractCoreTest;
 import isma.games.Point;
 import isma.games.test.MazeMockFactory;
-import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static isma.games.Direction.*;
+import static isma.games.Direction.EAST;
+import static isma.games.Direction.NORTH;
+import static isma.games.Direction.SOUTH;
+import static isma.games.Direction.WEST;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
@@ -96,7 +99,7 @@ public class MazeMoveHelperTest extends AbstractCoreTest {
         when(maze.isPath(new Point(3, 1), 1)).thenReturn(true);
         when(maze.isPath(new Point(4, 1), 1)).thenReturn(true);
         when(maze.isPath(new Point(3, 2), 1)).thenReturn(true);
-        List<Point> paths = new ArrayList<Point>();
+        Array<Point> paths = new Array<Point>();
 
         paths.add(new Point(1, 1));
         paths.add(new Point(2, 1));
@@ -107,9 +110,9 @@ public class MazeMoveHelperTest extends AbstractCoreTest {
             for (int j = 0; j < maze.getHeight(); j++) {
                 Point p = new Point(i, j);
                 TiledMapTileLayer.Cell cell = mock(TiledMapTileLayer.Cell.class);
-                when(maze.isPath(p, 1)).thenReturn(paths.contains(p));
+                when(maze.isPath(p, 1)).thenReturn(paths.contains(p, false));
                 when(maze.getCell(layerIndex, p)).thenReturn(cell);
-                when(maze.isPath(cell, 1)).thenReturn(paths.contains(p));
+                when(maze.isPath(cell, 1)).thenReturn(paths.contains(p, false));
             }
         }
         return maze;

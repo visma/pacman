@@ -3,7 +3,7 @@ package isma.games.pacman.core.assets;
 import com.badlogic.gdx.audio.Sound;
 
 public class SoundManager {
-    private boolean enabled = false;
+    private boolean enabled = true;
 
     public static final float PITCH = 1.0f;
     public static final float PAN = 0f;

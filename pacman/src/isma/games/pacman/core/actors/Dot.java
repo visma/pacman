@@ -7,6 +7,9 @@ import com.badlogic.gdx.math.Rectangle;
 import isma.games.pacman.core.assets.TextureFactory;
 
 public class Dot extends Food {
+    private static final int WIDTH = 8;
+    private static final int HEIGHT = 8;
+
     private final Animation animation;
     private boolean energizer;
     private int frame;
@@ -27,8 +30,8 @@ public class Dot extends Food {
     }
 
     public Rectangle getCenter() {
-        int width = 8;
-        int height = 8;
+        int width = WIDTH;
+        int height = HEIGHT;
         return new Rectangle(getX(), getY(), width, height);
     }
 

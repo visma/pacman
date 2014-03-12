@@ -1,6 +1,8 @@
 package isma.games.pacman.core.manager;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
+
 import isma.games.Point;
 import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.Dot;
@@ -79,7 +81,7 @@ public class ActorStateManagerTest {
 
         Dot cornerFood = ActorMockFactory.mockDot(new Vector2(8, 8), true, false);
         when(stage.getFoodAt(FOOD_GRID_POSITION)).thenReturn(cornerFood);
-        when(stage.getRemainingFood()).thenReturn(Arrays.<Food>asList(cornerFood));
+        when(stage.getRemainingFood()).thenReturn(new Array<Food>(new Food[]{cornerFood}));
         when(stage.getMaze()).thenReturn(maze);
         return stage;
     }

@@ -19,7 +19,7 @@ public class PacmanDesktop {
 
     public static void main (String[] args) {
         int fps = MoveManager.FPS_LIMIT_CAP;
-        int scaleRatio = 1;
+        int scaleRatio = 3;
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 //        config.useGL20 = true;
         config.width = 224 * scaleRatio;

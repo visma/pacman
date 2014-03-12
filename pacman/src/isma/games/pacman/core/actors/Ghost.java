@@ -2,19 +2,21 @@ package isma.games.pacman.core.actors;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.ArrayMap;
+
 import isma.games.Direction;
 import isma.games.math.SinusVariation;
 import isma.games.math.TrigoFunctionFactory;
 
-import java.util.Map;
-
-import static isma.games.pacman.core.actors.Ghost.GhostState.*;
+import static isma.games.pacman.core.actors.Ghost.GhostState.FRIGTHENED;
+import static isma.games.pacman.core.actors.Ghost.GhostState.NAKED;
+import static isma.games.pacman.core.actors.Ghost.GhostState.NORMAL;
 
 public class Ghost extends AliveActor {
     private static final float FRIGHTENED_SPEED_COEFF = 0.6f;
     private static final float NAKED_SPEED_COEFF = 1.3f;
     private final Animation[] frightenedAnimation;
-    private final Map<Direction, Animation> nakedAnimation;
+    private final ArrayMap<Direction, Animation> nakedAnimation;
     private GhostState state;
     private SinusVariation sinusVariation;
 
@@ -66,7 +68,7 @@ public class Ghost extends AliveActor {
     private void setState(GhostState state) {
         GhostState old = this.state;
         this.state = state;
-        if (this.state != old){
+        if (this.state != old) {
             for (WorldEventListener eventListener : eventListeners) {
                 eventListener.onStateChanged(this);
             }

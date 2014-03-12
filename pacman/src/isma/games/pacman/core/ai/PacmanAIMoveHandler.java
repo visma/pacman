@@ -3,6 +3,7 @@ package isma.games.pacman.core.ai;
 import isma.games.Point;
 import isma.games.Target;
 import isma.games.TargetHelper;
+import isma.games.graph.Dijkstra;
 import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.manager.WorldContainer;
@@ -27,11 +28,15 @@ public class PacmanAIMoveHandler extends AIMoveHandler {
 
     protected Target searchTarget() {
         graph = graphBuilder.buildGraph(maze);
+        dijkstra = new Dijkstra<Point>(graph);
 
-        Target farestFoodFromGhosts = null;
+        Target farestFoodFromGhosts = world.getRemainingFood().get(0);
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
                 Food food = world.getFoodAt(new Point(i, j));
+                if (food == null){
+                    continue;
+                }
                 farestFoodFromGhosts = getFarestFoodFromGhosts(farestFoodFromGhosts, food);
             }
         }

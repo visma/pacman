@@ -1,6 +1,8 @@
 package isma.games.pacman.core.ai;
 
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
+
 import isma.games.Direction;
 import isma.games.Point;
 import isma.games.TiledMapWrapper;
@@ -26,7 +28,7 @@ public class PathFindingTest {
          *  ooo
          *-------
          */
-        LinkedList<Vertex<Point>> path = new LinkedList<Vertex<Point>>();
+        Array<Vertex<Point>> path = new Array<Vertex<Point>>();
         path.add(new Vertex<Point>(new Point(0, 0)));
         path.add(new Vertex<Point>(new Point(1, 0)));
         path.add(new Vertex<Point>(new Point(2, 2)));
@@ -48,7 +50,7 @@ public class PathFindingTest {
          *  oox
          *-------
          */
-        LinkedList<Vertex<Point>> path = new LinkedList<Vertex<Point>>();
+        Array<Vertex<Point>> path = new Array<Vertex<Point>>();
         path.add(new Vertex<Point>(new Point(0, 0)));
         path.add(new Vertex<Point>(new Point(1, 0)));
         path.add(new Vertex<Point>(new Point(1, 1)));
@@ -71,7 +73,7 @@ public class PathFindingTest {
          *-------
          */
 
-        LinkedList<Vertex<Point>> path = new LinkedList<Vertex<Point>>();
+        Array<Vertex<Point>> path = new Array<Vertex<Point>>();
         path.add(new Vertex<Point>(new Point(0, 0)));
         path.add(new Vertex<Point>(new Point(1, 0)));
         path.add(new Vertex<Point>(new Point(1, 1)));
@@ -93,7 +95,7 @@ public class PathFindingTest {
          *  oox
          *-------
          */
-        LinkedList<Vertex<Point>> path = new LinkedList<Vertex<Point>>();
+        Array<Vertex<Point>> path = new Array<Vertex<Point>>();
         path.add(new Vertex<Point>(new Point(0, 0)));
         path.add(new Vertex<Point>(new Point(1, 0)));
         path.add(new Vertex<Point>(new Point(1, 1)));

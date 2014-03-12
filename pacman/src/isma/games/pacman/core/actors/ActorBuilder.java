@@ -1,9 +1,7 @@
 package isma.games.pacman.core.actors;
 
-import java.util.List;
+import com.badlogic.gdx.utils.Array;
 
-import static isma.games.Direction.EAST;
-import static isma.games.Direction.NORTH;
 import static isma.games.Direction.WEST;
 import static isma.games.pacman.core.actors.Pacman.PacmanState.ALIVE;
 
@@ -11,10 +9,10 @@ public class ActorBuilder {
     private ActorBuilder() {
     }
 
-    public static void resetAll(Pacman pacman, List<Ghost> ghosts){
+    public static void resetAll(Pacman pacman, Array<Ghost> ghosts) {
         reset(pacman);
-        for (Ghost ghost : ghosts) {
-            reset(ghost);
+        for (int i = 0; i < ghosts.size; i++) {
+            reset(ghosts.get(i));
         }
     }
 

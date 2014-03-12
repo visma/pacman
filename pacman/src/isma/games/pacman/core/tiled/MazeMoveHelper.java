@@ -4,13 +4,11 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import isma.games.*;
-import isma.games.graph.PathMap;
 
 import java.util.Set;
 
 import static isma.games.Direction.EAST;
 import static isma.games.Direction.WEST;
-import static isma.games.Log.trace;
 import static isma.games.TiledMapHelper.*;
 import static java.lang.Math.*;
 

@@ -1,5 +1,7 @@
 package isma.games.pacman.core.manager;
 
+import com.badlogic.gdx.utils.Array;
+
 import isma.games.Point;
 import isma.games.pacman.core.actors.*;
 import isma.games.pacman.core.tiled.Maze;
@@ -15,11 +17,11 @@ public interface WorldContainer extends WorldEventListener {
 
     DebugPath getDebugPath();
 
-    List<Ghost> getGhosts();
+    Array<Ghost> getGhosts();
 
     Ghost getGhost(String id);
 
-    List<Food> getRemainingFood();
+    Array<Food> getRemainingFood();
 
     int getLevel();
 }

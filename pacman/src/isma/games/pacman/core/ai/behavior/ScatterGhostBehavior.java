@@ -12,12 +12,12 @@ import static isma.games.TiledMapHelper.getGridPosition;
 import static isma.games.pacman.core.actors.Ghost.GhostState.NORMAL;
 
 public class ScatterGhostBehavior extends GhostBehavior {
-    private final static int TOTAL_CORNERS = 3;
-    //current corners possible values {1, 2, 3}
+    private final static int TOTAL_CORNERS = 4;
+    //current corners possible values {1, 2, 3, 4}
     private int currentCorner = 1;
 
     public ScatterGhostBehavior(Ghost ghost) {
-        super(ghost, 10000);
+        super(ghost, 7000);
     }
 
     @Override
@@ -31,14 +31,11 @@ public class ScatterGhostBehavior extends GhostBehavior {
         Point cornerPosition = maze.getGhostCorner(ghost.getId(), currentCorner);
         if (ghostPosition.equals(cornerPosition)) {
             currentCorner++;
-            if (currentCorner == 4) {
+            if (currentCorner == TOTAL_CORNERS + 1) {
                 currentCorner = 1;
             }
             cornerPosition = maze.getGhostCorner(ghost.getId(), currentCorner);
         }
-//        trace("ghost=%s", ghost.getId());
-//        trace("cornerPosition=%s", cornerPosition);
-//        trace("ghostPosition=%s", ghostPosition);
         return TiledMapHelper.getTarget(maze, cornerPosition);
     }
 

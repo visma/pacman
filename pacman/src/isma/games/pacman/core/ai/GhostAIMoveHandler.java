@@ -6,14 +6,11 @@ import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.ai.behavior.ChaseGhostBehavior;
 import isma.games.pacman.core.ai.behavior.ChaseStrategyFactory;
 import isma.games.pacman.core.ai.behavior.GhostBehavior;
-import isma.games.pacman.core.ai.behavior.ScatterGhostBehavior;
 import isma.games.pacman.core.manager.WorldContainer;
-
-import static isma.games.Log.trace;
-import static isma.games.Log.warn;
 
 public class GhostAIMoveHandler extends AIMoveHandler {
     private GhostBehavior behavior;
+
     public GhostAIMoveHandler(Ghost actor, WorldContainer world) {
         super(actor, world, new GraphBuilder());
         behavior = new ChaseGhostBehavior(actor, ChaseStrategyFactory.build(actor, world));
@@ -24,7 +21,7 @@ public class GhostAIMoveHandler extends AIMoveHandler {
     @Override
     protected boolean nextMoveChangeTurnTile(float remainingLen) {
         behavior.update(world);
-        if (behavior.isOver(world)){
+        if (behavior.isOver(world)) {
             behavior = behavior.nextBehavior(world);
         }
         return super.nextMoveChangeTurnTile(remainingLen);

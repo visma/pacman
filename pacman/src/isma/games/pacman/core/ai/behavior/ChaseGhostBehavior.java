@@ -10,7 +10,7 @@ public class ChaseGhostBehavior extends GhostBehavior {
     private ChaseStrategy strategy;
 
     public ChaseGhostBehavior(Ghost ghost, ChaseStrategy strategy) {
-        super(ghost, 10000);
+        super(ghost, 20000);
         this.strategy = strategy;
     }
 

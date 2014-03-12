@@ -1,24 +1,21 @@
 package isma.games.pacman.core.manager;
 
+import com.badlogic.gdx.utils.ArrayMap;
+
 import isma.games.Log;
 import isma.games.NumberHelper;
-import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.AliveActor;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.pacman.core.tiled.MazeMoveHelper;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static isma.games.Log.*;
-import static isma.games.utils.TargetUtils.stringify;
+import static isma.games.Log.start;
 
 public class MoveManager {
     public static final int FPS_LIMIT_CAP = 60;
     private static final int FPS_OPTIMUM = 60;
 
     private static final float ROUND_DELTA = 0.000001f;
-    private Map<AliveActor, MoveHandler> map = new HashMap<AliveActor, MoveHandler>();
+    private ArrayMap<AliveActor, MoveHandler> map = new ArrayMap<AliveActor, MoveHandler>();
 
     public MoveManager() {
     }
@@ -29,7 +26,7 @@ public class MoveManager {
     }
 
     public void moveAll(float delta, Maze maze) {
-        for (AliveActor actor : map.keySet()) {
+        for (AliveActor actor : map.keys()) {
             MoveHandler moveHandler = map.get(actor);
             /*info("before (%s): actor=%s, tile=%s, directions{CURR=%s, INPUT=%s}",
                     actor.getId(),
@@ -66,7 +63,7 @@ public class MoveManager {
     }
 
     private void moveStraightThenTurn(Maze maze, MoveHandler moveHandler, AliveActor actor,
-                                         float currentPathLen, float remainingLen){
+                                      float currentPathLen, float remainingLen) {
         remainingLen = remainingLen - currentPathLen;
 //        trace("turn : %s=%s then %s=%s", actor.getCurrentDirection(), currentPathLen, moveHandler.getDirection(), remainingLen);
 //        trace("1=> default-move %s : %s", actor.getCurrentDirection(), currentPathLen);

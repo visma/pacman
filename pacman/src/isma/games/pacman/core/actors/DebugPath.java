@@ -5,29 +5,31 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.ArrayMap;
+
+import java.util.Arrays;
+
 import isma.games.Point;
 import isma.games.graph.Graph;
 import isma.games.graph.Vertex;
 import isma.games.pacman.core.assets.Assets;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-
 public class DebugPath extends Actor {
-    private final Map<String, TextureRegion> actorTextures = new HashMap<String, TextureRegion>();
-    private final Map<AliveActor, LinkedList<Vertex<Point>>> actorPaths = new HashMap<AliveActor, LinkedList<Vertex<Point>>>();
+    private final ArrayMap<String, TextureRegion> actorTextures = new ArrayMap<String, TextureRegion>();
+    private final ArrayMap<AliveActor, Array<Vertex<Point>>> actorPaths = new ArrayMap<AliveActor, Array<Vertex<Point>>>();
     private final Texture graphVertexTexture;
 
-    private Graph graph;
+    private Graph<Point> graph;
 
-    private boolean enableActos;
+    private boolean enableGhost;
+    private boolean enablePacman;
     private boolean enableGraph;
 
-    public DebugPath(Graph graph, boolean enableActors, boolean enableGraph) {
+    public DebugPath(Graph graph, boolean enableGhost, boolean enablePacman, boolean enableGraph) {
         this.graph = graph;
-        this.enableActos = enableActors;
+        this.enableGhost = enableGhost;
+        this.enablePacman = enablePacman;
         this.enableGraph = enableGraph;
         for (String id : Arrays.asList("pacman", "blinky", "inky", "clyde", "pinky")) {
             Texture spriteSheet = new Texture(Gdx.files.internal(Assets.getPathTraceSpriteSheet(id)));
@@ -42,31 +44,33 @@ public class DebugPath extends Actor {
 
     @Override
     public final void draw(Batch batch, float parentAlpha) {
-        if (enableGraph){
+        if (enableGraph) {
             for (Vertex vertex : graph.getVertexes()) {
-                Point point = (Point) vertex.getId();
+                Point point = (Point) vertex.id;
                 batch.draw(graphVertexTexture, point.x * 8, point.y * 8);
             }
         }
-        if (!enableActos || actorPaths.isEmpty()) {
+        if (actorPaths.size == 0) {
             return;
         }
-        for (AliveActor aliveActor : actorPaths.keySet()) {
-            if (aliveActor instanceof Pacman){
-                continue;
-            }
-            if (actorPaths.get(aliveActor) == null){
+        for (AliveActor aliveActor : actorPaths.keys()) {
+            if (actorPaths.get(aliveActor) == null) {
                 //Log.warn("pas de path pour %s ??", aliveActor.getId());
                 continue;
             }
             for (Vertex vertex : actorPaths.get(aliveActor)) {
-                Point point = (Point) vertex.getId();
+                if (aliveActor instanceof Ghost && !enableGhost) {
+                    continue;
+                } else if (aliveActor instanceof Pacman && !enablePacman) {
+                    continue;
+                }
+                Point point = (Point) vertex.id;
                 batch.draw(actorTextures.get(aliveActor.getId()), point.x * 8, point.y * 8);
             }
         }
     }
 
-    public void setPath(AliveActor actor, LinkedList<Vertex<Point>> path) {
+    public void setPath(AliveActor actor, Array<Vertex<Point>> path) {
         actorPaths.put(actor, path);
     }
 

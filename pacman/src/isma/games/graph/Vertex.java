@@ -1,51 +1,21 @@
 package isma.games.graph;
 
-public class Vertex<E> {
-    final private E id;
-    final private String name;
+public class Vertex<E> implements Comparable<Vertex<E>> {
+    public final E id;
+    public Edge<E>[] adjacencies;
+    public int minDistance = Integer.MAX_VALUE;
+    public Vertex<E> previous;
 
-
-    public Vertex(E id) {
-        this(id, id.toString());
+    public Vertex(E argId) {
+        id = argId;
     }
 
-    public Vertex(E id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public E getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Vertex)) return false;
-
-        Vertex vertex = (Vertex) o;
-
-        if (!id.equals(vertex.id)) return false;
-
-        return true;
+    public int compareTo(Vertex<E> other) {
+        return Double.compare(minDistance, other.minDistance);
     }
 
     @Override
     public String toString() {
         return id.toString();
     }
-
 }

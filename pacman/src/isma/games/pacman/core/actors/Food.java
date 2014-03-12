@@ -1,14 +1,13 @@
 package isma.games.pacman.core.actors;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import isma.games.Target;
+import com.badlogic.gdx.utils.Array;
 
-import java.util.ArrayList;
-import java.util.List;
+import isma.games.Target;
 
 public abstract class Food extends Actor implements Target {
     protected boolean alive;
-    private List<WorldEventListener> eventListeners = new ArrayList<WorldEventListener>();
+    private Array<WorldEventListener> eventListeners = new Array<WorldEventListener>();
 
     public void die() {
         alive = false;

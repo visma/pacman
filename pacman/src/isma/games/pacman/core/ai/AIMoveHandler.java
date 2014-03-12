@@ -1,6 +1,15 @@
 package isma.games.pacman.core.ai;
 
-import isma.games.*;
+import com.badlogic.gdx.utils.Array;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import isma.games.Direction;
+import isma.games.Log;
+import isma.games.Point;
+import isma.games.Target;
+import isma.games.TiledMapHelper;
 import isma.games.graph.Dijkstra;
 import isma.games.graph.Graph;
 import isma.games.graph.GraphBuilder;
@@ -11,20 +20,22 @@ import isma.games.pacman.core.manager.MoveHandlerHelper;
 import isma.games.pacman.core.manager.WorldContainer;
 import isma.games.pacman.core.tiled.Maze;
 
-import java.util.LinkedList;
-
-import static isma.games.Log.*;
+import static isma.games.Log.debug;
+import static isma.games.Log.info;
+import static isma.games.Log.start;
+import static isma.games.Log.warn;
 import static isma.games.TiledMapHelper.getGridPosition;
 import static isma.games.utils.TargetUtils.stringify;
 
 public abstract class AIMoveHandler extends DefaultMoveHandler {
-    protected final GraphBuilder graphBuilder;
     protected final WorldContainer world;
     protected final AliveActor aiActor;
     protected final Maze maze;
 
-    protected Graph graph;
-    private Point tilePosition;
+    protected Dijkstra<Point> dijkstra;
+    protected final GraphBuilder graphBuilder;
+    protected Graph<Point> graph;
+
 
     private Direction currentDirection;
 
@@ -33,8 +44,9 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
         this.graphBuilder = graphBuilder;
         aiActor = actor;
         maze = world.getMaze();
+
         graph = graphBuilder.buildGraph(maze);
-        tilePosition = getGridPosition(maze, aiActor);
+        dijkstra = new Dijkstra<Point>(graph);
     }
 
     @Override
@@ -42,10 +54,10 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
         start(Log.LOG_DEBUG);
         if (nextMoveChangeTurnTile(remainingLen)) {
             Direction aiDirection = computeDirection(maze, remainingLen);
-            debug("dijkstra direction : %s", aiDirection);
+//            debug("dijkstra direction : %s", aiDirection);
             setDirection(aiDirection);
         } else {
-            debug("no dijkstra");
+//            debug("no dijkstra");
         }
     }
 
@@ -53,9 +65,9 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
         Target nextCenterPosition = MoveHandlerHelper.nextCenterPosition(maze, aiActor, remainingLen);
         Point tilePosition = getGridPosition(maze, aiActor);
         Point nextTilePosition = getGridPosition(maze, nextCenterPosition);
-        debug("remainingLen=%s", remainingLen);
-        debug("actor.currentDirection=%s", aiActor.getCurrentDirection());
-        debug("tilePos=%s, nextTilePos=%s", tilePosition, nextTilePosition);
+//        debug("remainingLen=%s", remainingLen);
+//        debug("actor.currentDirection=%s", aiActor.getCurrentDirection());
+//        debug("tilePos=%s, nextTilePos=%s", tilePosition, nextTilePosition);
         int turns = 0;
         //TODO manque handleOutOfBounds : pas tres important visiblement...
         boolean left = maze.isPath(nextTilePosition.onLeft(), getPathForce());
@@ -66,7 +78,7 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
         turns += right ? 1 : 0;
         turns += south ? 1 : 0;
         turns += north ? 1 : 0;
-        debug("turns=%s", turns);
+//        debug("turns=%s", turns);
         if (turns > 2) {
             return true;
         }
@@ -82,30 +94,28 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
     }
 
     private Direction computeDirection(Maze maze, float remainingLen) {
-        warn("------- dijkstra execution : %s", aiActor.getId());
-        info("actor=%s, atTile=%s", stringify(aiActor), getGridPosition(maze, aiActor));
+//        warn("------- dijkstra execution : %s", aiActor.getId());
+//        info("actor=%s, atTile=%s", stringify(aiActor), getGridPosition(maze, aiActor));
         Target target = searchTarget();
-        info("target=%s, atTile=%s", stringify(target), getGridPosition(maze, target));
-        tilePosition = getGridPosition(maze, aiActor);
-
-        Dijkstra dijkstra = new Dijkstra(graph);
-        dijkstra.execute(new Vertex<Point>(tilePosition));
+//        warn("target=%s, atTile=%s", stringify(target), getGridPosition(maze, target));
+        Point tilePosition = getGridPosition(maze, aiActor);
 
         Point targetTile = TiledMapHelper.getGridPosition(maze, target);
-        LinkedList<Vertex<Point>> path = dijkstra.getPath(new Vertex<Point>(targetTile));
+
+        Array<Vertex<Point>> path = dijkstra.getShortestPathTo(tilePosition, targetTile);
         world.getDebugPath().setPath(aiActor, path);
         if (path == null) {
-            warn("no path for " + aiActor.getId());
+//            warn("no path for " + aiActor.getId());
             return aiActor.getCurrentDirection();
         }
-        if (path.isEmpty() || path.size() == 1) {
+        if (path.size < 2) {
             //TODO pk j'ai mis ca ?;
         }
-        warn("%s position: %s", aiActor.getId(), tilePosition);
-        warn("path length : " + path.size());
-        warn("path : " + path);
+//        warn("%s position: %s", aiActor.getId(), tilePosition);
+//        warn("path length : " + path.size());
+//        warn("path : " + path);
         Direction aiDirection = PathFinding.nextDirection(path, maze, aiActor, remainingLen);
-        warn("direction : " + aiDirection);
+//        warn("direction : " + aiDirection);
         return aiDirection;
     }
 

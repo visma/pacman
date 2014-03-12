@@ -1,24 +1,23 @@
 package isma.games;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.badlogic.gdx.utils.ArrayMap;
 
 class TiledPropertiesCache {
-    private Map<InnerKey, Map<Point, String>> cache = new HashMap<InnerKey, Map<Point, String>>();
+    private ArrayMap<InnerKey, ArrayMap<Point, String>> cache = new ArrayMap<InnerKey, ArrayMap<Point, String>>();
 
     void put(int layerIndex, int x, int y, String key, String value) {
         InnerKey cacheKey = new InnerKey(layerIndex, key);
-        Map<Point, String> valuesAt = cache.get(cacheKey);
+        ArrayMap<Point, String> valuesAt = cache.get(cacheKey);
         if (valuesAt == null) {
-            valuesAt = new HashMap<Point, String>();
+            valuesAt = new ArrayMap<Point, String>();
             cache.put(cacheKey, valuesAt);
         }
         valuesAt.put(new Point(x, y), value);
     }
 
     Point getPositionOfUniqueValue(int layerIndex, String key, String uniqueValue) {
-        Map<Point, String> valuesAt = cache.get(new InnerKey(layerIndex, key));
-        for (Point point : valuesAt.keySet()) {
+        ArrayMap<Point, String> valuesAt = cache.get(new InnerKey(layerIndex, key));
+        for (Point point : valuesAt.keys()) {
             if (valuesAt.get(point).equals(uniqueValue)) {
                 return point;
             }

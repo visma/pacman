@@ -96,8 +96,8 @@ public class Log {
     }
 
     private static String buildMessage(String message, Object... params) {
-        return "log desactives (a cause de String.format() non gere par gwt (?)";
-        //return params == null ? message : format(message, params);
+//        return "log desactives (a cause de String.format() non gere par gwt (?)";
+        return params == null ? message : String.format(message, params);
     }
 
     public static void start(final int logLevel) {
