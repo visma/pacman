@@ -8,21 +8,18 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.TimeUtils;
 
 import isma.games.Direction;
 import isma.games.Input;
 import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.ai.GhostAIMoveHandler;
-import isma.games.pacman.core.ai.PacmanAIMoveHandler;
 import isma.games.pacman.core.manager.ActorStateManager;
 import isma.games.pacman.core.manager.DefaultMoveHandler;
 import isma.games.pacman.core.manager.MoveHandler;
 import isma.games.pacman.core.manager.MoveManager;
 import isma.games.pacman.core.tiled.Maze;
 
-import static com.badlogic.gdx.utils.TimeUtils.timeSinceMillis;
 import static isma.games.Direction.EAST;
 import static isma.games.Direction.NORTH;
 import static isma.games.Direction.SOUTH;
@@ -58,6 +55,28 @@ public class PacmanStage extends Stage implements DirectionListener {
 
         world.restart(true);
     }
+
+    static int act = 0;
+
+    @Override
+    public void act(float delta) {
+        //super.act(delta);
+        //FPS_LOGGER.log();
+        if ((act++ % 10) == 0) {
+            world.gameBoard.setMessage("FPS : " + Gdx.graphics.getFramesPerSecond());
+        }
+        if (!world.ready) {
+            return;
+        }
+        moveManager.moveAll(delta, world.maze);
+        actorStateManager.handleState(world);
+
+//        if (timeSinceMillis(startTime) > 120 * 1000) {
+//            System.out.println("minute finie : " + timeSinceMillis(startTime) / 1000);
+//            System.exit(0);
+//        }
+    }
+
 
     private void addAllActors() {
         for (Food food : world.foodMap.values()) {
@@ -131,24 +150,6 @@ public class PacmanStage extends Stage implements DirectionListener {
                     break;
             }
             return true;
-        }
-    }
-
-    final static long startTime = TimeUtils.millis();
-
-    @Override
-    public void act(float delta) {
-        //super.act(delta);
-        FPS_LOGGER.log();
-        if (!world.ready) {
-            return;
-        }
-        moveManager.moveAll(delta, world.maze);
-        actorStateManager.handleState(world);
-
-        if (timeSinceMillis(startTime) > 120 * 1000) {
-            System.out.println("minute finie : " + timeSinceMillis(startTime) / 1000);
-            System.exit(0);
         }
     }
 

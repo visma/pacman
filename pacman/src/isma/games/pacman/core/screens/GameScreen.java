@@ -5,8 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
+
 import isma.games.pacman.core.stages.PacmanStage;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.pacman.core.tiled.MazeFactory;
@@ -21,10 +20,32 @@ public class GameScreen implements Screen {
 
     public GameScreen(Game game) {
         this.game = game;
-        camera = new OrthographicCamera(Maze.WIDTH, Maze.HEIGHT);
+
+        buildCamera();
         maze = MazeFactory.buildMaze(camera);
         stage = new PacmanStage(game, maze);
         stage.setCamera(camera);
+    }
+
+    private void buildCamera() {
+        int width = Gdx.app.getGraphics().getWidth();
+        int height = Gdx.app.getGraphics().getHeight();
+
+        float mazeRatio = (float) Maze.WIDTH / (float) Maze.HEIGHT;
+        float screenRatio = (float) width / (float) height;
+
+//        System.out.println("mazeRatio = " + mazeRatio);
+//        System.out.println("screenRatio = " + screenRatio);
+
+        float viewPortYOffset = 0;
+        float viewPortXOffset = 0;
+        if (screenRatio < mazeRatio){
+            //too much height
+            viewPortYOffset = (mazeRatio - screenRatio) * Maze.HEIGHT;
+        }else {
+            viewPortXOffset = (screenRatio - mazeRatio) * Maze.WIDTH;
+        }
+        camera = new OrthographicCamera(Maze.WIDTH + viewPortXOffset , Maze.HEIGHT  + viewPortYOffset);
     }
 
 
