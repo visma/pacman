@@ -1,63 +1,123 @@
 package isma.games.pacman.core.assets;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
 public class SoundManager {
-    private boolean enabled = true;
+    private static final float PITCH = 1.0f;
+    private static final float PAN = 0f;
 
-    public static final float PITCH = 1.0f;
-    public static final float PAN = 0f;
+    private final boolean enabled;
+    private final float volume;
 
-    private static final float VOLUME = 0.2f;
+    private final Music defaultMusic;
+    private final Music frightenedMusic;
+    private final Music nakedMusic;
 
-    private final Sound intro;
-    private final Sound chompDot;
-    private final Sound chompEnergizer;
-    private final Sound chompGhost;
+    private final Music menuMusic;
+    private final Music intro;
+
     private final Sound death;
+    private final Sound chompFruit;
+    private final Sound chompGhost;
+    private int chompCount = 0;
+    private final Sound chompDot;
+    private final Sound chompDotB;
 
-    public SoundManager() {
+    private Music currentlyPlayedMusic;
+
+
+    public SoundManager(boolean enabled, float volume) {
+        this.enabled = enabled;
+        this.volume = volume;
+
+        menuMusic = Assets.MUSIC_MENU;
         intro = Assets.MUSIC_INTRO;
+        defaultMusic = Assets.MUSIC_DEFAULT;
+        frightenedMusic = Assets.MUSIC_FRIGHTENED;
+        nakedMusic = Assets.MUSIC_NAKED;
+
         chompDot = Assets.SOUND_CHOMP_DOT;
-        chompGhost = Assets.SOUND_CHOMP_EATED;
-        chompEnergizer = Assets.SOUND_CHOMP_ENERGIZER;
+        chompDotB = Assets.SOUND_CHOMP_DOT_B;
+        chompGhost = Assets.SOUND_CHOMP_GHOST;
+        chompFruit = Assets.SOUND_CHOMP_FRUIT;
         death = Assets.SOUND_DEATH;
     }
 
-    public void playIntro() {
-        playSound(intro, false);
+    /**
+     * **********************************************
+     * MUSICS
+     * ***********************************************
+     */
+    private void playMusic(Music music, boolean loop) {
+        if (enabled) {
+            if (currentlyPlayedMusic != null && currentlyPlayedMusic.isPlaying()) {
+                currentlyPlayedMusic.stop();
+            }
+            music.setPan(PAN, volume);
+            music.setLooping(loop);
+            music.play();
+            currentlyPlayedMusic = music;
+        }
+    }
+
+    public void stopMusic() {
+        if (enabled) {
+            if (currentlyPlayedMusic != null && currentlyPlayedMusic.isPlaying()) {
+                currentlyPlayedMusic.stop();
+            }
+        }
+    }
+
+    public void playMenuMusic() {
+        playMusic(menuMusic, true);
+    }
+
+
+    public void playIntroMusic() {
+        playMusic(intro, false);
+    }
+
+    public void playDefaultMusic() {
+        playMusic(defaultMusic, true);
+    }
+
+    public void playMusicFrightened() {
+        playMusic(frightenedMusic, true);
+    }
+
+    public void playNakedMusic() {
+        playMusic(nakedMusic, true);
+    }
+
+    /**
+     * **********************************************
+     * SOUNDS
+     * ***********************************************
+     */
+    private void playSound(Sound sound, boolean loop) {
+        if (enabled) {
+            long id = sound.play(volume, PITCH, PAN);
+            sound.setLooping(id, loop);
+        }
     }
 
     public void playChompDot() {
-        playSound(chompDot, false);
+        if (chompCount++ % 2 == 0)
+            playSound(chompDot, false);
+        else
+            playSound(chompDotB, false);
     }
 
     public void playChompGhost() {
         playSound(chompGhost, false);
     }
 
-    public void playChompEnergizer() {
-        playSound(chompEnergizer, true);
-    }
-
     public void playDeath() {
         playSound(death, false);
     }
 
-    public void stopChompEnergizer() {
-        stopSound(chompEnergizer);
-    }
-
-    private void stopSound(Sound chompEnergizer1) {
-        if (enabled) {
-            chompEnergizer1.stop();
-        }
-    }
-
-    private void playSound(Sound sound, boolean loop) {
-        if (enabled) {
-            long id = sound.play(VOLUME, PITCH, PAN);
-            sound.setLooping(id, loop);
-        }
+    public void playChompFruit() {
+        playSound(chompFruit, false);
     }
 }

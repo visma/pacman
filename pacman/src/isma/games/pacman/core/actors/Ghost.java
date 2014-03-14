@@ -70,7 +70,7 @@ public class Ghost extends AliveActor {
         this.state = state;
         if (this.state != old) {
             for (WorldEventListener eventListener : eventListeners) {
-                eventListener.onStateChanged(this);
+                eventListener.onStateChanged(this, old, state);
             }
         }
         if (state == FRIGTHENED) {

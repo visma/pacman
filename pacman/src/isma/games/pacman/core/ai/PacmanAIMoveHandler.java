@@ -9,11 +9,9 @@ import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.manager.WorldContainer;
 
-import static isma.games.Log.info;
-
 public class PacmanAIMoveHandler extends AIMoveHandler {
-    public PacmanAIMoveHandler(WorldContainer stage) {
-        super(stage.getPacman(), stage, new PacmanAIGraphBuilder(stage));
+    public PacmanAIMoveHandler(WorldContainer world) {
+        super(world.getPacman(), world, new PacmanAIGraphBuilder(world));
     }
 
     @Override
@@ -31,10 +29,10 @@ public class PacmanAIMoveHandler extends AIMoveHandler {
         graph = graphBuilder.buildGraph(maze);
         dijkstra = new Dijkstra<Point>(graph);
 
-        Target farestFoodFromGhosts = world.getRemainingFood().get(0);
+        Target farestFoodFromGhosts = world.getRemainingDots().get(0);
         for (int i = 0; i < maze.getWidth(); i++) {
             for (int j = 0; j < maze.getHeight(); j++) {
-                Food food = world.getFoodAt(PointCache.get(i, j));
+                Food food = world.getDotAt(PointCache.get(i, j));
                 if (food == null){
                     continue;
                 }

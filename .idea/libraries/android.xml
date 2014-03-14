@@ -5,6 +5,8 @@
       <root url="jar://$PROJECT_DIR$/pacman-android/libs/gdx-backend-android.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/pacman-android/libs/gdx-backend-android-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

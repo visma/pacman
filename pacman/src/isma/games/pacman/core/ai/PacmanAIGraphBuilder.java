@@ -34,16 +34,16 @@ public class PacmanAIGraphBuilder extends GraphBuilder {
         }
     }
 
-    private WorldContainer stage;
+    private WorldContainer world;
 
-    public PacmanAIGraphBuilder(WorldContainer stage) {
-        this.stage = stage;
+    public PacmanAIGraphBuilder(WorldContainer world) {
+        this.world = world;
     }
 
     @Override
     protected int getWeight(ArrayMap<Point, Vertex<Point>> vertexes, Point destination) {
         int ghostWeight = getGhostsWeight(destination);
-        Food foodAt = stage.getFoodAt(destination);
+        Food foodAt = world.getDotAt(destination);
         int foodWeight;
         if (foodAt == null || !foodAt.isAlive()) {
             foodWeight = NONE.weight;
@@ -68,8 +68,8 @@ public class PacmanAIGraphBuilder extends GraphBuilder {
         final float dangerRatio = 0.7f;
         int radius = 4;//4 ca avait l air pas mal
 
-        for (Ghost ghost : stage.getGhosts()) {
-            Point ghostPosition = TiledMapHelper.getGridPosition(stage.getMaze(), ghost);
+        for (Ghost ghost : world.getGhosts()) {
+            Point ghostPosition = TiledMapHelper.getGridPosition(world.getMaze(), ghost);
             if (TargetHelper.hit(destinationPosition, ghostPosition)) {
                 weight += getDanger(ghost);
             } else {

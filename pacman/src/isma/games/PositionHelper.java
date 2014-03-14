@@ -11,20 +11,6 @@ import static isma.games.Direction.WEST;
 
 public class PositionHelper {
 
-    //TODO doublon a éliminer
-    public static Direction getReverseDirection(Direction direction) {
-        if (direction == EAST) {
-            return WEST;
-        } else if (direction == WEST) {
-            return EAST;
-        } else if (direction == SOUTH) {
-            return NORTH;
-        } else if (direction == NORTH) {
-            return SOUTH;
-        }
-        throw new RuntimeException("not a valid direction : " + direction);
-    }
-
     public static Array<Direction> getOrientation(Point origin, Point reference) {
         Array<Direction> directions = new Array<Direction>();
 

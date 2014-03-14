@@ -46,7 +46,7 @@ public class SplashScreen implements Screen {
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
-        Image splashImage = new Image(Assets.backgroundTexture);
+        Image splashImage = new Image(Assets.TEXTURE_MENU_BACKGROUND);
         SequenceAction sequence = Actions.sequence(
                 Actions.fadeOut(0.001f),
                 Actions.fadeIn(0.2f),

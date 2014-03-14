@@ -19,10 +19,10 @@ public class PointTest {
 
     @Test
     public void previousPosition() throws Exception {
-        assertEquals(new Point(4, 0), new Point(4, 1).onNext(NORTH));
-        assertEquals(new Point(4, 2), new Point(4, 1).onNext(SOUTH));
-        assertEquals(new Point(3, 1), new Point(4, 1).onNext(EAST));
-        assertEquals(new Point(5, 1), new Point(4, 1).onNext(WEST));
+        assertEquals(new Point(4, 0), new Point(4, 1).onPrevious(NORTH));
+        assertEquals(new Point(4, 2), new Point(4, 1).onPrevious(SOUTH));
+        assertEquals(new Point(3, 1), new Point(4, 1).onPrevious(EAST));
+        assertEquals(new Point(5, 1), new Point(4, 1).onPrevious(WEST));
     }
 
 }

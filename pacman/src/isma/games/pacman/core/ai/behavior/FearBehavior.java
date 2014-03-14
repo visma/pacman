@@ -21,17 +21,17 @@ import static isma.games.pacman.core.actors.Ghost.GhostState.FRIGTHENED;
 public class FearBehavior extends GhostBehavior {
 
     public FearBehavior(Ghost ghost) {
-        super(ghost, 5000);
+        super(ghost, 6000);
         ghost.setFrightened(true);
     }
 
     @Override
-    public boolean isOver(WorldContainer stage) {
-        return ghost.getState() != FRIGTHENED || super.isOver(stage);
+    public boolean isOver(WorldContainer world) {
+        return ghost.getState() != FRIGTHENED || super.isOver(world);
     }
 
-    public Target searchTarget(WorldContainer stage) {
-        Maze maze = stage.getMaze();
+    public Target searchTarget(WorldContainer world) {
+        Maze maze = world.getMaze();
         Point ghostPosition = getGridPosition(maze, ghost);
 
         ArrayMap<Direction, Point> possibleRuns = new ArrayMap<Direction, Point>();

@@ -15,8 +15,6 @@ import isma.games.test.MazeMockFactory;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
@@ -37,7 +35,7 @@ public class ActorStateManagerTest {
 
         manager.handleState(stage);
 
-        verify(stage.getFoodAt(FOOD_GRID_POSITION), times(0)).die();
+        verify(stage.getDotAt(FOOD_GRID_POSITION), times(0)).die();
     }
 
     @Test
@@ -48,7 +46,7 @@ public class ActorStateManagerTest {
 
         manager.handleState(stage);
 
-        verify(stage.getFoodAt(FOOD_GRID_POSITION), times(1)).die();
+        verify(stage.getDotAt(FOOD_GRID_POSITION), times(1)).die();
     }
 
 
@@ -60,7 +58,7 @@ public class ActorStateManagerTest {
 
         manager.handleState(stage);
 
-        verify(stage.getFoodAt(FOOD_GRID_POSITION), times(1)).die();
+        verify(stage.getDotAt(FOOD_GRID_POSITION), times(1)).die();
     }
 
 
@@ -70,7 +68,7 @@ public class ActorStateManagerTest {
 
         manager.handleState(stage);
 
-        verify(stage.getFoodAt(FOOD_GRID_POSITION), times(1)).die();
+        verify(stage.getDotAt(FOOD_GRID_POSITION), times(1)).die();
     }
 
     private WorldContainer buildStage(Vector2 pacmanCenterPosition) {
@@ -81,8 +79,8 @@ public class ActorStateManagerTest {
         when(stage.getPacman()).thenReturn(pacman);
 
         Dot cornerFood = ActorMockFactory.mockDot(new Vector2(8, 8), true, false);
-        when(stage.getFoodAt(FOOD_GRID_POSITION)).thenReturn(cornerFood);
-        when(stage.getRemainingFood()).thenReturn(new Array<Food>(new Food[]{cornerFood}));
+        when(stage.getDotAt(FOOD_GRID_POSITION)).thenReturn(cornerFood);
+        when(stage.getRemainingDots()).thenReturn(new Array<Dot>(new Dot[]{cornerFood}));
         when(stage.getMaze()).thenReturn(maze);
         return stage;
     }

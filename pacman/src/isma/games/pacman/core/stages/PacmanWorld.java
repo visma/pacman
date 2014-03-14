@@ -1,43 +1,59 @@
 package isma.games.pacman.core.stages;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ArrayMap;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import isma.games.Point;
-import isma.games.pacman.core.actors.*;
+import isma.games.pacman.core.actors.ActorBuilder;
+import isma.games.pacman.core.actors.ActorFactory;
+import isma.games.pacman.core.actors.AliveActor;
+import isma.games.pacman.core.actors.DebugPath;
+import isma.games.pacman.core.actors.Dot;
+import isma.games.pacman.core.actors.Food;
+import isma.games.pacman.core.actors.Fruit;
+import isma.games.pacman.core.actors.FruitPoints;
+import isma.games.pacman.core.actors.GameBoard;
+import isma.games.pacman.core.actors.Ghost;
+import isma.games.pacman.core.actors.GhostPoints;
+import isma.games.pacman.core.actors.Pacman;
 import isma.games.pacman.core.ai.PacmanAIGraphBuilder;
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.assets.SoundManager;
 import isma.games.pacman.core.manager.WorldContainer;
+import isma.games.pacman.core.rules.FruitRules;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.pacman.core.tiled.MazeBuilder;
 
-import java.util.*;
-
+import static isma.games.pacman.core.actors.Fruit.FruitEnum;
+import static isma.games.pacman.core.actors.Ghost.GhostState;
 import static isma.games.pacman.core.actors.Ghost.GhostState.FRIGTHENED;
+import static isma.games.pacman.core.actors.Ghost.GhostState.NAKED;
 import static isma.games.pacman.core.actors.Pacman.PacmanState.DYING;
 import static isma.games.pacman.core.stages.PacmanWorld.GameState.GAME_OVER;
 import static isma.games.pacman.core.stages.PacmanWorld.GameState.RUNNING;
 
 public class PacmanWorld implements WorldContainer {
-
-    private static final int RESTART_DURATION = 1;//3000;
-    private static final int GHOST_EAT_DURATION = 1;//700;
-    private static final int DYING_DURATION = 1;//2000;
-
     private final SoundManager soundManager;
+    private final ScoreManager scoreManager;
 
     final GameBoard gameBoard;
+    final GhostPoints ghostPoints;
+    final FruitPoints fruitPoints;
+
     final Maze maze;
 
-    final ArrayMap<Point, Food> foodMap;
+    final ArrayMap<Point, Dot> dotMap;
+    final Fruit fruit;
     final Pacman pacman;
     final Array<Ghost> ghosts = new Array<Ghost>();
     final DebugPath debugPath;
 
     int level;
     int lives;
-    int points;
+    int score;
 
     boolean ready;
     GameState state;
@@ -49,63 +65,82 @@ public class PacmanWorld implements WorldContainer {
 
 
     public PacmanWorld(Maze maze) {
-        soundManager = new SoundManager();
-
-        gameBoard = new GameBoard();
         this.maze = maze;
-        foodMap = MazeBuilder.loadFood(maze);
+
+        state = RUNNING;
+        level = 1;
+        lives = Assets.configuration.getLives();
+        score = 0;
+
+        dotMap = MazeBuilder.loadDots(maze);
+        fruit = MazeBuilder.loadFruit(maze);
         pacman = ActorFactory.buildPacman();
 
-        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, true, false);
+        gameBoard = new GameBoard(lives, fruit);
 
+        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, false, false);
         //ghosts.addAll(ActorFactory.buildAllGhosts());
         ghosts.add(ActorFactory.buildBlinky());
         ghosts.add(ActorFactory.buildPinky());
         ghosts.add(ActorFactory.buildClyde());
         ghosts.add(ActorFactory.buildInky());
 
+
+        ghostPoints = new GhostPoints();
+        fruitPoints = new FruitPoints(fruit);
+
+        soundManager = Assets.soundManager;
+        scoreManager = new ScoreManager(ghostPoints, fruitPoints, gameBoard);
+
+
         addWorldEventListeners();
-        state = RUNNING;
-        level = 1;
-        lives = 300;
-        points = 0;
+
+
     }
 
     private void addWorldEventListeners() {
-        for (Food food : foodMap.values()) {
+        fruit.addWorldEventListeners(this);
+        fruit.addWorldEventListeners(scoreManager);
+        for (Food food : dotMap.values()) {
             food.addWorldEventListeners(this);
+            food.addWorldEventListeners(scoreManager);
         }
         for (Ghost ghost : ghosts) {
             ghost.addWorldEventListeners(this);
+            ghost.addWorldEventListeners(scoreManager);
         }
         pacman.addWorldEventListeners(this);
+        pacman.addWorldEventListeners(scoreManager);
     }
 
 
     public void restart(boolean firstTry) {
         ready = false;
+        soundManager.stopMusic();
         ActorBuilder.resetAll(pacman, ghosts);
         gameBoard.setMessage("ROUND " + level);
         if (firstTry) {
-            soundManager.playIntro();
+            soundManager.playIntroMusic();
         }
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
                 ready = true;
                 gameBoard.setMessage(null);
+                soundManager.playDefaultMusic();
             }
-        }, RESTART_DURATION);
+        }, Assets.configuration.getSoundDurationRestart());
     }
 
     public void nextLevel() {
         level++;
-        for (Food food : foodMap.values()) {
+        for (Food food : dotMap.values()) {
             if (food instanceof Dot) {
                 Dot dot = (Dot) food;
                 dot.setAlive(true);
             }
         }
+        scoreManager.reset();
         restart(false);
     }
 
@@ -119,7 +154,7 @@ public class PacmanWorld implements WorldContainer {
                 state = GAME_OVER;
                 gameBoard.setMessage(null);
             }
-        }, RESTART_DURATION);
+        }, Assets.configuration.getSoundDurationRestart());
 
     }
 
@@ -127,7 +162,7 @@ public class PacmanWorld implements WorldContainer {
     public void onConsumed(AliveActor actor) {
         if (actor instanceof Ghost) {
             soundManager.playChompGhost();
-            freeze(GHOST_EAT_DURATION);
+            freeze(Assets.configuration.getSoundDurationGhostEated());
         } else if (actor instanceof Pacman) {
             handlePacmanAfterDeath();
         }
@@ -135,6 +170,7 @@ public class PacmanWorld implements WorldContainer {
 
     private void handlePacmanAfterDeath() {
         lives--;
+        gameBoard.setLives(lives);
         soundManager.playDeath();
         pacman.setState(DYING);
         for (Ghost ghost : ghosts) {
@@ -150,7 +186,7 @@ public class PacmanWorld implements WorldContainer {
                     handleGameOver();
                 }
             }
-        }, DYING_DURATION);
+        }, Assets.configuration.getSoundDurationDying());
     }
 
 
@@ -170,26 +206,50 @@ public class PacmanWorld implements WorldContainer {
             if (!dot.isEnergizer()) {
                 soundManager.playChompDot();
             } else {
-                soundManager.playChompEnergizer();
+                soundManager.playMusicFrightened();
             }
-        }
-        if (getRemainingFood().size == 0) {
-            nextLevel();
+            int remainingDot = getRemainingDots().size;
+            if (remainingDot == 0) {
+                nextLevel();
+            } else {
+                if (remainingDot == (dotMap.size - 1 - 70)
+                        || remainingDot == dotMap.size - 1 - 170) {
+                    showFruit(FruitRules.getFruit(level));
+                }
+            }
+        } else {
+            soundManager.playChompFruit();
         }
     }
 
+    private void showFruit(FruitEnum currentFruit) {
+        fruit.setCurrentFruit(currentFruit);
+        fruit.setAlive(true);
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                fruit.setAlive(false);
+            }
+        }, Assets.configuration.getFruitDuration());
+    }
+
     @Override
-    public void onStateChanged(Ghost aGhost) {
+    public void onStateChanged(Ghost aGhost, GhostState old, GhostState state) {
         boolean frightenedGhost = false;
+        boolean nakedGhost = false;
         for (Ghost ghost : ghosts) {
             if (ghost.getState() == FRIGTHENED) {
                 frightenedGhost = true;
-                break;
+            } else if (ghost.getState() == NAKED) {
+                nakedGhost = true;
             }
-            frightenedGhost = false;
         }
-        if (!frightenedGhost){
-            soundManager.stopChompEnergizer();
+        if (nakedGhost && frightenedGhost) {
+            soundManager.playNakedMusic();
+        } else if (frightenedGhost) {
+            soundManager.playMusicFrightened();
+        } else {
+            soundManager.playDefaultMusic();
         }
     }
 
@@ -203,21 +263,25 @@ public class PacmanWorld implements WorldContainer {
      * ******************************************************************************************
      */
     @Override
-    public Food getFoodAt(Point position) {
-        return foodMap.get(position);
+    public Dot getDotAt(Point position) {
+        return dotMap.get(position);
     }
 
     @Override
-    public Array<Food> getRemainingFood() {
-        Array<Food> remaining = new Array<Food>();
-        for (Food food : foodMap.values()) {
-            if (food.isAlive()) {
-                remaining.add(food);
+    public Array<Dot> getRemainingDots() {
+        Array<Dot> remaining = new Array<Dot>();
+        for (Dot dot : dotMap.values()) {
+            if (dot.isAlive()) {
+                remaining.add(dot);
             }
         }
         return remaining;
     }
 
+    @Override
+    public Food getFruit() {
+        return fruit;
+    }
 
     @Override
     public Pacman getPacman() {

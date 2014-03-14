@@ -13,6 +13,9 @@ public class Dijkstra<E> {
 
     public void computePaths(Vertex<E> source) {
         clear();
+        if (source == null){
+            System.out.println("la");
+        }
         source.minDistance = 0;
         PriorityQueue<Vertex<E>> vertexQueue = new PriorityQueue<Vertex<E>>();
         vertexQueue.add(source);

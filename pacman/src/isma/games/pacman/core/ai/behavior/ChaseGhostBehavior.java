@@ -20,8 +20,8 @@ public class ChaseGhostBehavior extends GhostBehavior {
     }
 
     @Override
-    public boolean isOver(WorldContainer stage) {
-        return ghost.getState() != NORMAL || super.isOver(stage);
+    public boolean isOver(WorldContainer world) {
+        return ghost.getState() != NORMAL || super.isOver(world);
     }
 
     @Override

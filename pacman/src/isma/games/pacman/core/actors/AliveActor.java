@@ -8,8 +8,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ArrayMap;
 
-import java.util.Map;
-
 import isma.games.Direction;
 import isma.games.GameObject;
 import isma.games.Target;
@@ -90,6 +88,16 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
         this.currentDirection = currentDirection;
     }
 
+    public void die() {
+        for (WorldEventListener eventListener : eventListeners) {
+            eventListener.onConsumed(this);
+        }
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,16 +110,5 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
-    }
-
-    public void die() {
-        for (WorldEventListener eventListener : eventListeners) {
-            eventListener.onConsumed(this);
-        }
-    }
-
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
     }
 }

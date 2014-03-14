@@ -1,14 +1,12 @@
 package isma.games.pacman.core.stages;
 
 import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.TimeUtils;
 
 import isma.games.Direction;
 import isma.games.Input;
@@ -16,6 +14,7 @@ import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.ai.GhostAIMoveHandler;
 import isma.games.pacman.core.ai.PacmanAIMoveHandler;
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.manager.ActorStateManager;
 import isma.games.pacman.core.manager.DefaultMoveHandler;
 import isma.games.pacman.core.manager.MoveHandler;
@@ -59,13 +58,13 @@ public class PacmanStage extends Stage implements DirectionListener {
     }
 
     static int act = 0;
-    static long startTime = TimeUtils.millis();
+    //static long startTime = TimeUtils.millis();
 
     @Override
     public void act(float delta) {
         //super.act(delta);
-        FPS_LOGGER.log();
-        if ((act++ % 10) == 0) {
+        //FPS_LOGGER.log();
+        if (Assets.configuration.showFps() && (act++ % 10) == 0) {
             world.gameBoard.setMessage("FPS : " + Gdx.graphics.getFramesPerSecond());
         }
         if (!world.ready) {
@@ -73,16 +72,11 @@ public class PacmanStage extends Stage implements DirectionListener {
         }
         moveManager.moveAll(delta, world.maze);
         actorStateManager.handleState(world);
-
-        if (TimeUtils.timeSinceMillis(startTime) > 120 * 1000) {
-            System.out.println("minute finie : " + TimeUtils.timeSinceMillis(startTime) / 1000);
-            System.exit(0);
-        }
     }
 
 
     private void addAllActors() {
-        for (Food food : world.foodMap.values()) {
+        for (Food food : world.dotMap.values()) {
             addActor(food);
         }
         addActor(world.pacman);
@@ -93,6 +87,9 @@ public class PacmanStage extends Stage implements DirectionListener {
         }
         addActor(world.debugPath);
         addActor(world.gameBoard);
+        addActor(world.ghostPoints);
+        addActor(world.fruitPoints);
+        addActor(world.fruit);
     }
 
 
@@ -157,11 +154,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     }
 
 
-    @Override
-    public void dispose() {
-        super.dispose();
-        world.maze.dispose();
-    }
+
 
     public PacmanWorld getWorld() {
         return world;

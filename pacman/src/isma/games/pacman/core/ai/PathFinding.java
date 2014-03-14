@@ -58,7 +58,7 @@ public class PathFinding {
             throw new RuntimeException("?");
         }
         if (hasChangeBound(vertex, closestVertex, bounds)) {
-            return PositionHelper.getReverseDirection(orientations.get(0));
+            return orientations.get(0).opposite();
         }
         return orientations.get(0);
     }

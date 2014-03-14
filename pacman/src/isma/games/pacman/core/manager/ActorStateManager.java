@@ -10,7 +10,6 @@ import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.actors.Pacman;
 import isma.games.pacman.core.tiled.Maze;
 
-import static isma.games.Log.error;
 import static isma.games.TiledMapHelper.getGridPosition;
 import static isma.games.pacman.core.actors.Ghost.GhostState.FRIGTHENED;
 import static isma.games.pacman.core.actors.Ghost.GhostState.NAKED;
@@ -48,20 +47,20 @@ public class ActorStateManager {
             if (food instanceof Dot) {
                 handleDotConsuming((Dot) food, world);
             } else if (food instanceof Fruit) {
-                handleFruitConsuming((Fruit) food, world);
+                handleFruitConsuming((Fruit) food);
             }
         }
     }
 
-    private void handleFruitConsuming(Fruit fruit, WorldContainer world) {
-        error("not implemented");
+    private void handleFruitConsuming(Fruit fruit) {
+       fruit.die();
     }
 
-    private void handleDotConsuming(Dot dot, WorldContainer stage) {
+    private void handleDotConsuming(Dot dot, WorldContainer world) {
         dot.die();
         if (dot.isEnergizer()) {
-            for (int i = 0; i < stage.getGhosts().size; i++) {
-                Ghost ghost = stage.getGhosts().get(i);
+            for (int i = 0; i < world.getGhosts().size; i++) {
+                Ghost ghost = world.getGhosts().get(i);
                 if (ghost.getState() == NORMAL) {
                     ghost.setFrightened(true);
                 }
@@ -69,11 +68,16 @@ public class ActorStateManager {
         }
     }
 
-    public Food getFoodToEat(WorldContainer stage) {
-        for (Food food : stage.getRemainingFood()) {
-            if (TargetHelper.hit(stage.getPacman(), food)) {
-                return food;
+    public Food getFoodToEat(WorldContainer world) {
+        for (Dot dot : world.getRemainingDots()) {
+            if (TargetHelper.hit(world.getPacman(), dot)) {
+                return dot;
             }
+        }
+        if (world.getFruit().isAlive()){
+        if (TargetHelper.hit(world.getPacman(), world.getFruit())){
+            return world.getFruit();
+        }
         }
         return null;
     }

@@ -94,7 +94,6 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
         Point tilePosition = getGridPosition(maze, aiActor);
 
         Point targetTile = TiledMapHelper.getGridPosition(maze, target);
-
         Array<Vertex<Point>> path = dijkstra.getShortestPathTo(tilePosition, targetTile);
         world.getDebugPath().setPath(aiActor, path);
         if (path == null) {

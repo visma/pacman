@@ -32,6 +32,7 @@ public class DebugPath extends Actor {
         this.enablePacman = enablePacman;
         this.enableGraph = enableGraph;
         for (String id : Arrays.asList("pacman", "blinky", "inky", "clyde", "pinky")) {
+            //TODO pas de new Texture ici !!!
             Texture spriteSheet = new Texture(Gdx.files.internal(Assets.getPathTraceSpriteSheet(id)));
             TextureRegion[][] textureRegions = TextureRegion.split(spriteSheet,
                     spriteSheet.getWidth() / 2,

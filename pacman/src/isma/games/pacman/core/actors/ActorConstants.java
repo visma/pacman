@@ -17,9 +17,9 @@ public enum ActorConstants {
         this.originalY = originalY;
     }
 
-    public static ActorConstants get(AliveActor actor){
+    public static ActorConstants get(AliveActor actor) {
         for (ActorConstants constants : values()) {
-            if (constants.id.equals(actor.getId())){
+            if (constants.id.equals(actor.getId())) {
                 return constants;
             }
         }

@@ -17,6 +17,7 @@ import static isma.games.Direction.WEST;
 public class TextureFactory {
 
     public ArrayMap<Direction, Animation> buildAliveActorDefautAnimations(String name) {
+        //TODO pas de new Texture ici !!!
         Texture texture = new Texture(Gdx.files.internal(Assets.getAliveActorSpriteSheet(name)));
         final int FRAME_DURATION = 8;
         TextureRegion[][] textureRegions = split(texture,

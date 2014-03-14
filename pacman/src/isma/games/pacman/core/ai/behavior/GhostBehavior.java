@@ -20,11 +20,11 @@ public abstract class GhostBehavior {
         this.duration = duration;
     }
 
-    public boolean isOver(WorldContainer stage) {
+    public boolean isOver(WorldContainer world) {
         return elapsed > duration;
     }
 
-    public abstract Target searchTarget(WorldContainer stage);
+    public abstract Target searchTarget(WorldContainer world);
 
     public abstract GhostBehavior nextBehavior(WorldContainer world);
 

@@ -83,7 +83,9 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
+        Gdx.app.log("LIFE_CYCLE", "GameScreen.dispose()");
         stage.dispose();
+        maze.dispose();
     }
 
 

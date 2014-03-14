@@ -23,6 +23,7 @@ public abstract class Food extends Actor implements Target {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
+        setVisible(alive);
     }
 
     public void addWorldEventListeners(WorldEventListener eventListener) {

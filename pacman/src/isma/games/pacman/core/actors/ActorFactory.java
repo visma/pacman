@@ -1,8 +1,8 @@
 package isma.games.pacman.core.actors;
 
-import isma.games.pacman.core.assets.Assets;
-
 import java.util.List;
+
+import isma.games.pacman.core.assets.Assets;
 
 import static java.util.Arrays.asList;
 
@@ -12,7 +12,7 @@ public class ActorFactory {
     }
 
     public static Pacman buildPacman() {
-        Pacman pacman = new Pacman(Assets.SPEED_PACMAN);
+        Pacman pacman = new Pacman(Assets.configuration.getPacmanSpeed());
         ActorBuilder.reset(pacman);
         return pacman;
     }
@@ -38,8 +38,10 @@ public class ActorFactory {
     }
 
     private static Ghost buildGhost(String id) {
-        Ghost g = new Ghost(id, Assets.SPEED_GHOST);
+        Ghost g = new Ghost(id, Assets.configuration.getGhostSpeed(id));
         ActorBuilder.reset(g);
         return g;
     }
+
+
 }

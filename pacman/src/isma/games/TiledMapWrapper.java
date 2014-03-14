@@ -63,8 +63,8 @@ public abstract class TiledMapWrapper {
     }
 
     public void dispose() {
-        mapRenderer.dispose();
         map.dispose();
+        mapRenderer.dispose();
     }
 
     public Rectangle getBounds() {
