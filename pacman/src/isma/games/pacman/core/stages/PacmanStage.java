@@ -1,6 +1,7 @@
 package isma.games.pacman.core.stages;
 
 import com.badlogic.gdx.Application;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.input.GestureDetector;
@@ -17,23 +18,26 @@ import isma.games.pacman.core.ai.PacmanAIMoveHandler;
 import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.manager.ActorStateManager;
 import isma.games.pacman.core.manager.DefaultMoveHandler;
-import isma.games.pacman.core.manager.MoveHandler;
 import isma.games.pacman.core.manager.MoveManager;
+import isma.games.pacman.core.screens.MainMenuScreen;
 import isma.games.pacman.core.tiled.Maze;
 
 import static isma.games.Direction.EAST;
 import static isma.games.Direction.NORTH;
 import static isma.games.Direction.SOUTH;
 import static isma.games.Direction.WEST;
+import static isma.games.pacman.core.screens.GameScreen.GameType;
 
 public class PacmanStage extends Stage implements DirectionListener {
     private static final FPSLogger FPS_LOGGER = new FPSLogger();
+    private final Game game;
 
-    private PacmanWorld world;
-    private MoveManager moveManager = new MoveManager();
-    private ActorStateManager actorStateManager = new ActorStateManager();
+    private final PacmanWorld world;
+    private final MoveManager moveManager = new MoveManager();
+    private final ActorStateManager actorStateManager = new ActorStateManager();
 
-    public PacmanStage(Maze maze) {
+    public PacmanStage(Game game, Maze maze, GameType gameType) {
+        this.game = game;
         Gdx.app.setLogLevel(Application.LOG_INFO);
 
         world = new PacmanWorld(maze);
@@ -49,9 +53,11 @@ public class PacmanStage extends Stage implements DirectionListener {
                 break;
         }
 
-        MoveHandler moveHandler = new DefaultMoveHandler();
-//        MoveHandler moveHandler = new PacmanAIMoveHandler(world);
-        moveManager.addHandler(world.pacman, moveHandler);
+        if (gameType == GameType.NORMAL) {
+            moveManager.addHandler(world.pacman, new DefaultMoveHandler());
+        } else {
+            moveManager.addHandler(world.pacman, new PacmanAIMoveHandler(world));
+        }
 
 
         world.restart(true);
@@ -63,7 +69,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     @Override
     public void act(float delta) {
         //super.act(delta);
-        //FPS_LOGGER.log();
+        FPS_LOGGER.log();
         if (Assets.configuration.showFps() && (act++ % 10) == 0) {
             world.gameBoard.setMessage("FPS : " + Gdx.graphics.getFramesPerSecond());
         }
@@ -119,11 +125,7 @@ public class PacmanStage extends Stage implements DirectionListener {
     }
 
     private void onInput(Direction direction) {
-        PacmanWorld world = PacmanStage.this.world;
-        if (!world.ready) {
-            return;
-        }
-        moveManager.getHandler(world.pacman).setDirection(direction);
+        moveManager.getHandler(this.world.pacman).setDirection(direction);
     }
 
     /**
@@ -148,12 +150,20 @@ public class PacmanStage extends Stage implements DirectionListener {
                 case RIGHT:
                     onRight();
                     break;
+                case ESCAPE:
+                    if (world.ready) {
+                        game.setScreen(new MainMenuScreen(game));
+                    }
+                    break;
+                case BACK:
+                    if (world.ready) {
+                        game.setScreen(new MainMenuScreen(game));
+                    }
+                    break;
             }
             return true;
         }
     }
-
-
 
 
     public PacmanWorld getWorld() {

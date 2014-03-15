@@ -13,6 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 import isma.games.pacman.core.assets.Assets;
 
+import static isma.games.pacman.core.screens.GameScreen.GameType.DEMO;
+import static isma.games.pacman.core.screens.GameScreen.GameType.NORMAL;
+
 public class MainMenuScreen implements Screen {
     private Game game;
     private Stage stage;
@@ -46,22 +49,31 @@ public class MainMenuScreen implements Screen {
     }
 
     private Table buildTable() {
-        TextButton startGameButton = new TextButton("New Game", Assets.skin);
-        TextButton optionsButton = new TextButton("Options", Assets.skin);
+        TextButton startButton = new TextButton("Start", Assets.skin);
+        TextButton demoButton = new TextButton("Demo", Assets.skin);
         TextButton exitButton = new TextButton("Exit", Assets.skin);
+
         Table table = new Table(Assets.skin);
         table.setFillParent(true);
-        table.add(startGameButton).width(150).height(50);
+        table.add(startButton).width(150).height(50);
         table.row();
-        table.add(optionsButton).width(150).height(50).padTop(10);
+        table.add(demoButton).width(150).height(50).padTop(10);
         table.row();
         table.add(exitButton).width(150).height(50).padTop(10);
 
-        startGameButton.addListener(new InputListener() {
+        startButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 Assets.soundManager.stopMusic();
-                game.setScreen(new GameScreen(game));
+                game.setScreen(new GameScreen(game, NORMAL));
+                return true;
+            }
+        });
+        demoButton.addListener(new InputListener() {
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                Assets.soundManager.stopMusic();
+                game.setScreen(new GameScreen(game, DEMO));
                 return true;
             }
         });

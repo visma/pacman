@@ -2,8 +2,6 @@ package isma.games.pacman.core.ai.behavior;
 
 import com.badlogic.gdx.utils.ArrayMap;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import isma.games.Direction;
@@ -11,6 +9,7 @@ import isma.games.Point;
 import isma.games.Target;
 import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.Ghost;
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.manager.WorldContainer;
 import isma.games.pacman.core.tiled.Maze;
 
@@ -19,15 +18,32 @@ import static isma.games.TiledMapHelper.handleOutOfBounds;
 import static isma.games.pacman.core.actors.Ghost.GhostState.FRIGTHENED;
 
 public class FearBehavior extends GhostBehavior {
+    private GhostBehavior precBehavior;
 
-    public FearBehavior(Ghost ghost) {
-        super(ghost, 6000);
+    public FearBehavior(Ghost ghost, GhostBehavior precBehavior) {
+        super(ghost, Assets.configuration.getFearBehaviorDuration());
+        this.precBehavior = precBehavior;
         ghost.setFrightened(true);
     }
 
     @Override
     public boolean isOver(WorldContainer world) {
         return ghost.getState() != FRIGTHENED || super.isOver(world);
+    }
+
+    @Override
+    public GhostBehavior nextBehavior(WorldContainer world) {
+        precBehavior.lastTime = System.currentTimeMillis();
+        return precBehavior;
+    }
+
+    public void update(WorldContainer world) {
+        super.update(world);
+        if (isOver(world)) {
+            if (ghost.getState() == FRIGTHENED) {
+                ghost.setFrightened(false);
+            }
+        }
     }
 
     public Target searchTarget(WorldContainer world) {
@@ -64,18 +80,5 @@ public class FearBehavior extends GhostBehavior {
     }
 
 
-    //TODO marche surement pas bien si pacman enchaine vite 2 energizers (la durée n'est pas reseté)
-    @Override
-    public GhostBehavior nextBehavior(WorldContainer world) {
-        return new ChaseGhostBehavior(ghost, ChaseStrategyFactory.build(ghost, world));
-    }
 
-    public void update(WorldContainer world) {
-        super.update(world);
-        if (isOver(world)) {
-            if (ghost.getState() == FRIGTHENED) {
-                ghost.setFrightened(false);
-            }
-        }
-    }
 }

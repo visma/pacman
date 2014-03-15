@@ -12,17 +12,22 @@ import isma.games.pacman.core.tiled.MazeFactory;
 
 public class GameScreen implements Screen {
     private final Game game;
+
     private final Maze maze;
     private final PacmanStage stage;
     private final OrthographicCamera camera;
 
+    public enum GameType{
+        DEMO,
+        NORMAL
+    }
 
-    public GameScreen(Game game) {
+    public GameScreen(Game game, GameType gameType) {
         this.game = game;
 
         camera = buildCamera();
         maze = MazeFactory.buildMaze(camera);
-        stage = new PacmanStage(maze);
+        stage = new PacmanStage(game, maze, gameType);
         stage.setCamera(camera);
     }
 

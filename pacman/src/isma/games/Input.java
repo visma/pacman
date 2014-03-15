@@ -6,7 +6,10 @@ public enum Input {
     UP(Keys.UP),
     DOWN(Keys.DOWN),
     LEFT(Keys.LEFT),
-    RIGHT(Keys.RIGHT);
+    RIGHT(Keys.RIGHT),
+    ESCAPE(Keys.ESCAPE),
+    BACK(Keys.BACK),
+    UNHANDLED(-1);
     private int keyCode;
 
     Input(int keyCode) {
@@ -19,7 +22,7 @@ public enum Input {
                 return input;
             }
         }
-        return null;
+        return UNHANDLED;
     }
 
 }

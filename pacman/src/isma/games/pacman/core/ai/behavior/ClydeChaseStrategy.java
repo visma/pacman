@@ -8,13 +8,16 @@ import isma.games.pacman.core.actors.Pacman;
 import isma.games.pacman.core.manager.WorldContainer;
 import isma.games.pacman.core.tiled.Maze;
 
-import static isma.games.Direction.*;
+import static isma.games.Direction.EAST;
+import static isma.games.Direction.NORTH;
+import static isma.games.Direction.SOUTH;
+import static isma.games.Direction.WEST;
 import static isma.games.TiledMapHelper.getGridPosition;
 import static isma.games.TiledMapHelper.getTarget;
 import static isma.games.pacman.core.tiled.MazeMoveHelper.nextTurnTileOn;
 
 public class ClydeChaseStrategy implements ChaseStrategy {
-    private static final float AWARE_TILE_RADIUS = 10;
+    private static final float AWARE_TILE_RADIUS = 8;
     private Ghost clyde;
 
 
@@ -54,7 +57,7 @@ public class ClydeChaseStrategy implements ChaseStrategy {
                 direction = chooseDirection(maze, clyde, EAST, WEST);
                 break;
         }
-        Point nextTurnTile = nextTurnTileOn(maze, clydePosition, direction, 2);
+        Point nextTurnTile = nextTurnTileOn(maze, clydePosition, direction, direction.nextOnClockwise(), 2);
         return getTarget(maze, nextTurnTile);
     }
 
@@ -65,9 +68,9 @@ public class ClydeChaseStrategy implements ChaseStrategy {
         Point clydePosition = getGridPosition(maze, clyde);
         if (maze.isPath(clydePosition.onNext(rightHandDirection), 2)) {
             return rightHandDirection;
-        } else if (maze.isPath(clydePosition.onNext(leftHandDirection), 2)){
+        } else if (maze.isPath(clydePosition.onNext(leftHandDirection), 2)) {
             return leftHandDirection;
-        }else {
+        } else {
             //Inside ghost house
             return clyde.getCurrentDirection();
         }

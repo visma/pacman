@@ -14,10 +14,8 @@ public class GhostAIMoveHandler extends AIMoveHandler {
     public GhostAIMoveHandler(Ghost actor, WorldContainer world) {
         super(actor, world, new GraphBuilder());
         behavior = new ChaseGhostBehavior(actor, ChaseStrategyFactory.build(actor, world));
-        //behavior = new FearBehavior(actor);
     }
 
-    //TODO OPTIMISER ICI
     @Override
     protected boolean nextMoveChangeTurnTile(float remainingLen) {
         behavior.update(world);
@@ -29,7 +27,6 @@ public class GhostAIMoveHandler extends AIMoveHandler {
 
     @Override
     protected Target searchTarget() {
-        //warn("%s search target with %s", aiActor.getId(),  behavior.getClass());
         return behavior.searchTarget(world);
     }
 

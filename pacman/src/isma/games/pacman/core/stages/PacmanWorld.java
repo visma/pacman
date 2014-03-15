@@ -78,13 +78,12 @@ public class PacmanWorld implements WorldContainer {
 
         gameBoard = new GameBoard(lives, fruit);
 
-        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, false, false);
+        debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), true, false, false);
         //ghosts.addAll(ActorFactory.buildAllGhosts());
         ghosts.add(ActorFactory.buildBlinky());
         ghosts.add(ActorFactory.buildPinky());
         ghosts.add(ActorFactory.buildClyde());
         ghosts.add(ActorFactory.buildInky());
-
 
         ghostPoints = new GhostPoints();
         fruitPoints = new FruitPoints(fruit);

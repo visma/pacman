@@ -19,7 +19,7 @@ public class TextureFactory {
     public ArrayMap<Direction, Animation> buildAliveActorDefautAnimations(String name) {
         //TODO pas de new Texture ici !!!
         Texture texture = new Texture(Gdx.files.internal(Assets.getAliveActorSpriteSheet(name)));
-        final int FRAME_DURATION = 8;
+        final int FRAME_DURATION = 3;
         TextureRegion[][] textureRegions = split(texture,
                 texture.getWidth() / 4,
                 texture.getHeight() / 2);

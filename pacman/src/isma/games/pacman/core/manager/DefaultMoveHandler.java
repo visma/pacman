@@ -7,7 +7,7 @@ import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.AliveActor;
 import isma.games.pacman.core.tiled.Maze;
 
-import static isma.games.Log.*;
+import static isma.games.Log.debug;
 import static isma.games.TiledMapHelper.getTilesAt;
 import static isma.games.utils.TargetUtils.stringify;
 import static java.lang.Math.ceil;
@@ -36,7 +36,6 @@ public class DefaultMoveHandler implements MoveHandler {
                 futureCenter.y = (float) ceil(futureCenter.y);
                 break;
         }
-//        debug("futureCenter = {x=%s; y=%s}", futureCenter.x, futureCenter.y);
         TiledMapHelper.handleOutOfBounds(maze, futureCenter);
         TiledMapTileLayer.Cell cell = getTilesAt(maze.getLayerPath(), maze, futureCenter, direction)
                 .iterator().next();
@@ -52,7 +51,7 @@ public class DefaultMoveHandler implements MoveHandler {
 //        info("move(actor=%s, offset=%s, direction=%s)", stringify(actor), offset, actor.getCurrentDirection());
         actor.setStopped(offset == 0f);
         if (!canMove(actor, maze, actor.getCurrentDirection(), offset)) {
-//            warn("can't move actor=%s toward %s with value : %s", stringify(actor), actor.getCurrentDirection(), offset);
+            debug("can't move actor=%s toward %s with value : %s", stringify(actor), actor.getCurrentDirection(), offset);
             return;
         }
         switch (actor.getCurrentDirection()) {

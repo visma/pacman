@@ -9,6 +9,8 @@ import isma.games.PointCache;
 import isma.games.TiledMapWrapper;
 import isma.games.graph.Vertex;
 import isma.games.pacman.core.actors.AliveActor;
+import isma.games.pacman.core.tiled.Maze;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -35,7 +37,7 @@ public class PathFindingTest {
         path.add(new Vertex<Point>(PointCache.get(2, 2)));
 
         AliveActor actor = mockActor(23.5f, 0, EAST);
-        TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
+        Maze tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
         float remainingLen = 1.0f;
 
         Direction nextDirection = PathFinding.nextDirection(path, tiledMap, actor, remainingLen);
@@ -57,7 +59,7 @@ public class PathFindingTest {
         path.add(new Vertex<Point>(PointCache.get(1, 1)));
 
         AliveActor actor = mockActor(7.5f, 0, EAST);
-        TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
+        Maze tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
         float remainingLen = 0.5f;
 
         Direction nextDirection = PathFinding.nextDirection(path, tiledMap, actor, remainingLen);
@@ -80,7 +82,7 @@ public class PathFindingTest {
         path.add(new Vertex<Point>(PointCache.get(1, 1)));
 
         AliveActor actor = mockActor(7.5f, 0, EAST);
-        TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
+        Maze tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
         float remainingLen = 0.6f;
 
         Direction nextDirection = PathFinding.nextDirection(path, tiledMap, actor, remainingLen);
@@ -102,7 +104,7 @@ public class PathFindingTest {
         path.add(new Vertex<Point>(PointCache.get(1, 1)));
 
         AliveActor actor = mockActor(7.5f, 0, EAST);
-        TiledMapWrapper tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
+        Maze tiledMap = mockTiledMap(new Rectangle(0, 0, 3, 3));
         float remainingLen = 0.4f;
 
         Direction nextDirection = PathFinding.nextDirection(path, tiledMap, actor, remainingLen);
@@ -149,8 +151,8 @@ public class PathFindingTest {
 
     }
 
-    private TiledMapWrapper mockTiledMap(Rectangle bounds) {
-        TiledMapWrapper tiledMap = mock(TiledMapWrapper.class);
+    private Maze mockTiledMap(Rectangle bounds) {
+        Maze tiledMap = mock(Maze.class);
         when(tiledMap.getBounds()).thenReturn(bounds);
         when(tiledMap.getTileHeight()).thenReturn(8);
         when(tiledMap.getTileWidth()).thenReturn(8);
@@ -162,6 +164,7 @@ public class PathFindingTest {
         when(actor.getCurrentDirection()).thenReturn(direction);
         when(actor.getX()).thenReturn(x);
         when(actor.getY()).thenReturn(y);
+        when(actor.getId()).thenReturn("id");
         when(actor.getCenter()).thenReturn(new Rectangle(x + 4, y + 4, 8, 8));
         return actor;
     }

@@ -149,11 +149,14 @@ public class MazeMoveHelper {
         return len;
     }
 
-    public static Point nextTurnTileOn(Maze maze, Point position, Direction direction, int pathForce) {
+    public static Point nextTurnTileOn(Maze maze, Point position, Direction direction, Direction turn, int pathForce) {
         Point next = position;
         while (maze.isPath(next, pathForce)) {
             next = next.onNext(direction);
             next = handleOutOfBounds(maze, next);
+            if (maze.isPath(next.onNext(turn), pathForce)){
+                return next.onNext(turn).onNext(turn);
+            }
         }
         return next.onPrevious(direction);
     }

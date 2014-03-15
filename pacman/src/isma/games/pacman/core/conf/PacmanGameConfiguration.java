@@ -50,4 +50,19 @@ public class PacmanGameConfiguration extends GameConfiguration {
     public float getGhostSpeed(String ghostId) {
         return getFloat("speed.default." + ghostId);
     }
+
+    public int getFpsLimit() {
+        return getInt("fps.limit");
+    }
+
+    public long getScatterBehaviorDuration() {
+        return getLong("behavior.scatter.duration");
+    }
+
+    public long getChaseBehaviorDuration() {
+        return getLong("behavior.chase.duration");
+    }
+    public long getFearBehaviorDuration() {
+        return getLong("behavior.fear.duration");
+    }
 }

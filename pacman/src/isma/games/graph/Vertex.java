@@ -18,4 +18,21 @@ public class Vertex<E> implements Comparable<Vertex<E>> {
     public String toString() {
         return id.toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Vertex)) return false;
+
+        Vertex vertex = (Vertex) o;
+
+        if (id != null ? !id.equals(vertex.id) : vertex.id != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

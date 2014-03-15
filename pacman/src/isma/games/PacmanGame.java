@@ -11,11 +11,9 @@ public class PacmanGame extends Game {
 
     @Override
     public void create() {
-        Gdx.app.setLogLevel(Application.LOG_DEBUG);
+        Gdx.app.setLogLevel(Application.LOG_INFO);
         Assets.loadAll();
-
         setScreen(new MainMenuScreen(this));
-//        setScreen(new GameScreen(this));
     }
 
     @Override
@@ -25,7 +23,6 @@ public class PacmanGame extends Game {
 
         getScreen().dispose();
         Assets.disposeAll();
-
         //Gdx.app.exit();
     }
 }

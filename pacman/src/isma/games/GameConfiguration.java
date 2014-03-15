@@ -13,6 +13,9 @@ public abstract class GameConfiguration {
         String[] lines = content.split(System.getProperty("line.separator"));
 
         for (String line : lines) {
+            if (line.contains("#")){
+                line = line.substring(0, line.indexOf('#'));
+            }
             String[] columns = line.split("=");
             if (columns.length != 2) {
                 continue;

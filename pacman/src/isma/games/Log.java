@@ -17,7 +17,7 @@ public class Log {
 
     private static Set<String> forbiddenClasses = new HashSet<String>();
     private static Set<String> forbiddenMethods = new HashSet<String>();
-    public static int logLevel = LOG_NONE;
+    public static int logLevel = LOG_WARNING;
 
     static {
 

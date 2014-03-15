@@ -10,45 +10,60 @@ import isma.games.PositionHelper;
 import isma.games.Target;
 import isma.games.TiledMapWrapper;
 import isma.games.graph.Vertex;
+import isma.games.pacman.core.actors.ActorLog;
 import isma.games.pacman.core.actors.AliveActor;
+import isma.games.pacman.core.tiled.Maze;
+import isma.games.pacman.core.tiled.MazeMoveHelper;
+import isma.games.utils.TargetUtils;
 
 import static isma.games.TiledMapHelper.getGridPosition;
 import static isma.games.pacman.core.manager.MoveHandlerHelper.nextCenterPosition;
 
 
 public class PathFinding {
+    public static void main(String[] args) {
+        Array a = new Array();
+        a.add(0);
+        a.add(1);
+        a.add(2);
+        a.add(3);
 
+        Array b = new Array();
+        b.addAll();
+    }
+
+    //TODO code moche pas stable : a tester à donf
     public static Direction nextDirection(Array<Vertex<Point>> path,
-                                          TiledMapWrapper map,
+                                          Maze map,
                                           AliveActor actor,
                                           float remainingLen) {
         Target nextDefaultPosition = nextCenterPosition(map, actor, remainingLen);
         Point gridPosition = getGridPosition(map, nextDefaultPosition);
 
         Array<Vertex<Point>> newPath = new Array<Vertex<Point>>(path);
-//        debug("nextActorPosition : " + gridPosition);
-//        debug("path : " + path);
-        //TODO fix pour eviter que l'ia loupe un virage et revienne je crois
         if (path.size > 2 && path.contains(new Vertex<Point>(gridPosition), false)) {
-            int pathBeginIndex = path.indexOf(new Vertex<Point>(gridPosition), false);
-//            debug("actor tile on path index : " + pathBeginIndex);
-            if (pathBeginIndex > 0) {
-                //newPath.clear();
-                newPath.addAll(path, pathBeginIndex, path.size - pathBeginIndex);
-                //newPath.addAll(path.subList(pathBeginIndex, path.size()));
-                path = newPath;
-//                debug("newPath : " + path);
+            if (MazeMoveHelper.countTurns(map, gridPosition, 2) == 1) {
+                //dead end keep current position on path
+
+            } else {
+                int pathBeginIndex = path.indexOf(new Vertex<Point>(gridPosition), false);
+                if (pathBeginIndex != -1) {
+                    newPath.clear();
+                    int offset = pathBeginIndex + 1;
+                    int length = path.size - pathBeginIndex - 1;
+                    newPath.addAll(path, offset, length);
+                    path = newPath;
+                }
             }
         }
-//        debug("path.size : " + path.size());
         if (path.size < 2) {
             return actor.getCurrentDirection();
         }
         Vertex<Point> source = path.get(0);
         Vertex<Point> nextDestination = path.get(1);
-//        debug("source=%s, nextDestination=%s", source, nextDestination);
         Direction direction = getDirection(source, nextDestination, map.getBounds());
-//        debug("direction=%s", direction);
+//        ActorLog.logIfPinky(actor, "source=%s, nextDestination=%s, direction=%s, absolutePos=%s",
+//                source, nextDestination, direction, TargetUtils.stringify(actor));
         return direction;
     }
 

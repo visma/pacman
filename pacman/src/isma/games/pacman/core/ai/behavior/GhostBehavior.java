@@ -11,7 +11,7 @@ public abstract class GhostBehavior {
 
     private final long duration;
     private long elapsed = 0;
-    private long lastTime = 0;
+    long lastTime = 0;
 
     protected Ghost ghost;
 

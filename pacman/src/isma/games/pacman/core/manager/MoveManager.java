@@ -5,19 +5,19 @@ import com.badlogic.gdx.utils.ArrayMap;
 import isma.games.Log;
 import isma.games.NumberHelper;
 import isma.games.pacman.core.actors.AliveActor;
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.pacman.core.tiled.MazeMoveHelper;
 
 import static isma.games.Log.start;
 
 public class MoveManager {
-    public static final int FPS_LIMIT_CAP = 60;
-    private static final int FPS_OPTIMUM = 60;
-
     private static final float ROUND_DELTA = 0.000001f;
+    private final int fpsLimit;
     private ArrayMap<AliveActor, MoveHandler> map = new ArrayMap<AliveActor, MoveHandler>();
 
     public MoveManager() {
+        fpsLimit = Assets.configuration.getFpsLimit();
     }
 
     public void addHandler(AliveActor actor, MoveHandler moveHandler) {
@@ -121,7 +121,7 @@ public class MoveManager {
     }
 
     public int getFps() {
-        return FPS_OPTIMUM;
+        return fpsLimit;
     }
 
 }
