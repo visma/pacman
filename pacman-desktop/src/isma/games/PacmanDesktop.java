@@ -13,6 +13,10 @@ public class PacmanDesktop {
 
         config.width = 480;
         config.height = 800;
+
+//        config.width = 800;
+//        config.height = 600;
+
         //config.fullscreen=true;
 
         config.vSyncEnabled = false;

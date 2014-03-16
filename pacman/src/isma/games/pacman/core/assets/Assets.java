@@ -57,6 +57,8 @@ public class Assets {
      * FONTS
      * ****************************************************
      */
+    public static BitmapFont FONT_PACMAN_32;
+    public static BitmapFont FONT_PACMAN_64;
     public static BitmapFont FONT_ARCADE_12;
 
     /**
@@ -144,6 +146,8 @@ public class Assets {
         SOUND_DEATH = buildSound("sounds/death_1.ogg");
 
         FONT_ARCADE_12 = buildFont("arcade_12.fnt");
+        FONT_PACMAN_32 = buildFont("pacfont_32.fnt");
+        FONT_PACMAN_64 = buildFont("pacfont_64.fnt");
 
 
         configuration = new PacmanGameConfiguration();

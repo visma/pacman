@@ -4,9 +4,13 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.ArrayMap;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import isma.games.Direction;
 import isma.games.math.SinusVariation;
 import isma.games.math.TrigoFunctionFactory;
+import isma.games.pacman.core.assets.Assets;
 
 import static isma.games.pacman.core.actors.Ghost.GhostState.FRIGTHENED;
 import static isma.games.pacman.core.actors.Ghost.GhostState.NAKED;
@@ -19,6 +23,7 @@ public class Ghost extends AliveActor {
     private final ArrayMap<Direction, Animation> nakedAnimation;
     private GhostState state;
     private SinusVariation sinusVariation;
+    private boolean fearBlinkMode = false;
 
 
     public enum GhostState {
@@ -39,7 +44,11 @@ public class Ghost extends AliveActor {
             case NORMAL:
                 return animations.get(currentDirection).getKeyFrame(frame, true);
             case FRIGTHENED:
-                return frightenedAnimation[sinusVariation.nextValue() > 0 ? 0 : 1].getKeyFrame(frame, true);
+                if (fearBlinkMode) {
+                    return frightenedAnimation[sinusVariation.nextValue() > 0 ? 0 : 1].getKeyFrame(frame, true);
+                } else {
+                    return frightenedAnimation[1].getKeyFrame(frame, true);
+                }
             case NAKED:
                 return nakedAnimation.get(currentDirection).getKeyFrame(frame, true);
         }
@@ -75,8 +84,16 @@ public class Ghost extends AliveActor {
         }
         if (state == FRIGTHENED) {
             sinusVariation = TrigoFunctionFactory.buildSinus(0.2f, 0.00f, false, 1);
+            fearBlinkMode = false;
+            new Timer().schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    fearBlinkMode = true;
+                }
+            }, (3 * Assets.configuration.getFearBehaviorDuration() / 4));
         } else {
             sinusVariation = null;
+            fearBlinkMode = false;
         }
     }
 

@@ -11,7 +11,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
+import isma.games.pacman.core.actors.TextActor;
 import isma.games.pacman.core.assets.Assets;
+import isma.games.pacman.core.stages.PacmanMenuStage;
 
 import static isma.games.pacman.core.screens.GameScreen.GameType.DEMO;
 import static isma.games.pacman.core.screens.GameScreen.GameType.NORMAL;
@@ -22,17 +24,14 @@ public class MainMenuScreen implements Screen {
 
     public MainMenuScreen(Game game) {
         this.game = game;
-        stage = new Stage();
+        stage = new PacmanMenuStage(game);
         Gdx.input.setInputProcessor(stage);
 
-        Table table = buildTable();
-        stage.addActor(new Image(Assets.TEXTURE_MENU_BACKGROUND));
-        stage.addActor(table);
     }
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
+        Gdx.gl.glClearColor(0.0f, 0.0f, 0.0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(delta);
@@ -47,45 +46,6 @@ public class MainMenuScreen implements Screen {
     public void show() {
         Assets.soundManager.playMenuMusic();
     }
-
-    private Table buildTable() {
-        TextButton startButton = new TextButton("Start", Assets.skin);
-        TextButton demoButton = new TextButton("Demo", Assets.skin);
-        TextButton exitButton = new TextButton("Exit", Assets.skin);
-
-        Table table = new Table(Assets.skin);
-        table.setFillParent(true);
-        table.add(startButton).width(150).height(50);
-        table.row();
-        table.add(demoButton).width(150).height(50).padTop(10);
-        table.row();
-        table.add(exitButton).width(150).height(50).padTop(10);
-
-        startButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Assets.soundManager.stopMusic();
-                game.setScreen(new GameScreen(game, NORMAL));
-                return true;
-            }
-        });
-        demoButton.addListener(new InputListener() {
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Assets.soundManager.stopMusic();
-                game.setScreen(new GameScreen(game, DEMO));
-                return true;
-            }
-        });
-        exitButton.addListener(new InputListener(){
-            @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-        });
-        return table;
-    }
-
 
     @Override
     public void hide() {

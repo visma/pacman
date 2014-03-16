@@ -15,37 +15,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="some improvements...">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorLog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/AIMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/AIMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ChaseGhostBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ChaseGhostBehavior.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_641.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_642.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanMenuStage.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/TextActor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_64.fnt" />
+      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\arcade.fnt" afterPath="" />
+      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\arcade.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\buttons.json" afterPath="" />
+      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\resources.properties" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/FearBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/FearBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/GameConfiguration.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/GameConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/GhostAIMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/GhostAIMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/GhostBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/GhostBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/Input.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/Input.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/Log.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/Log.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveHandlerHelper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveHandlerHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/test/isma/games/pacman/core/manager/MoveHandlerHelperTest.java" afterPath="$PROJECT_DIR$/pacman/test/isma/games/pacman/core/manager/MoveHandlerHelperTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" afterPath="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/PacmanGame.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/PacmanGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/conf/PacmanGameConfiguration.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/conf/PacmanGameConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PathFinding.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PathFinding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/test/isma/games/pacman/core/ai/PathFindingTest.java" afterPath="$PROJECT_DIR$/pacman/test/isma/games/pacman/core/ai/PathFindingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ScatterGhostBehavior.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ScatterGhostBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/TextureFactory.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/TextureFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/graph/Vertex.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/graph/Vertex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/desktop.xml" afterPath="$PROJECT_DIR$/.idea/libraries/desktop.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman-android/assets/game.properties" afterPath="$PROJECT_DIR$/pacman-android/assets/game.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman-android/assets/tiledmap/pacman_level.tmx" afterPath="$PROJECT_DIR$/pacman-android/assets/tiledmap/pacman_level.tmx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\pacfont.fnt" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_32.fnt" />
+      <change type="MOVED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\pacfont.png" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_32.png" />
     </list>
     <ignored path="pacman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,53 +97,7 @@
     <favorites_list name="pacman" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="GameScreen.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="1598">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PacmanStage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="57" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.0" vertical-offset="1525" max-vertical-offset="2550">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="9" selection-start="317" selection-end="317" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DefaultMoveHandler.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="33" selection-start="2988" selection-end="3000" vertical-scroll-proportion="-25.346153" vertical-offset="548" max-vertical-offset="1377">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveManager.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="33" selection-start="3054" selection-end="3073" vertical-scroll-proportion="0.9504505" vertical-offset="615" max-vertical-offset="2074">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -168,11 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pacman/test/isma/games/pacman/core/manager/ActorStateManagerTest.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/graph/Dijkstra.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/rules/FruitRules.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorConstants.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/AliveActor.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/FruitPoints.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Fruit.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/ScoreManager.java" />
@@ -186,7 +123,6 @@
         <option value="$PROJECT_DIR$/pacman/src/isma/games/TiledMapWrapper.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/CacaScreen.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/SnippetScreen.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/PacmanGame.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/GameConfiguration.java" />
@@ -203,22 +139,28 @@
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PathFinding.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/TextureFactory.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveHandlerHelper.java" />
-        <option value="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/GhostBehavior.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ScatterGhostBehavior.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/conf/PacmanGameConfiguration.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ChaseGhostBehavior.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/FearBehavior.java" />
-        <option value="$PROJECT_DIR$/pacman-android/assets/game.properties" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/SoundManager.java" />
-        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/Input.java" />
         <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/AliveActor.java" />
+        <option value="$PROJECT_DIR$/pacman-android/assets/pacfont.fnt" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/TextActor.java" />
+        <option value="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanMenuStage.java" />
+        <option value="$PROJECT_DIR$/pacman-android/assets/game.properties" />
+        <option value="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" />
       </list>
     </option>
   </component>
@@ -255,12 +197,83 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="pacman" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-desktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-desktop" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="games" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="skin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -353,223 +366,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="games" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="screens" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="games" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="games" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="games" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdx.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdx.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdx.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="badlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pacman" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdx.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="badlogic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -744,6 +542,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -769,19 +580,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1022,7 +820,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34165722" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38818076" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39500567" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4199773" sideWeight="0.42673993" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1037,8 +835,8 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1978022" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37343928" sideWeight="0.82783884" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2844933" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36549374" sideWeight="0.82783884" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1492" height="836" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1048,34 +846,34 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39954597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1492" height="836" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1492" height="836" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46651533" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43927357" sideWeight="0.17216118" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4199773" sideWeight="0.42673993" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24725275" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3815629" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4382786" sideWeight="0.82783884" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36549374" sideWeight="0.82783884" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34960273" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3893303" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34165722" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39500567" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4199773" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4199773" sideWeight="0.57326007" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39954597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1114,186 +912,11 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/maps/MapProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="28" selection-start="1632" selection-end="1632" vertical-scroll-proportion="0.36283186" vertical-offset="373" max-vertical-offset="1870" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/TiledMapWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="53" selection-start="1614" selection-end="1614" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1632">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/graph/Dijkstra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PacmanAIMoveHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="22" selection-start="554" selection-end="554" vertical-scroll-proportion="0.0" vertical-offset="10" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/test/isma/games/pacman/core/manager/MoveHandlerHelperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="5" selection-start="2222" selection-end="2222" vertical-scroll-proportion="0.0" vertical-offset="386" max-vertical-offset="1241">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/SimpleTarget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="679" selection-end="679" vertical-scroll-proportion="0.0" vertical-offset="134" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/utils/Array.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="32" selection-start="5136" selection-end="5136" vertical-scroll-proportion="0.0" vertical-offset="1474" max-vertical-offset="9265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/Point.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1717">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/graph/Vertex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="731">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="44" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="2278">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/GhostAIMoveHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="33" selection-start="1011" selection-end="1023" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="27" selection-start="7157" selection-end="7168" vertical-scroll-proportion="-0.4344569" vertical-offset="2510" max-vertical-offset="3196">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/GameBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0" vertical-offset="267" max-vertical-offset="969">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="23" selection-start="1127" selection-end="1127" vertical-scroll-proportion="0.62705666" vertical-offset="303" max-vertical-offset="850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/ActorStateManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="56" selection-start="1248" selection-end="1248" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1326">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="23" selection-start="552" selection-end="552" vertical-scroll-proportion="0.33272395" vertical-offset="73" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/test/isma/games/pacman/core/ai/PathFindingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="17" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="2686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/PathFinding.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="21" selection-start="2562" selection-end="2562" vertical-scroll-proportion="0.0" vertical-offset="634" max-vertical-offset="1479">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="14" selection-start="213" selection-end="213" vertical-scroll-proportion="0.15711646" vertical-offset="0" max-vertical-offset="541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Pacman.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="31" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/AliveActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="52" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/TextureFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="45" selection-start="590" selection-end="590" vertical-scroll-proportion="0.21030928" vertical-offset="0" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/DebugPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="20" selection-start="951" selection-end="960" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1207">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveHandlerHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="24" selection-start="2013" selection-end="2013" vertical-scroll-proportion="0.44058502" vertical-offset="405" max-vertical-offset="952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="23" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman-android/assets/background_arcade.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pacman-android/assets/skin/default.png">
@@ -1304,20 +927,6 @@
     <entry file="file://$PROJECT_DIR$/pacman-android/assets/skin/uiskin.atlas">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3468">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman-android/assets/skin/uiskin.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="20" selection-start="297" selection-end="297" vertical-scroll-proportion="0.08872458" vertical-offset="88" max-vertical-offset="629">
           <folding />
         </state>
       </provider>
@@ -1336,13 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ChaseGhostBehavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="68" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ScatterGhostBehavior.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="34" selection-start="717" selection-end="717" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
@@ -1357,22 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="52" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1428">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="13" selection-start="5666" selection-end="5666" vertical-scroll-proportion="0.0" vertical-offset="2052" max-vertical-offset="3621">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/TiledMapHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="169" column="0" selection-start="6603" selection-end="6603" vertical-scroll-proportion="0.6768061" vertical-offset="2398" max-vertical-offset="2924">
@@ -1380,37 +966,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="2" selection-start="2895" selection-end="2895" vertical-scroll-proportion="0.74334604" vertical-offset="510" max-vertical-offset="4488">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman-android/assets/game.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="31" selection-start="341" selection-end="341" vertical-scroll-proportion="0.48479086" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/Screen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="17" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.06273764" vertical-offset="154" max-vertical-offset="680">
-          <folding />
-        </state>
+        <state line="25" column="17" selection-start="1022" selection-end="1022" vertical-scroll-proportion="0.06273764" vertical-offset="154" max-vertical-offset="680" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/SoundManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="83" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" vertical-offset="879" max-vertical-offset="2176">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="24" selection-start="1358" selection-end="1358" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="1547">
           <folding />
         </state>
       </provider>
@@ -1425,20 +988,6 @@
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/Input.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="25" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1598">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="57" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.0" vertical-offset="1525" max-vertical-offset="2550">
           <folding />
         </state>
       </provider>
@@ -1459,14 +1008,250 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="33" selection-start="2988" selection-end="3000" vertical-scroll-proportion="-25.346153" vertical-offset="548" max-vertical-offset="1377">
+        <state line="84" column="33" selection-start="2988" selection-end="3000" vertical-scroll-proportion="0.0" vertical-offset="1428" max-vertical-offset="1632">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="33" selection-start="3054" selection-end="3073" vertical-scroll-proportion="0.9504505" vertical-offset="615" max-vertical-offset="2074">
+        <state line="92" column="62" selection-start="4264" selection-end="4264" vertical-scroll-proportion="0.49774775" vertical-offset="1190" max-vertical-offset="2074">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/graphics/g2d/Animation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="25" selection-start="3786" selection-end="3786" vertical-scroll-proportion="0.0" vertical-offset="1108" max-vertical-offset="2975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/math/TrigoFunctionFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="34" selection-start="471" selection-end="471" vertical-scroll-proportion="0.33269963" vertical-offset="46" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="52" selection-start="2781" selection-end="2781" vertical-scroll-proportion="0.5475285" vertical-offset="919" max-vertical-offset="1751">
+          <folding>
+            <element signature="e#2882#3035#0" expanded="true" />
+            <element signature="e#3020#3021#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="478" selection-end="478" vertical-scroll-proportion="0.0" vertical-offset="243" max-vertical-offset="867">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="160" column="0" selection-start="6110" selection-end="6110" vertical-scroll-proportion="0.0" vertical-offset="2219" max-vertical-offset="3621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/GhostAIMoveHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="1028" selection-end="1028" vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ChaseGhostBehavior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1184" selection-end="1184" vertical-scroll-proportion="0.0" vertical-offset="235" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="94" selection-start="2833" selection-end="2833" vertical-scroll-proportion="0.58536583" vertical-offset="674" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/GameBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1033" selection-end="1405" vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="969">
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="862" selection-end="862" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1598">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/graphics/g2d/BitmapFont.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="564" column="16" selection-start="23266" selection-end="23266" vertical-scroll-proportion="0.0" vertical-offset="8820" max-vertical-offset="16354">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/pacfont_32.fnt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="26" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/pacfont_641.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/pacfont_64.fnt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="27897">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="149" column="43" selection-start="5802" selection-end="5802" vertical-scroll-proportion="0.57223266" vertical-offset="2041" max-vertical-offset="3111">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="40" selection-start="970" selection-end="970" vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="1717">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="57" selection-start="3963" selection-end="3963" vertical-scroll-proportion="0.0" vertical-offset="1525" max-vertical-offset="2550">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/pacman/libs/gdx-sources.jar!/com/badlogic/gdx/scenes/scene2d/Actor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="475" column="0" selection-start="15817" selection-end="15817" vertical-scroll-proportion="0.0" vertical-offset="6725" max-vertical-offset="10659">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanMenuStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="1326">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1658#1965#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
+            <element signature="e#1999#2304#0" expanded="true" />
+            <element signature="e#2293#2294#0" expanded="true" />
+            <element signature="e#2338#2534#0" expanded="true" />
+            <element signature="e#2523#2524#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="2894" selection-end="2894" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="4471">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/background_arcade.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Pacman.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="32" selection-start="173" selection-end="173" vertical-scroll-proportion="0.041516244" vertical-offset="45" max-vertical-offset="782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/AliveActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="42" selection-start="1685" selection-end="1685" vertical-scroll-proportion="0.4296029" vertical-offset="459" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/TextActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="5" selection-start="942" selection-end="942" vertical-scroll-proportion="0.6931408" vertical-offset="160" max-vertical-offset="714">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="22" selection-start="353" selection-end="353" vertical-scroll-proportion="0.33754513" vertical-offset="0" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/ActorBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="23" selection-start="762" selection-end="762" vertical-scroll-proportion="0.57039714" vertical-offset="109" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/pacfont_32.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/pacfont_642.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/skin/uiskin.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/arcade_12.fnt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/arcade_12.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/game.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="14" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>
