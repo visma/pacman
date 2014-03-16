@@ -14,26 +14,8 @@
     <bookmark url="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" line="70" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="some improvements...">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_641.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_642.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanMenuStage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/TextActor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_64.fnt" />
-      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\arcade.fnt" afterPath="" />
-      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\arcade.png" afterPath="" />
-      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\buttons.json" afterPath="" />
-      <change type="DELETED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\resources.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/behavior/ClydeChaseStrategy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/Ghost.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/MainMenuScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" afterPath="$PROJECT_DIR$/pacman-desktop/src/isma/games/PacmanDesktop.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/stages/PacmanWorld.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman-android/assets/game.properties" afterPath="$PROJECT_DIR$/pacman-android/assets/game.properties" />
+    <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\pacfont.fnt" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_32.fnt" />
-      <change type="MOVED" beforePath="E:\dev\libgdx\pacman\pacman-android\assets\pacfont.png" afterPath="$PROJECT_DIR$/pacman-android/assets/pacfont_32.png" />
     </list>
     <ignored path="pacman.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -787,7 +769,11 @@
       <created>1394759429456</created>
       <updated>1394759429456</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="some improvements...">
+      <created>1394966325757</created>
+      <updated>1394966325757</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
