@@ -10,7 +10,7 @@ public class MazeFactory {
     private MazeFactory() {
     }
 
-    public static Maze buildMaze(OrthographicCamera camera) {
-        return new Maze(camera, new TmxMapLoader().load(PACMAN_TILEDMAP_FILEPATH), Assets.MAIN_LAYER);
+    public static Maze buildMaze() {
+        return new Maze(new TmxMapLoader().load(PACMAN_TILEDMAP_FILEPATH), Assets.MAIN_LAYER);
     }
 }

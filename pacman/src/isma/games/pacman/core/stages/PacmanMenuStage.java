@@ -2,9 +2,11 @@ package isma.games.pacman.core.stages;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -33,9 +35,9 @@ public class PacmanMenuStage extends Stage {
     }
 
     private Table buildTable() {
-        TextButton startButton = new TextButton("Start", Assets.skin);
-        TextButton demoButton = new TextButton("Demo", Assets.skin);
-        TextButton exitButton = new TextButton("Exit", Assets.skin);
+        final TextButton startButton = new TextButton("Start", Assets.skin);
+        final TextButton demoButton = new TextButton("Demo", Assets.skin);
+        final TextButton exitButton = new TextButton("Exit", Assets.skin);
 
         Table table = new Table(Assets.skin);
         table.setFillParent(true);
@@ -48,23 +50,31 @@ public class PacmanMenuStage extends Stage {
         startButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 Assets.soundManager.stopMusic();
                 game.setScreen(new GameScreen(game, NORMAL));
-                return true;
             }
         });
         demoButton.addListener(new InputListener() {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 Assets.soundManager.stopMusic();
                 game.setScreen(new GameScreen(game, DEMO));
-                return true;
             }
         });
         exitButton.addListener(new InputListener() {
+
             @Override
-            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                return true;
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                game.dispose();
             }
         });
         return table;

@@ -18,8 +18,8 @@ public class Maze extends TiledMapWrapper implements PathMap {
 
     private final MazeProperties properties;
 
-    Maze(OrthographicCamera camera, TiledMap map, int layerIndex) {
-        super(camera, map, layerIndex);
+    Maze(TiledMap map, int layerIndex) {
+        super(map, layerIndex);
         properties = new MazeProperties(this, getLayerPath(), getLayerDot());
     }
 

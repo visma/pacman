@@ -16,12 +16,11 @@ public abstract class TiledMapWrapper {
     private final int tileHeight;
 
 
-    protected TiledMapWrapper(OrthographicCamera camera, TiledMap map, int visibleLayer) {
+    protected TiledMapWrapper(TiledMap map, int visibleLayer) {
         this.map = map;
         setLayerVisible(visibleLayer);
 
         mapRenderer = new OrthogonalTiledMapRenderer(map);
-        mapRenderer.setView(camera);
 
         MapProperties prop = map.getProperties();
 
