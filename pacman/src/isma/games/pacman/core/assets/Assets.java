@@ -3,7 +3,6 @@ package isma.games.pacman.core.assets;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -32,11 +31,13 @@ public class Assets {
      * IMAGES
      * ****************************************************
      */
-    private static final String SPRITE_SHEET_ALIVE_ACTOR = "sprites/sprite_sheet_%s.png";
-    private static final String SPRITE_SHEET_ALIVE_ACTOR_CORE = "sprites/sprite_sheet_%s_core.png";
-    private static final String SPRITE_SHEET_DEBUG_PATH_TRACE = "sprites/sprite_sheet_%s_path_trace.png";
+    private static final String SPRITES_DIR = "sprites_xx/";
 
-//    public static Texture backgroundTexture;
+    private static final String ALIVE_ACTOR = SPRITES_DIR + "%s.png";
+    private static final String ALIVE_ACTOR_CORE = SPRITES_DIR + "%s_core.png";
+    private static final String DEBUG_PATH_TRACE = SPRITES_DIR + "%s_path_trace.png";
+
+    //    public static Texture backgroundTexture;
     public static Skin skin;
 
     public static Texture TEXTURE_MENU_BACKGROUND;
@@ -81,15 +82,14 @@ public class Assets {
     public static Sound SOUND_DEATH;
 
 
-
     public static String getAliveActorSpriteSheet(String id) {
         //TODO a gerer dans texture apres
-        return SPRITE_SHEET_ALIVE_ACTOR.replace("%s", id);
+        return ALIVE_ACTOR.replace("%s", id).replace("xx", "x" + configuration.getScaleRatio());
     }
 
     public static String getPathTraceSpriteSheet(String actorId) {
         //TODO a gerer dans texture apres
-        return SPRITE_SHEET_DEBUG_PATH_TRACE.replace("%s", actorId);
+        return DEBUG_PATH_TRACE.replace("%s", actorId).replace("xx", "x" + configuration.getScaleRatio());
     }
 
     private static BitmapFont buildFont(String font) {
@@ -114,6 +114,7 @@ public class Assets {
     }
 
     private static Texture buildTexture(String textureRes) {
+        textureRes = textureRes.replace("xx", "x" + configuration.getScaleRatio());
         Gdx.app.log("LOADING", "load texture : " + textureRes);
         Texture texture = new Texture(files.internal(textureRes));
         textures.add(texture);
@@ -121,17 +122,20 @@ public class Assets {
     }
 
     public static void loadAll() {
-        TEXTURE_MENU_BACKGROUND = buildTexture("background_arcade.png");
-        TEXTURE_DOT = buildTexture("sprites/sprite_sheet_dot.png");
-        TEXTURE_FRUITS = buildTexture("sprites/sprite_sheet_fruits.png");
-        TEXTURE_ENERGIZER = buildTexture("sprites/sprite_sheet_energizer.png");
-        TEXTURE_GHOST_FRIGHTENED = buildTexture("sprites/sprite_sheet_frightened.png");
-        TEXTURE_GHOST_NAKED = buildTexture("sprites/sprite_sheet_naked.png");
-        TEXTURE_PACMAN_DEATH = buildTexture("sprites/sprite_sheet_pacman_death.png");
-        TEXTURE_GHOST_POINTS = buildTexture("sprites/sprite_sheet_ghost_points.png");
-        TEXTURE_FRUIT_POINTS = buildTexture("sprites/sprite_sheet_fruits_points.png");
+        configuration = new PacmanGameConfiguration();
+        configuration.load();
 
-        TEXTURE_DEBUG_GRAPH_VERTEXES = buildTexture("sprites/sprite_sheet_yellow_square.png");
+        TEXTURE_MENU_BACKGROUND = buildTexture("background_arcade.png");
+        TEXTURE_DOT = buildTexture(SPRITES_DIR + "dot.png");
+        TEXTURE_FRUITS = buildTexture(SPRITES_DIR + "fruits.png");
+        TEXTURE_ENERGIZER = buildTexture(SPRITES_DIR + "energizer.png");
+        TEXTURE_GHOST_FRIGHTENED = buildTexture(SPRITES_DIR + "frightened.png");
+        TEXTURE_GHOST_NAKED = buildTexture(SPRITES_DIR + "naked.png");
+        TEXTURE_PACMAN_DEATH = buildTexture(SPRITES_DIR + "pacman_death.png");
+        TEXTURE_GHOST_POINTS = buildTexture(SPRITES_DIR + "ghost_points.png");
+        TEXTURE_FRUIT_POINTS = buildTexture(SPRITES_DIR + "fruits_points.png");
+
+        TEXTURE_DEBUG_GRAPH_VERTEXES = buildTexture(SPRITES_DIR + "yellow_square.png");
 
         MUSIC_MENU = buildMusic("sounds/menu.mp3");
         MUSIC_DEFAULT = buildMusic("sounds/siren_slow_3.ogg");
@@ -148,10 +152,6 @@ public class Assets {
         FONT_ARCADE_12 = buildFont("arcade_12.fnt");
         FONT_PACMAN_32 = buildFont("pacfont_32.fnt");
         FONT_PACMAN_64 = buildFont("pacfont_64.fnt");
-
-
-        configuration = new PacmanGameConfiguration();
-        configuration.load();
 
         soundManager = new SoundManager(
                 configuration.isSoundEnabled(),

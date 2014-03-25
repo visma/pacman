@@ -4,6 +4,8 @@ import com.badlogic.gdx.utils.ArrayMap;
 
 import isma.games.Log;
 import isma.games.NumberHelper;
+import isma.games.PerformanceStats;
+import isma.games.pacman.core.actors.ActorConstants;
 import isma.games.pacman.core.actors.AliveActor;
 import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.tiled.Maze;
@@ -15,6 +17,7 @@ public class MoveManager {
     private static final float ROUND_DELTA = 0.000001f;
     private final int fpsLimit;
     private ArrayMap<AliveActor, MoveHandler> map = new ArrayMap<AliveActor, MoveHandler>();
+    private PerformanceStats fpsStats;
 
     public MoveManager() {
         fpsLimit = Assets.configuration.getFpsLimit();
@@ -33,7 +36,12 @@ public class MoveManager {
                     stringify(actor),
                     TiledMapHelper.getGridPosition(maze, actor),
                     actor.getCurrentDirection(), moveHandler.getDirection());*/
+            long startTime = System.currentTimeMillis();
             moveActor(delta, maze, actor, moveHandler);
+            if (actor.getId().equals(ActorConstants.BLINKY.id)){
+                long endTime = System.currentTimeMillis();
+                fpsStats.addIACost(endTime - startTime);
+            }
             /*info("after (%s): actor=%s, tile=%s, directions{CURR=%s, INPUT=%s}",
                     actor.getId(),
                     stringify(actor),
@@ -124,4 +132,7 @@ public class MoveManager {
         return fpsLimit;
     }
 
+    public void setPerformanceStats(PerformanceStats performanceStats) {
+        this.fpsStats = performanceStats;
+    }
 }

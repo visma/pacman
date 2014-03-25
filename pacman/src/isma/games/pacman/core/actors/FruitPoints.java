@@ -11,7 +11,6 @@ import isma.games.pacman.core.assets.Assets;
 import static isma.games.pacman.core.actors.Fruit.FruitEnum;
 
 public class FruitPoints extends Actor {
-    private boolean alive;
     private final Array<TextureRegion> textures = new Array<TextureRegion>();
     private Fruit fruit;
 
@@ -40,6 +39,8 @@ public class FruitPoints extends Actor {
             }
             index++;
         }
-        batch.draw(textures.get(index), fruit.getCenter().x, fruit.getCenter().y);
+        batch.draw(textures.get(index),
+                fruit.getCenter().x * Assets.configuration.getScaleRatio(),
+                fruit.getCenter().y * Assets.configuration.getScaleRatio());
     }
 }

@@ -6,13 +6,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.stages.PacmanStage;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.pacman.core.tiled.MazeFactory;
 
 public class GameScreen implements Screen {
-    private final Game game;
+    private final float zoom;
 
+    private final Game game;
     private final Maze maze;
     private final PacmanStage stage;
     private final OrthographicCamera camera;
@@ -25,6 +27,7 @@ public class GameScreen implements Screen {
     public GameScreen(Game game, GameType gameType) {
         this.game = game;
 
+        zoom = Assets.configuration.getScaleRatio();
         camera = buildCamera();
         maze = MazeFactory.buildMaze();
         stage = new PacmanStage(game, maze, gameType);
@@ -46,7 +49,9 @@ public class GameScreen implements Screen {
         } else {
             viewPortXOffset = (screenRatio - mazeRatio) * Maze.WIDTH;
         }
-        return new OrthographicCamera(Maze.WIDTH + viewPortXOffset, Maze.HEIGHT + viewPortYOffset);
+        return new OrthographicCamera(
+                (Maze.WIDTH + viewPortXOffset) * zoom,
+                (Maze.HEIGHT + viewPortYOffset) * zoom);
     }
 
 
@@ -65,7 +70,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-        camera.position.set(Maze.WIDTH / 2, Maze.HEIGHT / 2, 0);
+        camera.position.set(Maze.WIDTH * zoom / 2, Maze.HEIGHT * zoom / 2, 0);
         camera.update();
     }
 

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/pacman/pacman.iml" filepath="$PROJECT_DIR$/pacman/pacman.iml" />
       <module fileurl="file://$PROJECT_DIR$/pacman-android/pacman-android.iml" filepath="$PROJECT_DIR$/pacman-android/pacman-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/pacman-desktop/pacman-desktop.iml" filepath="$PROJECT_DIR$/pacman-desktop/pacman-desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/toolkit/toolkit.iml" filepath="$PROJECT_DIR$/toolkit/toolkit.iml" />
     </modules>
   </component>
 </project>

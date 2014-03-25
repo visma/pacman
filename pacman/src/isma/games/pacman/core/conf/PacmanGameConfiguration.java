@@ -65,4 +65,8 @@ public class PacmanGameConfiguration extends GameConfiguration {
     public long getFearBehaviorDuration() {
         return getLong("behavior.fear.duration");
     }
+
+    public int getScaleRatio() {
+        return getInt("scale.ratio");
+    }
 }

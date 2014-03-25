@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import isma.games.pacman.core.assets.Assets;
 
 public abstract class TiledMapWrapper {
     protected final TiledMap map;
@@ -20,7 +21,7 @@ public abstract class TiledMapWrapper {
         this.map = map;
         setLayerVisible(visibleLayer);
 
-        mapRenderer = new OrthogonalTiledMapRenderer(map);
+        mapRenderer = new OrthogonalTiledMapRenderer(map, Assets.configuration.getScaleRatio());
 
         MapProperties prop = map.getProperties();
 
@@ -36,7 +37,9 @@ public abstract class TiledMapWrapper {
         return getProperty(cell, propertyName);
     }
 
+    static int count = 0;
     public String getProperty(TiledMapTileLayer.Cell cell, String propertyName) {
+        System.out.println(count++);
         String noProperty = "";
         if (cell == null) {
             return noProperty;

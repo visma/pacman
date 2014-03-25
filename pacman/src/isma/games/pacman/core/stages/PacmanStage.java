@@ -10,12 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import isma.games.Direction;
+import isma.games.PerformanceStats;
 import isma.games.Input;
 import isma.games.pacman.core.actors.Food;
 import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.ai.GhostAIMoveHandler;
 import isma.games.pacman.core.ai.PacmanAIMoveHandler;
-import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.manager.ActorStateManager;
 import isma.games.pacman.core.manager.DefaultMoveHandler;
 import isma.games.pacman.core.manager.MoveManager;
@@ -30,6 +30,7 @@ import static isma.games.pacman.core.screens.GameScreen.GameType;
 
 public class PacmanStage extends Stage implements DirectionListener {
     private static final FPSLogger FPS_LOGGER = new FPSLogger();
+    private static final PerformanceStats FPS_STATS = new PerformanceStats();
     private final Game game;
 
     private final PacmanWorld world;
@@ -39,8 +40,10 @@ public class PacmanStage extends Stage implements DirectionListener {
     public PacmanStage(Game game, Maze maze, GameType gameType) {
         this.game = game;
         Gdx.app.setLogLevel(Application.LOG_INFO);
+        FPS_STATS.reset();
+        moveManager.setPerformanceStats(FPS_STATS);
 
-        world = new PacmanWorld(maze);
+        world = new PacmanWorld(maze, FPS_STATS);
         addAllActors();
 
         switch (Gdx.app.getType()) {
@@ -70,9 +73,10 @@ public class PacmanStage extends Stage implements DirectionListener {
     public void act(float delta) {
         //super.act(delta);
         FPS_LOGGER.log();
-        if (Assets.configuration.showFps() && (act++ % 10) == 0) {
+        FPS_STATS.storeFpsPerSecond();
+        /*if (Assets.configuration.showFps() && (act++ % 10) == 0) {
             world.gameBoard.setMessage("FPS : " + Gdx.graphics.getFramesPerSecond());
-        }
+        }*/
         if (!world.ready) {
             return;
         }

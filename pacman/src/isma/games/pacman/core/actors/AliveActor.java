@@ -7,15 +7,15 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ArrayMap;
-
 import isma.games.Direction;
 import isma.games.GameObject;
 import isma.games.Target;
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.assets.TextureFactory;
 
 public abstract class AliveActor extends Actor implements Target, GameObject {
-    private static final int WIDTH = 8;
-    private static final int HEIGHT = 8;
+    private static final int DEFAULT_WIDTH = 16;
+    private static final int DEFAULT_HEIGHT = 16;
     protected Array<WorldEventListener> eventListeners = new Array<WorldEventListener>();
 
     protected final TextureFactory textureFactory;
@@ -45,12 +45,15 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if (!visible) {
+            //TODO a gerer via la methode visible de base pour actor...
             return;
         }
         //TODO normalement on file le temps, pas la frame...
         frame += 1;
         TextureRegion texture = getTextureRegionToDraw();
-        batch.draw(texture, getX(), getY());
+        batch.draw(texture,
+                getX() * Assets.configuration.getScaleRatio(),
+                getY() * Assets.configuration.getScaleRatio());
     }
 
     public void addWorldEventListeners(WorldEventListener eventListener) {
@@ -58,10 +61,11 @@ public abstract class AliveActor extends Actor implements Target, GameObject {
     }
 
     public Rectangle getCenter() {
-        //TODO pas mettre en dur width et height
-        int width = WIDTH;
-        int height = HEIGHT;
-        return new Rectangle(getX() + 4, getY() + 4, width, height);
+        return new Rectangle(
+                getX() + DEFAULT_WIDTH / 4,
+                getY() + DEFAULT_HEIGHT / 4,
+                DEFAULT_WIDTH / 2,
+                DEFAULT_HEIGHT / 2);
     }
 
     public void setStopped(boolean stopped) {

@@ -6,6 +6,7 @@ import com.badlogic.gdx.utils.ArrayMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import isma.games.PerformanceStats;
 import isma.games.Point;
 import isma.games.pacman.core.actors.ActorBuilder;
 import isma.games.pacman.core.actors.ActorFactory;
@@ -58,13 +59,14 @@ public class PacmanWorld implements WorldContainer {
     boolean ready;
     GameState state;
 
+
     enum GameState {
         RUNNING,
         GAME_OVER
     }
 
 
-    public PacmanWorld(Maze maze) {
+    public PacmanWorld(Maze maze, PerformanceStats performanceStats) {
         this.maze = maze;
 
         state = RUNNING;
@@ -76,7 +78,7 @@ public class PacmanWorld implements WorldContainer {
         fruit = MazeBuilder.loadFruit(maze);
         pacman = ActorFactory.buildPacman();
 
-        gameBoard = new GameBoard(lives, fruit);
+        gameBoard = new GameBoard(lives, fruit, performanceStats);
 
         debugPath = new DebugPath(new PacmanAIGraphBuilder(this).buildGraph(maze), false, false, false);
         //ghosts.addAll(ActorFactory.buildAllGhosts());
@@ -145,7 +147,11 @@ public class PacmanWorld implements WorldContainer {
 
     private void handleGameOver() {
         pacman.setVisible(false);
-        gameBoard.setMessage("GAME OVER");
+        if (Assets.configuration.showFps()) {
+            gameBoard.setMessage("FPS : " + gameBoard.performanceStats.getPerSecondAverage());
+        } else {
+            gameBoard.setMessage("GAME OVER");
+        }
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {

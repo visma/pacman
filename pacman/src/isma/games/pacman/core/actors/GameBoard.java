@@ -1,15 +1,16 @@
 package isma.games.pacman.core.actors;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import isma.games.PerformanceStats;
 import isma.games.pacman.core.assets.Assets;
+import isma.games.pacman.core.assets.TextureFactory;
 
-import static isma.games.pacman.core.assets.Assets.getAliveActorSpriteSheet;
+import static isma.games.Direction.EAST;
+import static isma.games.pacman.core.actors.ActorConstants.PACMAN;
 
 public class GameBoard extends Actor {
     private final BitmapFont font;
@@ -18,28 +19,40 @@ public class GameBoard extends Actor {
     private int lives;
     private long score;
     private final Fruit fruit;
+    public final PerformanceStats performanceStats;
 
-    public GameBoard(int lives, Fruit fruit) {
+    public GameBoard(int lives, Fruit fruit, PerformanceStats performanceStats) {
         this.lives = lives;
         this.fruit = fruit;
+        this.performanceStats = performanceStats;
 
         font = Assets.FONT_ARCADE_12;
-        String spriteSheet = getAliveActorSpriteSheet(ActorConstants.PACMAN.id);
-        //TODO pas de new Texture ici !!!
-        liveTexture = TextureRegion.split(new Texture(Gdx.files.internal(spriteSheet)), 16, 16)[0][0];
+        font.setScale(Assets.configuration.getScaleRatio(), Assets.configuration.getScaleRatio());
+        liveTexture = new TextureFactory().buildAliveActorDefautAnimations(PACMAN.id).get(EAST).getKeyFrame(0);
     }
 
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if (message != null) {
-            font.draw(batch, message, 88, 128);
+            font.draw(batch, message,
+                    88 * Assets.configuration.getScaleRatio(),
+                    128 * Assets.configuration.getScaleRatio());
         }
-        font.draw(batch, "score : " + score, 16, 275);
+        font.draw(batch, "ia cost " + performanceStats.getIACost() + "ms",
+                100 * Assets.configuration.getScaleRatio(),
+                275 * Assets.configuration.getScaleRatio());
+        font.draw(batch, "score : " + score,
+                16 * Assets.configuration.getScaleRatio(),
+                275 * Assets.configuration.getScaleRatio());
         for (int i = 0; i < lives; i++) {
-            batch.draw(liveTexture, (i * 20), 0);
+            batch.draw(liveTexture,
+                    (i * 20) * Assets.configuration.getScaleRatio(),
+                    0 * Assets.configuration.getScaleRatio());
         }
-        batch.draw(fruit.getCurrentTexture(), 208, 0);
+        batch.draw(fruit.getCurrentTexture(),
+                208 * Assets.configuration.getScaleRatio(),
+                0 * Assets.configuration.getScaleRatio());
     }
 
     public void setMessage(String message) {

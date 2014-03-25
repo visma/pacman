@@ -23,7 +23,9 @@ public class GhostPoints extends Actor {
     public final void draw(Batch batch, float parentAlpha) {
         for (Vector2 key : map.keys()) {
             Integer position = map.get(key);
-            batch.draw(ghostPoints[position - 1], key.x, key.y);
+            batch.draw(ghostPoints[position - 1],
+                    key.x * Assets.configuration.getScaleRatio(),
+                    key.y * Assets.configuration.getScaleRatio());
         }
     }
 

@@ -2,13 +2,13 @@ package isma.games.pacman.core.actors;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
+import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.assets.TextureFactory;
 
 public class Dot extends Food {
-    private static final int WIDTH = 8;
-    private static final int HEIGHT = 8;
+    private static final int DEFAULT_WIDTH = 8;
+    private static final int DEFAULT_HEIGHT = 8;
 
     private final Animation animation;
     private boolean energizer;
@@ -17,7 +17,6 @@ public class Dot extends Food {
     public Dot(boolean isEnergizer) {
         energizer = isEnergizer;
         alive = true;
-
         frame = 0;
         animation = new TextureFactory().buildDotAnimation(isEnergizer);
     }
@@ -25,14 +24,14 @@ public class Dot extends Food {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         if (alive) {
-            batch.draw(animation.getKeyFrame(frame++, true), getX(), getY());
+            batch.draw(animation.getKeyFrame(frame++, true),
+                    getX() * Assets.configuration.getScaleRatio(),
+                    getY() * Assets.configuration.getScaleRatio());
         }
     }
 
     public Rectangle getCenter() {
-        int width = WIDTH;
-        int height = HEIGHT;
-        return new Rectangle(getX(), getY(), width, height);
+        return new Rectangle(getX(), getY(), DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
 

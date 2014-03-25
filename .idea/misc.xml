@@ -3,8 +3,13 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="IdProvider" IDEtalkID="D3C6D118C81793AA10D3485386C7A42D" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="Android API 19 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="TestDoxConfiguration">
+    <option name="createTestIfMissing" value="true" />
+    <option name="deletePackageOccurrences" value="true" />
   </component>
 </project>
 

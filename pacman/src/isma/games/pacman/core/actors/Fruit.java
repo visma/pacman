@@ -11,6 +11,9 @@ import isma.games.pacman.core.assets.Assets;
 import static isma.games.pacman.core.actors.Fruit.FruitEnum.CHERRY;
 
 public class Fruit extends Food {
+    private static final int DEFAULT_WIDTH = 16;
+    private static final int DEFAULT_HEIGHT = 16;
+
     public enum FruitEnum {
         CHERRY(100),
         STRAWBERRY(300),
@@ -46,14 +49,18 @@ public class Fruit extends Food {
     @Override
     public final void draw(Batch batch, float parentAlpha) {
         if (alive) {
-            batch.draw(textures.get(currentFruit), getX(), getY());
+            batch.draw(textures.get(currentFruit),
+                    getX() * Assets.configuration.getScaleRatio(),
+                    getY() * Assets.configuration.getScaleRatio());
         }
     }
 
     public Rectangle getCenter() {
-        int width = 8;
-        int height = 8;
-        return new Rectangle(getX(), getY(), width, height);
+        return new Rectangle(
+                getX() + DEFAULT_WIDTH / 4,
+                getY() + DEFAULT_HEIGHT / 4,
+                DEFAULT_WIDTH / 2,
+                DEFAULT_HEIGHT / 2);
     }
 
     public FruitEnum getCurrentFruit() {
