@@ -1,14 +1,14 @@
 package isma.games.pacman.core.manager;
 
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
+
 import isma.games.Direction;
 import isma.games.TiledMapHelper;
 import isma.games.pacman.core.actors.AliveActor;
 import isma.games.pacman.core.tiled.Maze;
 
 import static isma.games.Log.debug;
-import static isma.games.TiledMapHelper.getTilesAt;
+import static isma.games.TiledMapHelper.getGridPosition;
 import static isma.games.utils.TargetUtils.stringify;
 import static java.lang.Math.ceil;
 import static java.lang.Math.floor;
@@ -37,9 +37,7 @@ public class DefaultMoveHandler implements MoveHandler {
                 break;
         }
         TiledMapHelper.handleOutOfBounds(maze, futureCenter);
-        TiledMapTileLayer.Cell cell = getTilesAt(maze.getLayerPath(), maze, futureCenter, direction)
-                .iterator().next();
-        return maze.isPath(cell, getPathForce());
+        return maze.isPath(getGridPosition(maze, futureCenter.x, futureCenter.y), getPathForce());
     }
 
     @Override

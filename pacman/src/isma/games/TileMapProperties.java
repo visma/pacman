@@ -6,13 +6,10 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 import java.util.Iterator;
 
-import static isma.games.Log.debug;
-import static isma.games.Log.trace;
-
 public class TileMapProperties {
     protected final TiledMapWrapper map;
 
-    private TiledPropertiesCache cache = new TiledPropertiesCache();
+    protected TiledPropertiesCache propertiesCache = new TiledPropertiesCache();
 
     public TileMapProperties(TiledMapWrapper map) {
         this.map = map;
@@ -20,7 +17,7 @@ public class TileMapProperties {
     }
 
     public Point getUniqueKeyValuePosition(int layerIndex, String key, String uniqueValue) {
-        return cache.getPositionOfUniqueValue(layerIndex, key, uniqueValue);
+        return propertiesCache.getPositionOfUniqueValue(layerIndex, key, uniqueValue);
     }
 
     private void loadProperties() {
@@ -35,11 +32,14 @@ public class TileMapProperties {
                         String key = keys.next();
                         String value = (String) properties.get(key);
 //                        debug("layer=%s, x=%s, y=%s, key=%s, value=%s", layerIndex, i, j, key, value);
-                        cache.put(layerIndex, i, j, key, value);
+                        propertiesCache.put(layerIndex, i, j, key, value);
                     }
                 }
             }
         }
     }
 
+    TiledPropertiesCache getPropertiesCache() {
+        return propertiesCache;
+    }
 }

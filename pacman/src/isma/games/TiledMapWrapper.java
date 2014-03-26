@@ -1,27 +1,35 @@
 package isma.games;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+
 import isma.games.pacman.core.assets.Assets;
+import isma.games.pacman.core.tiled.Maze;
 
 public abstract class TiledMapWrapper {
     protected final TiledMap map;
-    private final OrthogonalTiledMapRenderer mapRenderer;
+    //OrthogonalTiledMapRenderer is too slow at this time : reactivate it if a boosted version come...
+    //private final OrthogonalTiledMapRenderer mapRenderer;
     private final int width;
     private final int height;
     private final int tileWidth;
     private final int tileHeight;
+    private SpriteBatch spriteBatch;
 
 
-    protected TiledMapWrapper(TiledMap map, int visibleLayer) {
+    protected TiledMapWrapper(TiledMap map, int visibleLayer, OrthographicCamera camera) {
         this.map = map;
         setLayerVisible(visibleLayer);
-
-        mapRenderer = new OrthogonalTiledMapRenderer(map, Assets.configuration.getScaleRatio());
+        //OrthogonalTiledMapRenderer is too slow at this time : reactivate it if a boosted version come...
+        //mapRenderer = new OrthogonalTiledMapRenderer(map, Assets.configuration.getScaleRatio());
+        spriteBatch = new SpriteBatch();
+        spriteBatch.setProjectionMatrix(camera.projection);
 
         MapProperties prop = map.getProperties();
 
@@ -32,14 +40,13 @@ public abstract class TiledMapWrapper {
         PointCache.init(width, height);
     }
 
+    //OK
     public String getProperty(int layerIndex, String propertyName, Point gridPosition) {
         TiledMapTileLayer.Cell cell = getCell(layerIndex, gridPosition);
         return getProperty(cell, propertyName);
     }
 
-    static int count = 0;
     public String getProperty(TiledMapTileLayer.Cell cell, String propertyName) {
-        System.out.println(count++);
         String noProperty = "";
         if (cell == null) {
             return noProperty;
@@ -59,20 +66,30 @@ public abstract class TiledMapWrapper {
         }
     }
 
+    /**
+     * OrthogonalTiledMapRenderer is very slow : draw texture background instead (possible because small map and no scroll)
+     */
     public void render(OrthographicCamera camera) {
-        mapRenderer.setView(camera);
-        mapRenderer.render();
+        //OrthogonalTiledMapRenderer is too slow at this time : reactivate it if a boosted version come...
+        //mapRenderer.render();
+
+        spriteBatch.begin();
+        spriteBatch.draw(Assets.TEXTURE_MAZE,
+                -width * tileWidth,
+                -height * tileHeight);
+        spriteBatch.end();
     }
 
     public void dispose() {
         map.dispose();
-        mapRenderer.dispose();
+        spriteBatch.dispose();
+        //OrthogonalTiledMapRenderer is too slow at this time : reactivate it if a boosted version come...
+        // mapRenderer.dispose();
     }
 
     public Rectangle getBounds() {
         return new Rectangle(0, 0, getWidth(), getHeight());
     }
-
 
 
     public boolean isOutOfBounds(Point position) {
@@ -81,9 +98,11 @@ public abstract class TiledMapWrapper {
                 && position.y >= bounds.y && position.y <= (bounds.y + bounds.height - 1);
     }
 
-    /********************************************************************************
-     *  GETTERS/SETTERS
-     ********************************************************************************/
+    /**
+     * *****************************************************************************
+     * GETTERS/SETTERS
+     * ******************************************************************************
+     */
     public int getWidth() {
         return width;
     }
@@ -104,4 +123,8 @@ public abstract class TiledMapWrapper {
         return map;
     }
 
+    //OrthogonalTiledMapRenderer is too slow at this time : reactivate it if a boosted version come...
+    /*public TiledMapRenderer getRenderer() {
+        return mapRenderer;
+    }*/
 }

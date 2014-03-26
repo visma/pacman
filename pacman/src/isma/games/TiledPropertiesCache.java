@@ -2,11 +2,11 @@ package isma.games;
 
 import com.badlogic.gdx.utils.ArrayMap;
 
-class TiledPropertiesCache {
-    private ArrayMap<InnerKey, ArrayMap<Point, String>> cache = new ArrayMap<InnerKey, ArrayMap<Point, String>>();
+public class TiledPropertiesCache {
+    ArrayMap<Key, ArrayMap<Point, String>> cache = new ArrayMap<Key, ArrayMap<Point, String>>();
 
     void put(int layerIndex, int x, int y, String key, String value) {
-        InnerKey cacheKey = new InnerKey(layerIndex, key);
+        Key cacheKey = new Key(layerIndex, key);
         ArrayMap<Point, String> valuesAt = cache.get(cacheKey);
         if (valuesAt == null) {
             valuesAt = new ArrayMap<Point, String>();
@@ -16,7 +16,7 @@ class TiledPropertiesCache {
     }
 
     Point getPositionOfUniqueValue(int layerIndex, String key, String uniqueValue) {
-        ArrayMap<Point, String> valuesAt = cache.get(new InnerKey(layerIndex, key));
+        ArrayMap<Point, String> valuesAt = cache.get(new Key(layerIndex, key));
         for (Point point : valuesAt.keys()) {
             if (valuesAt.get(point).equals(uniqueValue)) {
                 return point;
@@ -25,11 +25,15 @@ class TiledPropertiesCache {
         return null;
     }
 
-    class InnerKey {
+    public ArrayMap<Key, ArrayMap<Point, String>> getCache() {
+        return cache;
+    }
+
+    public static class Key {
         final int layerIndex;
         final String key;
 
-        InnerKey(int layerIndex, String key) {
+        public Key(int layerIndex, String key) {
             this.layerIndex = layerIndex;
             this.key = key;
         }
@@ -37,12 +41,12 @@ class TiledPropertiesCache {
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
-            if (!(o instanceof InnerKey)) return false;
+            if (!(o instanceof Key)) return false;
 
-            InnerKey innerKey = (InnerKey) o;
+            Key key = (Key) o;
 
-            if (layerIndex != innerKey.layerIndex) return false;
-            if (key != null ? !key.equals(innerKey.key) : innerKey.key != null) return false;
+            if (layerIndex != key.layerIndex) return false;
+            if (this.key != null ? !this.key.equals(key.key) : key.key != null) return false;
 
             return true;
         }

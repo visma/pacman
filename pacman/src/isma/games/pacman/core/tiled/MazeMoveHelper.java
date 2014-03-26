@@ -1,13 +1,11 @@
 package isma.games.pacman.core.tiled;
 
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 import java.util.Set;
 
 import isma.games.Direction;
-import isma.games.Log;
 import isma.games.NumberHelper;
 import isma.games.Point;
 import isma.games.PointCache;
@@ -16,7 +14,7 @@ import isma.games.TiledMapHelper;
 import static isma.games.Direction.EAST;
 import static isma.games.Direction.WEST;
 import static isma.games.TiledMapHelper.getGridPosition;
-import static isma.games.TiledMapHelper.getTilesAt;
+import static isma.games.TiledMapHelper.getTilesPointAt;
 import static isma.games.TiledMapHelper.handleOutOfBounds;
 import static java.lang.Math.abs;
 import static java.lang.Math.ceil;
@@ -53,13 +51,13 @@ public class MazeMoveHelper {
                 break;
         }
 //        trace("currCenter{x=%s, y=%s}", center.x, center.y);
-        Set<TiledMapTileLayer.Cell> cells = getTilesAt(maze.getLayerPath(), maze, currCenter, direction);
+        Set<Point> points = getTilesPointAt(maze, currCenter, direction);
 //        trace("tiles : " + cells.size());
-        if (cells.size() > 1) {
+        if (points.size() > 1) {
             return 0;
         }
         float length = 0;
-        if (maze.isPath(cells.iterator().next(), pathForce)) {
+        if (maze.isPath(points.iterator().next(), pathForce)) {
             if ((direction == WEST) || (direction == EAST)) {
                 length += abs(currCenter.x - center.x);
             } else {
@@ -86,11 +84,11 @@ public class MazeMoveHelper {
 //            trace("bounds " + maze.getBounds());
 //            trace("test next pixel : " + currCenter);
 //            trace("test next pixel (after bounds handling) : " + currCenter);
-            cells = getTilesAt(maze.getLayerPath(), maze, currCenter, direction);
-            if (cells.size() > 1) {
+            points = getTilesPointAt(maze, currCenter, direction);
+            if (points.size() > 1) {
                 return length;
             }
-            if (maze.isPath(cells.iterator().next(), pathForce)) {
+            if (maze.isPath(points.iterator().next(), pathForce)) {
                 length++;
             } else {
 //                trace("length = " + length);
@@ -103,7 +101,7 @@ public class MazeMoveHelper {
                                                      Rectangle center,
                                                      Direction currentDirection,
                                                      Direction nextDirection, int pathForce) {
-        Log.start(Log.LOG_TRACE);
+//        Log.start(Log.LOG_TRACE);
 //        trace("center{x=%s, y=%s}, currentDirection=%s, nextDirection=%s", center.x, center.y, currentDirection, nextDirection);
         Point originalPosition = getGridPosition(maze, new Vector2(center.x, center.y));
         Point nextPosition = originalPosition;
@@ -154,7 +152,7 @@ public class MazeMoveHelper {
         while (maze.isPath(next, pathForce)) {
             next = next.onNext(direction);
             next = handleOutOfBounds(maze, next);
-            if (maze.isPath(next.onNext(turn), pathForce)){
+            if (maze.isPath(next.onNext(turn), pathForce)) {
                 return next.onNext(turn).onNext(turn);
             }
         }

@@ -4,47 +4,82 @@ package isma.games.pacman.core.conf;
 import isma.games.GameConfiguration;
 
 public class PacmanGameConfiguration extends GameConfiguration {
+    private int lives;
+    private float soundVolume;
+    private long soundDurationRestart;
+    private long soundDurationGhostEated;
+    private long soundDurationDying;
+    private boolean soundEnabled;
+    private boolean showFps;
+    private long showPointsDuration;
+    private long fruitDuration;
+    private float defaultPacmanSpeed;
+    private int scaleRatio;
+    private int fpsLimit;
+    private long scatterBehaviorDuration;
+    private long chaseBehaviorDuration;
+    private long fearBehaviorDuration;
+
+    @Override
+    public void load() {
+        super.load();
+        lives = getInt("lives");
+        soundVolume = getFloat("sound.volume");
+        soundDurationRestart = getLong("sound.duration.restart");
+        soundDurationGhostEated = getLong("sound.duration.ghost_eated");
+        soundDurationDying = getLong("sound.duration.dying");
+        soundEnabled = getBoolean("sound.on");
+        showFps = getBoolean("fps.show");
+        showPointsDuration = getLong("bonus.duration.showPoints");
+        fruitDuration = getLong("fruit.duration");
+        defaultPacmanSpeed = getFloat("speed.default.pacman");
+        scaleRatio = getInt("scale.ratio");
+        fpsLimit = getInt("fps.limit");
+        scatterBehaviorDuration = getLong("behavior.scatter.duration");
+        chaseBehaviorDuration = getLong("behavior.chase.duration");
+        fearBehaviorDuration = getLong("behavior.fear.duration");
+    }
 
     public int getLives() {
-        return getInt("lives");
+        return lives;
     }
 
     public float getSoundVolume() {
-        return getFloat("sound.volume");
+        return soundVolume;
     }
 
 
     public long getSoundDurationRestart() {
-        return getLong("sound.duration.restart");
+        return soundDurationRestart;
     }
 
     public long getSoundDurationGhostEated() {
-        return getLong("sound.duration.ghost_eated");
+        return soundDurationGhostEated;
     }
 
     public long getSoundDurationDying() {
-        return getLong("sound.duration.dying");
+        return soundDurationDying;
     }
 
     public boolean isSoundEnabled() {
-        return getBoolean("sound.on");
+        return soundEnabled;
     }
 
 
     public boolean showFps() {
-        return getBoolean("fps.show");
+        return showFps;
     }
 
     public long getShowPointsDuration() {
-        return getLong("bonus.duration.showPoints");
+        return showPointsDuration;
     }
 
     public long getFruitDuration() {
-        return getLong("fruit.duration");
+        return fruitDuration;
     }
 
     public float getPacmanSpeed() {
-        return getFloat("speed.default.pacman");
+        return defaultPacmanSpeed;
     }
 
     public float getGhostSpeed(String ghostId) {
@@ -52,21 +87,21 @@ public class PacmanGameConfiguration extends GameConfiguration {
     }
 
     public int getFpsLimit() {
-        return getInt("fps.limit");
+        return fpsLimit;
     }
 
     public long getScatterBehaviorDuration() {
-        return getLong("behavior.scatter.duration");
+        return scatterBehaviorDuration;
     }
 
     public long getChaseBehaviorDuration() {
-        return getLong("behavior.chase.duration");
+        return chaseBehaviorDuration;
     }
     public long getFearBehaviorDuration() {
-        return getLong("behavior.fear.duration");
+        return fearBehaviorDuration;
     }
 
     public int getScaleRatio() {
-        return getInt("scale.ratio");
+        return scaleRatio;
     }
 }

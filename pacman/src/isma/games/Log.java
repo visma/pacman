@@ -100,6 +100,7 @@ public class Log {
         return params == null ? message : String.format(message, params);
     }
 
+
     public static void start(final int logLevel) {
         String message = ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
         new InnerLogger(logLevel) {

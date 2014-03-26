@@ -1,0 +1,3 @@
+idees optims :
+ -> eviter new Rectangle
+ -> eviter SinusVaration (?)

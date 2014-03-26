@@ -7,6 +7,7 @@ import isma.games.NumberHelper;
 import isma.games.PerformanceStats;
 import isma.games.pacman.core.actors.ActorConstants;
 import isma.games.pacman.core.actors.AliveActor;
+import isma.games.pacman.core.actors.Ghost;
 import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.tiled.Maze;
 import isma.games.pacman.core.tiled.MazeMoveHelper;
@@ -36,10 +37,10 @@ public class MoveManager {
                     stringify(actor),
                     TiledMapHelper.getGridPosition(maze, actor),
                     actor.getCurrentDirection(), moveHandler.getDirection());*/
-            long startTime = System.currentTimeMillis();
+            long startTime = System.nanoTime();
             moveActor(delta, maze, actor, moveHandler);
-            if (actor.getId().equals(ActorConstants.BLINKY.id)){
-                long endTime = System.currentTimeMillis();
+            if (actor instanceof Ghost){
+                long endTime = System.nanoTime();
                 fpsStats.addIACost(endTime - startTime);
             }
             /*info("after (%s): actor=%s, tile=%s, directions{CURR=%s, INPUT=%s}",
@@ -88,7 +89,7 @@ public class MoveManager {
     }
 
     private void moveActor(float delta, Maze maze, AliveActor actor, MoveHandler moveHandler) {
-        start(Log.LOG_DEBUG);
+//        start(Log.LOG_DEBUG);
         float remainingLen = actor.getSpeed() * getFps() * (delta > 1f / getFps() ? delta : 1f / getFps());
 //        float remainingLen = 1.0f;
 //        debug(" - remaining distance : " + remainingLen);

@@ -40,6 +40,7 @@ public class Assets {
     //    public static Texture backgroundTexture;
     public static Skin skin;
 
+    public static Texture TEXTURE_MAZE;
     public static Texture TEXTURE_MENU_BACKGROUND;
 
     public static Texture TEXTURE_DOT;
@@ -125,6 +126,7 @@ public class Assets {
         configuration = new PacmanGameConfiguration();
         configuration.load();
 
+        TEXTURE_MAZE = buildTexture("tiledmap/pacman_level_background.png");
         TEXTURE_MENU_BACKGROUND = buildTexture("background_arcade.png");
         TEXTURE_DOT = buildTexture(SPRITES_DIR + "dot.png");
         TEXTURE_FRUITS = buildTexture(SPRITES_DIR + "fruits.png");

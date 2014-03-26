@@ -29,7 +29,8 @@ public class GameScreen implements Screen {
 
         zoom = Assets.configuration.getScaleRatio();
         camera = buildCamera();
-        maze = MazeFactory.buildMaze();
+        maze = MazeFactory.buildMaze(camera);
+        //TODO
         stage = new PacmanStage(game, maze, gameType);
         stage.setCamera(camera);
     }
@@ -72,6 +73,8 @@ public class GameScreen implements Screen {
     public void resize(int width, int height) {
         camera.position.set(Maze.WIDTH * zoom / 2, Maze.HEIGHT * zoom / 2, 0);
         camera.update();
+        //OrthogonalTiledMapRenderer is too slow at this time : reactivate it if a boosted version come...
+        //maze.getRenderer().setView(camera);
     }
 
     @Override

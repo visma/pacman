@@ -7,7 +7,7 @@ import com.badlogic.gdx.utils.TimeUtils;
 public class PerformanceStats {
     private long startTime;
     private Array<Integer> fpsArray = new Array<Integer>();
-    private long iaCostMillisTime = 0;
+    private long iaCostNanoTime = 0;
 
     public PerformanceStats() {
         startTime = TimeUtils.nanoTime();
@@ -34,11 +34,11 @@ public class PerformanceStats {
         fpsArray.clear();
     }
 
-    public int getIACost() {
-        return (int) (iaCostMillisTime);
+    public int getIACostInMillis() {
+        return (int) (iaCostNanoTime / (1000 * 1000));
     }
 
-    public void addIACost(long millis) {
-        iaCostMillisTime += millis;
+    public void addIACost(long nano) {
+        iaCostNanoTime += nano;
     }
 }

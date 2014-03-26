@@ -45,7 +45,7 @@ public abstract class AIMoveHandler extends DefaultMoveHandler {
 
     @Override
     public void initDirection(float remainingLen) {
-        start(Log.LOG_DEBUG);
+//        start(Log.LOG_DEBUG);
 //        ActorLog.logIfPinky(aiActor, "pinky direction = " + aiActor.getCurrentDirection());
         if (nextMoveChangeTurnTile(remainingLen)) {
             //System.out.println("calcul AI at " + aiActor.getX() + " - " + aiActor.getY());

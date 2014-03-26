@@ -39,7 +39,7 @@ public class GameBoard extends Actor {
                     88 * Assets.configuration.getScaleRatio(),
                     128 * Assets.configuration.getScaleRatio());
         }
-        font.draw(batch, "ia cost " + performanceStats.getIACost() + "ms",
+        font.draw(batch, "ia cost " + performanceStats.getIACostInMillis() + "ms",
                 100 * Assets.configuration.getScaleRatio(),
                 275 * Assets.configuration.getScaleRatio());
         font.draw(batch, "score : " + score,

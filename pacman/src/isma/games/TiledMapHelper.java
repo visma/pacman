@@ -7,38 +7,35 @@ import com.badlogic.gdx.math.Vector2;
 import java.util.HashSet;
 import java.util.Set;
 
-import static isma.games.Log.trace;
-
 public class TiledMapHelper {
     private TiledMapHelper() {
     }
 
-    public static Set<TiledMapTileLayer.Cell> getTilesAt(int layerIndex,
-                                                         TiledMapWrapper map,
-                                                         Rectangle rect,
-                                                         Direction direction) {
-        float x1 = rect.getX();
-        float y1 = rect.getY();
-        float x2 = x1 + rect.getWidth() - 1;
-        float y2 = y1 + rect.getHeight() - 1;
+    public static Set<Point> getTilesPointAt(TiledMapWrapper map,
+                                             Rectangle rect,
+                                             Direction direction) {
+        float x1 = rect.x;
+        float y1 = rect.y;
+        float x2 = x1 + rect.width - 1;
+        float y2 = y1 + rect.height - 1;
 
-        Set<TiledMapTileLayer.Cell> cells = new HashSet<TiledMapTileLayer.Cell>();
+        Set<Point> cells = new HashSet<Point>();
         switch (direction) {
             case SOUTH:
-                cells.add(getCellAt(layerIndex, map, new Vector2(x1, y1)));
-                cells.add(getCellAt(layerIndex, map, new Vector2(x2, y1)));
+                cells.add(getPointAt(map, x1, y1));
+                cells.add(getPointAt(map, x2, y1));
                 break;
             case WEST:
-                cells.add(getCellAt(layerIndex, map, new Vector2(x1, y1)));
-                cells.add(getCellAt(layerIndex, map, new Vector2(x1, y2)));
+                cells.add(getPointAt(map, x1, y1));
+                cells.add(getPointAt(map, x1, y2));
                 break;
             case NORTH:
-                cells.add(getCellAt(layerIndex, map, new Vector2(x1, y2)));
-                cells.add(getCellAt(layerIndex, map, new Vector2(x2, y2)));
+                cells.add(getPointAt(map, x1, y2));
+                cells.add(getPointAt(map, x2, y2));
                 break;
             case EAST:
-                cells.add(getCellAt(layerIndex, map, new Vector2(x2, y1)));
-                cells.add(getCellAt(layerIndex, map, new Vector2(x2, y2)));
+                cells.add(getPointAt(map, x2, y1));
+                cells.add(getPointAt(map, x2, y2));
                 break;
         }
         if (cells.isEmpty()) {
@@ -47,19 +44,32 @@ public class TiledMapHelper {
         return cells;
     }
 
+
+
     public static TiledMapTileLayer.Cell getCellAt(int layerIndex, TiledMapWrapper map, Vector2 vector2) {
         Point gridPosition = getGridPosition(map, vector2);
         gridPosition = TiledMapHelper.handleOutOfBounds(map, gridPosition);
         return map.getCell(layerIndex, gridPosition);
     }
 
+    public static Point getPointAt(TiledMapWrapper map, float x, float y) {
+        Point gridPosition = getGridPosition(map, x, y);
+        gridPosition = TiledMapHelper.handleOutOfBounds(map, gridPosition);
+        return gridPosition;
+    }
+
+
     public static Point getGridPosition(TiledMapWrapper map, Vector2 position) {
-        int gridX = (int) (position.x / map.getTileWidth());
-        int gridY = (int) ((position.y) / map.getTileHeight());
-        if (position.x < 0) {
+        return getGridPosition(map, position.x, position.y);
+    }
+
+    public static Point getGridPosition(TiledMapWrapper map, float absoluteX, float absoluteY) {
+        int gridX = (int) (absoluteX / map.getTileWidth());
+        int gridY = (int) ((absoluteY) / map.getTileHeight());
+        if (absoluteX < 0) {
             gridX -= 1;
         }
-        if (position.y < 0) {
+        if (absoluteY < 0) {
             gridY -= 1;
         }
         return PointCache.get(gridX, gridY);
