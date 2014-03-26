@@ -10,24 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/TODO.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/AIMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/AIMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/DefaultMoveHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/GameBoard.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/actors/GameBoard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/screens/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/Log.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/Log.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/Maze.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/Maze.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeFactory.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeMoveHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeProperties.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/tiled/MazeProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/manager/MoveManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/conf/PacmanGameConfiguration.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/pacman/core/conf/PacmanGameConfiguration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/PerformanceStats.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/PerformanceStats.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/TileMapProperties.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/TileMapProperties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/TiledMapHelper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/TiledMapHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/TiledMapWrapper.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/TiledMapWrapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pacman/src/isma/games/TiledPropertiesCache.java" afterPath="$PROJECT_DIR$/pacman/src/isma/games/TiledPropertiesCache.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pacman.iws" />
@@ -693,7 +675,11 @@
       <created>1395785800829</created>
       <updated>1395785800829</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="increase performance (notable on android target)&#10;disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;&#10;">
+      <created>1395832028657</created>
+      <updated>1395832028657</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -820,7 +806,8 @@
     <MESSAGE value="minors changes&#10;" />
     <MESSAGE value="rescale sprite sheets x2" />
     <MESSAGE value="rescale sprite sheets x2&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="rescale sprite sheets x2&#10;" />
+    <MESSAGE value="increase performance (notable on android target)&#10;disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="increase performance (notable on android target)&#10;disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
