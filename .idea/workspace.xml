@@ -8,8 +8,16 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_LOG_LEVEL" value="INFO" />
   </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="pacman-desktop:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="">
+    <list default="true" id="debb70b9-2307-4459-8e9c-3abad3561f07" name="Default" comment="disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-android/assets/tiledmap/pacman_level_background.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pacman-desktop/src/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/pacman_desktop_jar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pacman.iws" />
@@ -120,7 +128,22 @@
     <favorites_list name="pacman" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="blinky.png" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pacman-android/assets/sprites_x2/blinky.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pacman_level_background.png" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pacman-android/assets/tiledmap/pacman_level_background.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -218,20 +241,62 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pacman-android" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tiledmap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/toolkit/libs/imgscalr-lib-4.2.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pacman-android/assets" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="DEBUGGABLE_DEVICE" value="emulator-5554 (test2)" />
     <property name="DEBUGGABLE_PROCESS" value="isma.games" />
@@ -679,7 +744,11 @@
       <created>1395832028657</created>
       <updated>1395832028657</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;">
+      <created>1395832102770</created>
+      <updated>1395832102770</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -807,7 +876,8 @@
     <MESSAGE value="rescale sprite sheets x2" />
     <MESSAGE value="rescale sprite sheets x2&#10;" />
     <MESSAGE value="increase performance (notable on android target)&#10;disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="increase performance (notable on android target)&#10;disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;&#10;" />
+    <MESSAGE value="disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="disable TileMapRenderer because of poor performance (use a simple texture instead)&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -821,13 +891,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="28" selection-start="3275" selection-end="3280" vertical-scroll-proportion="0.0" vertical-offset="1581" max-vertical-offset="2295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/ai/AIMoveHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="10" selection-start="1531" selection-end="1531" vertical-scroll-proportion="0.0" vertical-offset="291" max-vertical-offset="1700">
@@ -945,11 +1008,6 @@
         <state line="177" column="28" selection-start="6009" selection-end="6009" vertical-scroll-proportion="0.0" vertical-offset="2171" max-vertical-offset="3026">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman-android/assets/tiledmap/pacman_level_background.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pacman/src/isma/games/pacman/core/assets/Assets.java">
@@ -1199,16 +1257,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/sprites_x2/blinky.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman-android/assets/tiledmap/pacman_level_background.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>pacman-desktop:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1251,7 +1321,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>pacman-android</last-edited>
+          <last-edited>pacman-desktop</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

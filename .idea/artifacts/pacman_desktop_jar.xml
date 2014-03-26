@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pacman-desktop:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pacman_desktop_jar</output-path>
+    <root id="archive" name="pacman-desktop.jar">
+      <element id="module-output" name="pacman-desktop" />
+      <element id="module-output" name="pacman" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/pacman-desktop/libs/gdx-backend-lwjgl-natives.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/pacman-desktop/libs/gdx-backend-lwjgl-sources.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/pacman-desktop/libs/gdx-natives.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/pacman-desktop/libs/gdx-backend-lwjgl.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/pacman/libs/gdx.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/pacman/libs/gdx-sources.jar" path-in-jar="/" />
+      <element id="dir-copy" path="$PROJECT_DIR$/pacman-android/assets" />
+    </root>
+  </artifact>
+</component>
