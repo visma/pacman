@@ -21,16 +21,6 @@ import static isma.games.pacman.core.manager.MoveHandlerHelper.nextCenterPositio
 
 
 public class PathFinding {
-    public static void main(String[] args) {
-        Array a = new Array();
-        a.add(0);
-        a.add(1);
-        a.add(2);
-        a.add(3);
-
-        Array b = new Array();
-        b.addAll();
-    }
 
     //TODO code moche pas stable : a tester à donf
     public static Direction nextDirection(Array<Vertex<Point>> path,

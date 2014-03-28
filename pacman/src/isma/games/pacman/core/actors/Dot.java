@@ -3,6 +3,7 @@ package isma.games.pacman.core.actors;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
+
 import isma.games.pacman.core.assets.Assets;
 import isma.games.pacman.core.assets.TextureFactory;
 
@@ -13,12 +14,16 @@ public class Dot extends Food {
     private final Animation animation;
     private boolean energizer;
     private int frame;
+    private final Rectangle center;
 
-    public Dot(boolean isEnergizer) {
-        energizer = isEnergizer;
+    public Dot(boolean energizer, float x, float y) {
+        this.energizer = energizer;
         alive = true;
         frame = 0;
-        animation = new TextureFactory().buildDotAnimation(isEnergizer);
+        animation = new TextureFactory().buildDotAnimation(energizer);
+        setX(x);
+        setY(y);
+        center = new Rectangle(getX(), getY(), DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
     @Override
@@ -31,12 +36,34 @@ public class Dot extends Food {
     }
 
     public Rectangle getCenter() {
-        return new Rectangle(getX(), getY(), DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        return center;
     }
 
 
     public boolean isEnergizer() {
         return energizer;
+    }
+
+    @Override
+    public void setX(float x) {
+        if (getX() != 0) {
+            throw new RuntimeException("dot position is immutable");
+        }
+        super.setX(x);
+
+    }
+
+    @Override
+    public void setY(float y) {
+        if (getY() != 0) {
+            throw new RuntimeException("dot position is immutable");
+        }
+        super.setY(y);
+    }
+
+    @Override
+    public void setPosition(float x, float y) {
+        throw new RuntimeException("dot position is immutable");
     }
 
     @Override

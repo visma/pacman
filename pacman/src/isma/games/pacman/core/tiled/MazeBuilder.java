@@ -35,9 +35,8 @@ public class MazeBuilder {
     }
 
     private static void putDot(ArrayMap<Point, Dot> foodMap, Maze maze, Point foodPosition, boolean energizer) {
-        Dot food = new Dot(energizer);
         Vector2 position = TiledMapHelper.getPosition(maze, foodPosition);
-        food.setPosition(position.x, position.y);
+        Dot food = new Dot(energizer, position.x, position.y);
         //trace("create food [%s ]at tile{%s}, position{x=%s, y=%s}", food, food.getClass(), food, food.getX(), food.getY());
         foodMap.put(foodPosition, food);
     }

@@ -15,22 +15,22 @@ public class MoveHandlerHelper {
         SimpleTarget nextCenterPosition = new SimpleTarget(actor.getCenter());
         switch (actor.getCurrentDirection()) {
             case EAST:
-                nextCenterPosition.x += remainingLen;
+                nextCenterPosition.setX(nextCenterPosition.getX() + remainingLen);
                 break;
             case SOUTH:
-                nextCenterPosition.y -= remainingLen;
+                nextCenterPosition.setY(nextCenterPosition.getY() - remainingLen);
                 break;
             case WEST:
-                nextCenterPosition.x -= remainingLen;
+                nextCenterPosition.setX(nextCenterPosition.getX() - remainingLen);
                 break;
             case NORTH:
-                nextCenterPosition.y += remainingLen;
+                nextCenterPosition.setY(nextCenterPosition.getY() + remainingLen);
                 break;
         }
         Rectangle beforeBoundsCorrection = nextCenterPosition.getCenter();
         TiledMapHelper.handleOutOfBounds(map, beforeBoundsCorrection);
-        nextCenterPosition.x = beforeBoundsCorrection.x;
-        nextCenterPosition.y = beforeBoundsCorrection.y;
+        nextCenterPosition.setX(beforeBoundsCorrection.x);
+        nextCenterPosition.setY(beforeBoundsCorrection.y);
         return nextCenterPosition;
     }
 

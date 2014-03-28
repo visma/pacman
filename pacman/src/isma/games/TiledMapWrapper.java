@@ -21,6 +21,7 @@ public abstract class TiledMapWrapper {
     private final int tileWidth;
     private final int tileHeight;
     private SpriteBatch spriteBatch;
+    private final Rectangle bounds;
 
 
     protected TiledMapWrapper(TiledMap map, int visibleLayer, OrthographicCamera camera) {
@@ -38,6 +39,7 @@ public abstract class TiledMapWrapper {
         tileWidth = prop.get("tilewidth", Integer.class);
         tileHeight = prop.get("tileheight", Integer.class);
         PointCache.init(width, height);
+        bounds = new Rectangle(0, 0, getWidth(), getHeight());
     }
 
     //OK
@@ -88,7 +90,7 @@ public abstract class TiledMapWrapper {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(0, 0, getWidth(), getHeight());
+        return bounds;
     }
 
 

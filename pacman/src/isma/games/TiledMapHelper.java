@@ -45,14 +45,7 @@ public class TiledMapHelper {
     }
 
 
-
-    public static TiledMapTileLayer.Cell getCellAt(int layerIndex, TiledMapWrapper map, Vector2 vector2) {
-        Point gridPosition = getGridPosition(map, vector2);
-        gridPosition = TiledMapHelper.handleOutOfBounds(map, gridPosition);
-        return map.getCell(layerIndex, gridPosition);
-    }
-
-    public static Point getPointAt(TiledMapWrapper map, float x, float y) {
+       public static Point getPointAt(TiledMapWrapper map, float x, float y) {
         Point gridPosition = getGridPosition(map, x, y);
         gridPosition = TiledMapHelper.handleOutOfBounds(map, gridPosition);
         return gridPosition;
@@ -78,10 +71,10 @@ public class TiledMapHelper {
     public static Point getGridPosition(TiledMapWrapper mapWrapper, Target target) {
         int gridX = (int) (target.getCenter().getX() / mapWrapper.getTileWidth());
         int gridY = (int) ((target.getCenter().getY()) / mapWrapper.getTileHeight());
-        if (target.getCenter().x < 0) {
+        if (target.getCenter().getX() < 0) {
             gridX -= 1;
         }
-        if (target.getCenter().y < 0) {
+        if (target.getCenter().getY() < 0) {
             gridY -= 1;
         }
         return PointCache.get(gridX, gridY);
@@ -177,7 +170,6 @@ public class TiledMapHelper {
     }
 
     public static Target getTarget(TiledMapWrapper map, Point point) {
-        Vector2 position = getPosition(map, point);
-        return new SimpleTarget(position.x, position.y, map.getTileWidth(), map.getTileHeight());
+        return new SimpleTarget(point.x * map.getTileWidth(), point.y * map.getTileHeight(), map.getTileWidth(), map.getTileHeight());
     }
 }

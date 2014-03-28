@@ -18,9 +18,12 @@ public class Point {
     }
 
 
-
+    //TODO TU
     public float dst(Point other) {
-        return new Vector2(this.x, this.y).dst(new Vector2(other.x, other.y));
+        final float x_d = other.x - x;
+        final float y_d = other.y - y;
+        return (float) Math.sqrt(x_d * x_d + y_d * y_d);
+//        return new Vector2(this.x, this.y).dst(new Vector2(other.x, other.y));
     }
 
     public Point getVector(Point other) {

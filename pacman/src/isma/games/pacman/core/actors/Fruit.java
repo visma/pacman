@@ -54,7 +54,6 @@ public class Fruit extends Food {
                     getY() * Assets.configuration.getScaleRatio());
         }
     }
-
     public Rectangle getCenter() {
         return new Rectangle(
                 getX() + DEFAULT_WIDTH / 4,
